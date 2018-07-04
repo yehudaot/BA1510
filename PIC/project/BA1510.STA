@@ -1,6 +1,6 @@
 
-ROM used: 13670 (42%)
-          13808 (42%) including unused fragments
+ROM used: 13708 (42%)
+          13846 (42%) including unused fragments
 
           4 Average locations per line
           27 Average locations per statement
@@ -35,7 +35,7 @@ Lines Stmts  %   Files
    50     4   1  ..\src\crc8.c
     9     0   0  ..\include\crc8.h
    95    27   5  ..\src\gpio.c
-   75    25   5  ..\src\comm.c
+   75    28   6  ..\src\comm.c
    20     0   0  ..\include\rfc1662.h
   351   150  30  ..\src\message_handlers.c
    11     0   0  ..\include\version.h
@@ -46,7 +46,7 @@ Lines Stmts  %   Files
    65    14   3  ..\src\ad5312.c
    40    17   3  ..\src\calibration.c
 ----- -----
- 3638   504 Total
+ 3638   507 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -69,8 +69,8 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline        2    82  3.0  gpio_set_value
  Inline        7   176  4.0  gpio_get_analog
 0      6   0   0    13  0.5  comm_init
-0    170   1   8   695  9.3  comm_receive_message
-0     48   0   6   108  2.8  comm_send_message
+0    170   1   8   760 10.3  comm_receive_message
+0     50   0   6   108  2.8  comm_send_message
 0     28   0   1   102  3.3  send_ack
 0    350   1   2    94  2.3  set_tx_state
 0    516   2   6   410  5.7  set_pa_gain
@@ -88,7 +88,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     68   0   4   262  5.4  handle_change_mode_message
 0     94   0   7   209  5.2  handle_set_calibration_table_message
 0    234   1   5   338  6.3  handle_get_calibration_table_message
-0      6   0   2    24  1.5  h_test_set_data
+0      4   0   2    24  1.5  h_test_set_data
 0    210   1  71   185  4.7  h_test_get_data
 0    148   1  10   370  7.9  process_message
 0     14   0   0             @GOTOPTR
@@ -96,14 +96,14 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     26   0   0             @MEMSET
 0   1410   5   0    27  1.5  ext_isr
 0    198   1  10   552  7.3  replaceFlagAndEscape
-0    180   1  10   542  7.4  restoreFlagAndEscape
+0    182   1  10   542  7.4  restoreFlagAndEscape
 0    176   1  10   496  5.8  rfc1662_pack
 0    120   0   7   403  6.2  rfc1662_unpack
 0     18   0   0    88  1.7  uart_init
 0     40   0   2    99  3.7  get_next_byte
 0    232   1   7   428  6.4  push_bytes
-0     22   0   0    65  1.9  uart_get_byte_blocking
-0     26   0   3    72  2.0  uart_send
+0     56   0   4    96  3.2  uart_get_byte_nonblocking
+0     28   0   3    72  2.0  uart_send
 0     48   0   2   156  4.3  RDA_isr
 0     48   0   1   147  4.3  TBE_isr
 0     12   0   0    50  1.8  uart_clear_errors
@@ -121,14 +121,14 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               53
-    Statements              504
+    Statements              507
     Comments                421
-    Volume (V)              27175
-    Difficulty (D)          218.0
-    Effort to implement (E) 5925318
-    Time to implement (T)   91 hours, 26 minutes
+    Volume (V)              27353
+    Difficulty (D)          220.2
+    Effort to implement (E) 6021913
+    Time to implement (T)   92 hours, 56 minutes
     Est Delivered Bugs (B)  11
-    Cyclomatic Complexity   59
+    Cyclomatic Complexity   61
     Maintainability (MI)    55
 
  Segment     Used  Free
@@ -141,7 +141,7 @@ Program metrics:
 02700-02F00  1922  128  
 02F02-03FFE  4348  2  
 04000-04FFE     0  4096  
-05000-07F3E  5616  6480  
+05000-07F3E  5654  6442  
 07F40-07FFE     0  192  
 
 

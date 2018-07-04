@@ -1,10 +1,10 @@
 #ifndef BOOT_VERSION_H_
 #define BOOT_VERSION_H_
 
-#define VERSION_DAY 22
-#define VERSION_MONTH 12
-#define VERSION_YEAR 2017
+#define VERSION_DAY 18
+#define VERSION_MONTH 6
+#define VERSION_YEAR 2018
 #define VERSION_MAJOR 0xB
-#define VERSION_MINOR 4
+#define VERSION_MINOR 5
 
 #endif /* BOOT_VERSION_H_ */

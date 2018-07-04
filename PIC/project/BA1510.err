@@ -1,0 +1,4 @@
+>>> Warning 216 "BA1510.c" Line 1(0,1): Interrupts disabled during call to prevent re-entrancy:  (@READ_PROGRAM_MEMORY)
+      Memory usage:   ROM=42%      RAM=66% - 74%
+      0 Errors,  1 Warnings.
+Build Successful.

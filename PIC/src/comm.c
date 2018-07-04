@@ -33,12 +33,12 @@ bool comm_receive_message(void* buffer, uint16_t* size) {
 
   do {
     uint8_t c;
-//    if(!uart_get_byte_nonblocking(&c)) {
+    if(!uart_get_byte_nonblocking(&c)) {
 //      samp_if_needed();
-//      continue;
-//    }
-//    rfcBuff[buffIdx] = c;
-    rfcBuff[buffIdx] = uart_get_byte_blocking();
+      continue;
+    }
+    rfcBuff[buffIdx] = c;
+//    rfcBuff[buffIdx] = uart_get_byte_blocking();
     if(rfcBuff[buffIdx] != CHAR_FLAG) {
     	buffIdx++;
       if(buffIdx == MSG_MAX_MESSAGE_LEN * 2 + 2) {

@@ -62,7 +62,7 @@ static void set_first_page_dirty() {
 
 //the main program overwrites the interrupt handler in the first page, so we need to save/restore it.
 static void fix_first_page() {
-  uint8_t reset_vector[] = { 0xA1, 0xEF, 0x08, 0xF0 };
+  uint8_t reset_vector[] = { 0x80, 0xEF, 0x00, 0xF0 };
   uint8_t interrupt_vector[] = { 0x04, 0x6E, 0xD8, 0xCf };
   uint8_t start_bytes[getenv("FLASH_ERASE_SIZE")];
   bool should_write = false;
@@ -190,7 +190,7 @@ static void init_io_ports() {
 static void dummy_function() {
 }
 
-
+#org 0x100, 0x800
 int main() {
   disable_interrupts(GLOBAL);//probably unnecessary but just to be safe...
   init_io_ports();

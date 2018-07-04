@@ -69,32 +69,35 @@
 3FA     comm_receive_message.len
 3FA     process_message.@SCRATCH1
 3FB-3FC rfc1662_unpack.data
+3FB-3FC uart_get_byte_nonblocking.dst
 3FB     comm_receive_message.@SCRATCH1
 3FB     process_message.@SCRATCH2
 3FC     comm_receive_message.@SCRATCH2
 3FC     process_message.@SCRATCH3
-3FD-3FE handle_change_mode_message.payload_buffer
 3FD-3FE handle_control_message.payload_buffer
-3FD-3FE handle_get_calibration_table_message.payload_buffer
+3FD-3FE handle_change_mode_message.payload_buffer
 3FD-3FE h_test_get_data.payload_buffer
-3FD-3FE handle_bit_status_request_message.payload_buffer
+3FD-3FE handle_get_calibration_table_message.payload_buffer
 3FD-3FE h_test_set_data.payload_buffer
 3FD     rfc1662_unpack.len
+3FD-3FE handle_bit_status_request_message.payload_buffer
 3FD-3FE handle_set_calibration_table_message.payload_buffer
 3FD-3FE handle_version_request_message.payload_buffer
-3FD     get_next_byte.c
+3FD     uart_get_byte_nonblocking.@SCRATCH1
 3FE-3FF rfc1662_unpack.dest
-3FE     get_next_byte.@SCRATCH1
+3FE     uart_get_byte_nonblocking.@SCRATCH2
 3FF-443 h_test_get_data.response
 3FF-400 handle_change_mode_message.payload
 3FF-400 handle_get_calibration_table_message.payload
 3FF     handle_control_message.i
 3FF-403 handle_bit_status_request_message.response
+3FF     get_next_byte.c
 3FF-400 handle_set_calibration_table_message.payload
 3FF-407 handle_version_request_message.response
 400     rfc1662_unpack.restored_data_size
 400.0   handle_control_message.is_pa_gain_changed
 400.1   handle_control_message.is_pa_gain_changed_to_off
+400     get_next_byte.@SCRATCH1
 401-42A handle_control_message.response
 401-442 handle_get_calibration_table_message.response
 401     rfc1662_unpack.calculated_crc
@@ -1035,71 +1038,71 @@ ROM Allocation:
 002484  @READ_PROGRAM_MEMORY
 0026DC  @FLASHWR
 003612  @WRITE_PROGRAM_MEMORY
-00629A  @delay_ms1
+0062BC  @delay_ms1
 0024A2  @delay_us1
 003F12  @SPI_XFER_1
 00358E  memcmp
 003658  fix_boot
 002700  MAIN
 0020C6  crc8_table
-005286  crc8
+0052C0  crc8
 0021D6  gpios
 00376A  gpio_init
 002DEE  gpio_set
 002276  @WRITEBITA
 0022B8  gpio_clear
-005B94  gpio_set_value
-005FB2  gpio_get_analog
+005BB6  gpio_set_value
+005FD4  gpio_get_analog
 003764  comm_init
-00534E  comm_receive_message
-005670  comm_send_message
-00623A  send_ack
+005388  comm_receive_message
+005690  comm_send_message
+00625C  send_ack
 002308  set_tx_state
-0056A0  set_pa_gain
-005B0A  select_antenna
+0056C2  set_pa_gain
+005B2C  select_antenna
 0024C6  sample_fwd_power
 002574  sample_rev_power
 002622  sample_input_power
 002F02  sample_pre_amp_power
 002466  finalize_sf_status_request_response
-005CDE  sample_adc_inputs
-005AEE  perform_last_control_message
-0058A4  handle_control_message
-006154  handle_bit_status_request_message
-00618E  handle_version_request_message
-006256  handle_change_mode_message
-006308  handle_set_calibration_table_message
-0063A0  handle_get_calibration_table_message
-003FF8  h_test_set_data
-00648A  h_test_get_data
-00655C  process_message
+005D00  sample_adc_inputs
+005B10  perform_last_control_message
+0058C6  handle_control_message
+006176  handle_bit_status_request_message
+0061B0  handle_version_request_message
+006278  handle_change_mode_message
+00632A  handle_set_calibration_table_message
+0063C2  handle_get_calibration_table_message
+0064AC  h_test_set_data
+0064B0  h_test_get_data
+006582  process_message
 002268  @GOTOPTR
 0037D2  init_message_handlers
 0037B8  @MEMSET
 002FAC  ext_isr
-0053F8  replaceFlagAndEscape
-0051D2  restoreFlagAndEscape
-0054BE  rfc1662_pack
-0052D6  rfc1662_unpack
+005432  replaceFlagAndEscape
+00520A  restoreFlagAndEscape
+0054F8  rfc1662_pack
+005310  rfc1662_unpack
 002268  @GOTOPTR
 003752  uart_init
 003FBA  get_next_byte
-00556E  push_bytes
-003FE2  uart_get_byte_blocking
-005656  uart_send
+0055A8  push_bytes
+0051D2  uart_get_byte_nonblocking
+003FE2  uart_send
 00352E  RDA_isr
 00355E  TBE_isr
 0026D0  uart_clear_errors
 003F66  writeData
-0060D8  ad5312_latch
+0060FA  ad5312_latch
 003DAA  @ITOF
 003DE0  @MULFF
 003ED6  @SFTOI
-00582C  ad5312_setVout
+00584E  ad5312_setVout
 005000  ad5312_init
-006366  get_calibration_table_data
-0062C6  set_calibration_table_data
-0061CA  get_calibration_param
+006388  get_calibration_table_data
+0062E8  set_calibration_table_data
+0061EC  get_calibration_param
 002700  @cinit1
 0027A0  @cinit2
 
@@ -1111,40 +1114,40 @@ Project Directory:
 
 Project Files:
     BA1510.c                                                [30-Dec-99 00:00  CRC=00000000]
-    ..\src\main.c (link)                                    [09-Jan-18 11:57  CRC=1BD9EC18]
-    ..\include\BA1474.h (link)                              [09-Jan-18 11:57  CRC=ED047024]
-    C:\Program Files (x86)\PICC\devices\18F45K22.h (link)   [25-Sep-12 16:19  CRC=5E2E3928]
-    ..\include\boot.h (link)                                [19-Sep-17 11:26  CRC=7B836BDD]
-    C:\Program Files (x86)\PICC\drivers\stdio.h (link)      [31-Jul-07 13:24  CRC=4E4534F4]
-    C:\Program Files (x86)\PICC\drivers\string.h (link)     [14-Jul-11 10:13  CRC=23EDEC8F]
-    C:\Program Files (x86)\PICC\drivers\stddef.h (link)     [16-Jul-10 09:27  CRC=897CEC6C]
-    C:\Program Files (x86)\PICC\drivers\ctype.h (link)      [03-Jan-08 13:55  CRC=2D1F019F]
-    C:\Program Files (x86)\PICC\drivers\stdint.h (link)     [30-Dec-08 09:01  CRC=9F7F640F]
-    ..\include\comm.h (link)                                [03-Dec-17 13:32  CRC=6B96E59B]
-    C:\Program Files (x86)\PICC\drivers\stdbool.h (link)    [21-May-12 10:29  CRC=815AEDE8]
-    ..\include\gpio.h (link)                                [19-Dec-17 16:09  CRC=DD1AC1EE]
-    ..\include\main.h (link)                                [10-Jul-17 13:12  CRC=D8102B21]
-    ..\include\message.h (link)                             [11-Jan-18 10:53  CRC=B459CDA0]
-    ..\include\calibration.h (link)                         [03-Dec-17 13:32  CRC=94C1B055]
-    ..\include\message_handlers.h (link)                    [09-Jan-18 11:57  CRC=A80702C8]
-    ..\include\ad5312.h (link)                              [19-Dec-17 11:14  CRC=65DA5A02]
-    ..\include\timer.h (link)                               [09-Jan-18 11:57  CRC=B7BF2A98]
-    ..\include\uart.h (link)                                [10-Jul-17 09:24  CRC=A38663EC]
-    ..\src\crc8.c (link)                                    [27-May-17 22:12  CRC=2492ABFD]
-    ..\include\crc8.h (link)                                [24-Apr-17 10:57  CRC=00000000]
-    ..\src\gpio.c (link)                                    [09-Jan-18 11:57  CRC=0BA81A2E]
-    ..\src\comm.c (link)                                    [09-Jan-18 11:57  CRC=E4944AA1]
-    ..\include\rfc1662.h (link)                             [20-Apr-17 14:26  CRC=73FAC330]
-    ..\src\message_handlers.c (link)                        [12-Jan-18 14:09  CRC=4E5B1E2B]
-    ..\include\version.h (link)                             [15-Jan-18 11:15  CRC=D872A938]
-    ..\src\rfc1662.c (link)                                 [24-Apr-17 10:57  CRC=2E2FD613]
-    ..\src\timer.c (link)                                   [09-Jan-18 11:57  CRC=B93246D7]
-    ..\src\uart.c (link)                                    [09-Jan-18 11:57  CRC=4FEAEC13]
-    ..\include\PIC18F45K22_registers.h (link)               [20-Apr-17 14:26  CRC=924A5FB1]
-    ..\src\ad5312.c (link)                                  [09-Jan-18 11:57  CRC=4B52CC4D]
-    ..\src\calibration.c (link)                             [19-Dec-17 11:14  CRC=916FF8F9]
+    ..\src\main.c (link)                                    [18-Jun-18 17:58  CRC=1BD9EC18]
+    ..\include\BA1474.h (link)                              [18-Jun-18 17:58  CRC=ED047024]
+    C:\Program Files (x86)\PICC\devices\18F45K22.h (link)   [25-Sep-12 17:19  CRC=5E2E3928]
+    ..\include\boot.h (link)                                [19-Sep-17 12:26  CRC=7B836BDD]
+    C:\Program Files (x86)\PICC\drivers\stdio.h (link)      [31-Jul-07 14:24  CRC=4E4534F4]
+    C:\Program Files (x86)\PICC\drivers\string.h (link)     [14-Jul-11 11:13  CRC=23EDEC8F]
+    C:\Program Files (x86)\PICC\drivers\stddef.h (link)     [16-Jul-10 10:27  CRC=897CEC6C]
+    C:\Program Files (x86)\PICC\drivers\ctype.h (link)      [03-Jan-08 14:55  CRC=2D1F019F]
+    C:\Program Files (x86)\PICC\drivers\stdint.h (link)     [30-Dec-08 10:01  CRC=9F7F640F]
+    ..\include\comm.h (link)                                [18-Jun-18 17:58  CRC=6B96E59B]
+    C:\Program Files (x86)\PICC\drivers\stdbool.h (link)    [21-May-12 11:29  CRC=815AEDE8]
+    ..\include\gpio.h (link)                                [18-Jun-18 17:58  CRC=DD1AC1EE]
+    ..\include\main.h (link)                                [10-Jul-17 14:12  CRC=D8102B21]
+    ..\include\message.h (link)                             [18-Jun-18 17:58  CRC=B459CDA0]
+    ..\include\calibration.h (link)                         [18-Jun-18 17:58  CRC=94C1B055]
+    ..\include\message_handlers.h (link)                    [18-Jun-18 17:58  CRC=A80702C8]
+    ..\include\ad5312.h (link)                              [18-Jun-18 17:58  CRC=65DA5A02]
+    ..\include\timer.h (link)                               [18-Jun-18 17:58  CRC=B7BF2A98]
+    ..\include\uart.h (link)                                [10-Jul-17 10:24  CRC=A38663EC]
+    ..\src\crc8.c (link)                                    [27-May-17 23:12  CRC=2492ABFD]
+    ..\include\crc8.h (link)                                [24-Apr-17 11:57  CRC=00000000]
+    ..\src\gpio.c (link)                                    [18-Jun-18 17:58  CRC=0BA81A2E]
+    ..\src\comm.c (link)                                    [18-Jun-18 18:08  CRC=9E0C0A76]
+    ..\include\rfc1662.h (link)                             [20-Apr-17 15:26  CRC=73FAC330]
+    ..\src\message_handlers.c (link)                        [18-Jun-18 17:58  CRC=4E5B1E2B]
+    ..\include\version.h (link)                             [18-Jun-18 18:20  CRC=D872A938]
+    ..\src\rfc1662.c (link)                                 [24-Apr-17 11:57  CRC=2E2FD613]
+    ..\src\timer.c (link)                                   [18-Jun-18 17:58  CRC=B93246D7]
+    ..\src\uart.c (link)                                    [18-Jun-18 17:58  CRC=4FEAEC13]
+    ..\include\PIC18F45K22_registers.h (link)               [20-Apr-17 15:26  CRC=924A5FB1]
+    ..\src\ad5312.c (link)                                  [18-Jun-18 17:58  CRC=4B52CC4D]
+    ..\src\calibration.c (link)                             [18-Jun-18 17:58  CRC=916FF8F9]
 
-Source signature=E69F60FF
+Source signature=A01720D4
 
 Units:
     D:\Projects\BA\BA1510\embedded\project\obj\main.o

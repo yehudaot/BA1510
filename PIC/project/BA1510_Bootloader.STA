@@ -1,12 +1,12 @@
 
-ROM used: 5526 (17%)
-          5702 (17%) including unused fragments
+ROM used: 5430 (17%)
+          5676 (17%) including unused fragments
 
           2 Average locations per line
           22 Average locations per statement
 
-RAM used: 899 (58%) at main() level
-          1018 (66%) worst case
+RAM used: 898 (58%) at main() level
+          1017 (66%) worst case
 
 Stack used: 9 worst case (out of 30 total available)
 
@@ -19,7 +19,7 @@ Lines Stmts  %   Files
    19     0   0  ..\include\boot.h
   163     0   0  C:\Program Files (x86)\PICC\drivers\stdint.h
     9     0   0  ..\include\crc8.h
-   79    32  13  ..\src\comm.c
+   75    28  11  ..\src\comm.c
   423     0   0  C:\Program Files (x86)\PICC\drivers\string.h
    32     0   0  C:\Program Files (x86)\PICC\drivers\stddef.h
    28     0   0  C:\Program Files (x86)\PICC\drivers\ctype.h
@@ -27,20 +27,20 @@ Lines Stmts  %   Files
    34     0   0  C:\Program Files (x86)\PICC\drivers\stdbool.h
    33     0   0  ..\include\comm.h
    22     0   0  ..\include\uart.h
-  164     0   0  ..\include\message.h
+  165     0   0  ..\include\message.h
    48     0   0  ..\include\calibration.h
    20     0   0  ..\include\rfc1662.h
    22     0   0  ..\include\timer.h
+   19     0   0  ..\include\message_handlers.h
   108    41  16  ..\src\rfc1662.c
-  121    54  21  ..\src\uart.c
+  123    55  22  ..\src\uart.c
   750     0   0  ..\include\PIC18F45K22_registers.h
   229   104  41  ..\src\loader.c
    11     0   0  ..\include\boot_version.h
    13     0   0  ..\include\main.h
-   53    19   7  ..\src\timer.c
-   18     0   0  ..\include\message_handlers.h
+   51    19   8  ..\src\timer.c
 ----- -----
- 3123   254 Total
+ 3121   251 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -49,15 +49,14 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     66   1   7             @WRITE_PROGRAM_MEMORY
 0     42   0   1             @delay_ms1
 0     38   0   1             @delay_us1
-0    272   2   0             @const108
+0    272   3   0             @const108
 0     78   1   7   195  5.8  crc8
 0      6   0   0    13  0.5  comm_init
-0    200   2   8   914 10.3  comm_receive_message
-0     28   0   0             @MEMSET
+0    170   2   8   760 10.3  comm_receive_message
 0     48   0   6   108  2.8  comm_send_message
-0    198   2  10   552  7.3  replaceFlagAndEscape
+0    196   2  10   552  7.3  replaceFlagAndEscape
 0    182   2  10   542  7.4  restoreFlagAndEscape
-0    176   2  10   496  5.8  rfc1662_pack
+0    166   2  10   496  5.8  rfc1662_pack
 0    116   1   7   403  6.2  rfc1662_unpack
 0     20   0   0    88  1.7  uart_init
 0     46   0   2    99  3.7  get_next_byte
@@ -66,48 +65,49 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     26   0   3    72  2.0  uart_send
 0     46   0   2   156  4.3  RDA_isr
 0     48   0   1   147  4.3  TBE_isr
-0     10   0   0    50  1.8  uart_clear_errors
+0     12   0   0    50  1.8  uart_clear_errors
 0    132   1  11   371  8.2  memcmp
 0     70   1  66   325  4.9  set_metadata
 0     38   0   0    86  2.8  get_metadata
 0     70   1   5    92  3.2  set_software_ready
-0     40   0   4    78  2.2  set_first_page_dirty
-0    246   2  74   864  5.8  fix_first_page
-0    408   4  16   804  9.2  handle_set_data_line_message
+0     38   0   4    78  2.2  set_first_page_dirty
+0    244   2  74   864  5.8  fix_first_page
+0    400   4  16   804  9.2  handle_set_data_line_message
 0    244   2  73   313  4.8  handle_get_data_line_message
 0     72   1  11   335  4.2  handle_version_request_message
 0     40   0   3   158  3.9  handle_finish_update_process_message
 0    158   1   5   408  8.0  process_loader_message
 0     14   0   0             @GOTOPTR
-0     46   0   0   108  3.3  loader_main
+0     48   0   0   108  3.3  loader_main
 0     10   0   0    32  1.0  init_io_ports
 0      2   0   0     3  0.0  dummy_function
-0   1606  15   0    76  2.2  MAIN
+0   1592  15   0    76  2.2  MAIN
 0    150   1  13             @DIV3232
-0      4   0   0     3  0.0  timer_yield
  Inline        0             @cinit1
 
 Program metrics:
-    Functions               32
-    Statements              254
-    Comments                323
-    Volume (V)              15530
-    Difficulty (D)          140.0
-    Effort to implement (E) 2174380
-    Time to implement (T)   33 hours, 33 minutes
+    Functions               31
+    Statements              251
+    Comments                322
+    Volume (V)              15272
+    Difficulty (D)          139.3
+    Effort to implement (E) 2127938
+    Time to implement (T)   32 hours, 50 minutes
     Est Delivered Bugs (B)  6
     Cyclomatic Complexity   38
-    Maintainability (MI)    56
+    Maintainability (MI)    57
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00006     4  4  
 00008-000B8   178  0  
-000BA-00FFE  3738  172  
+000BA-000FE    70  0  
+00100-00800  1592  202  
+00802-00FFE  2030  16  
 01000-01040     0  66  
-01042-010FE     0  190  
+01042-010FE   166  24  
 01100-01140     0  66  
-01142-01FFE  1606  2168  
+01142-01FFE  1390  2384  
 02000-07FFE     0  24576  
 
 
