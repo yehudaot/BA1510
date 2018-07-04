@@ -79,12 +79,13 @@ namespace mfe_gui
                 "SERIAL_NUM",
                 "TEMP_MULT",
                 "FWD_MULT",
-                "REV_MULT",
+                "REV_TRESH",
                 "INP_PWR_MULT",
                 "PWR_CURRENT_MULT",
                 "PRE_AMP_MULT",
                 "ISENSE_PA1_MULT",
                 "ISENSE_PA2_MULT",
+                "BOOT_WAIT_TIME_USEC",
                 "TX_ON_TIMING_USEC",
                 "TX_OFF_TIMING_USEC",
                 "PA_ON_TIMING_USEC",
@@ -289,20 +290,51 @@ namespace mfe_gui
 
         private void btnSendControlMsg_Click(object sender, EventArgs e)
         {
-            //if (device.isConnected())
-            //{
-            //    device.flushRx();
-            //}
             UInt16 identifier = Convert.ToUInt16(txtIdentifier.Text);
             txtIdentifier.Text = (identifier + 1).ToString();
             Scenario.ScenarioResult r = new SingleMessageSingleDeviceScenario("Send Control Message", 
                 new ControlMessage(radTx.Checked, Convert.ToInt32(cmbPAGain.SelectedValue), (radAnt0.Checked ? ControlMessage.TxAntenna.ANT0 : ControlMessage.TxAntenna.ANT1), 
-                (radHigh.Checked ? ControlMessage.Frequency.HIGH : ControlMessage.Frequency.LOW), chkReset.Checked, identifier), true, false, device).run(10000);
+                (radHigh.Checked ? ControlMessage.Frequency.HIGH : ControlMessage.Frequency.LOW), chkReset.Checked, identifier, chkDontUpdate.Checked), true, false, device).run(10000);
 
             if (r?.result == Scenario.ScenarioResult.RunResult.Pass)
             {
-                AckResponse resp = (AckResponse)r.resultObj;
-                log.Info("got an ack response opcode: " + resp.opcode.ToString());
+                GetRawStatusResponse resp = (GetRawStatusResponse)r.resultObj;
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("TTI Counter: ");
+                sb.AppendLine(resp.ttiCounter.ToString());
+                sb.Append("Identifier: ");
+                sb.AppendLine(resp.Identifier.ToString());
+
+                sb.AppendLine("Forward Power: ");
+                foreach (UInt16 f in resp.fwdPower)
+                {
+                    sb.Append(f.ToString() + " ");
+                }
+                
+                sb.AppendLine("");
+                sb.AppendLine("Input Power: ");
+                foreach (UInt16 f in resp.inputPower)
+                {
+                    sb.Append(f.ToString() + " ");
+                }
+                sb.AppendLine("");
+                sb.Append("Power Difference Status: ");
+                if (resp.reversePowerStatus > 0)
+                    sb.AppendLine("Pass ");
+                else
+                    sb.AppendLine("Fail ");
+                sb.Append("Temperature: ");
+                sb.AppendLine(resp.temperature.ToString());
+                sb.Append("Amplifier Current: ");
+                sb.AppendLine(resp.powerAmplifierCurrent.ToString());
+                sb.Append("Pwr-Amp Gain: ");
+                sb.AppendLine(resp.paGain.ToString());
+                sb.Append("Antenna: ");
+                sb.AppendLine(resp.txAnt.ToString());
+                sb.Append("Frequncy: ");
+                sb.AppendLine(resp.frequency.ToString());
+                txtStatus.Text = sb.ToString();
             }
         }
 
@@ -314,18 +346,36 @@ namespace mfe_gui
                 GetMomenteryStatusResponse resp = (GetMomenteryStatusResponse)r.resultObj;
 
                 StringBuilder sb = new StringBuilder();
-                sb.Append("Temperature: ");
-                sb.AppendLine(resp.temperature.ToString());
-                sb.Append("Pwr-Amp Current: ");
-                sb.AppendLine(resp.powerAmplifierCurrent.ToString());
                 sb.Append("Pwr-Amp Gain: ");
-                sb.AppendLine(resp.powerAmplifierGain.ToString());
+                sb.AppendLine(resp.paGain.ToString());
                 sb.Append("Mode: ");
                 sb.AppendLine(resp.mode.ToString());
                 sb.Append("Antenna: ");
-                sb.AppendLine(resp.antennaState.ToString());
+                sb.AppendLine(resp.txAnt.ToString());
                 sb.Append("Frequncy: ");
                 sb.AppendLine(resp.frequency.ToString());
+                //yehuda 22.5.18 add pre_amp to bit status
+                sb.AppendLine("Pre-Amp Power: ");
+                sb.Append(resp.preAmpPower1.ToString());
+                sb.Append(" ");
+                sb.Append(resp.preAmpPower2.ToString());
+                sb.Append(" ");
+                sb.Append(resp.preAmpPower3.ToString());
+                sb.Append(" ");
+                sb.Append(resp.preAmpPower4.ToString());
+                sb.Append(" ");
+
+                sb.AppendLine("");
+                sb.Append("Reverse Power: ");
+                sb.Append(resp.reversePower1.ToString());
+                sb.Append(" ");
+                sb.Append(resp.reversePower2.ToString());
+                sb.Append(" ");
+                sb.Append(resp.reversePower3.ToString());
+                sb.Append(" ");
+                sb.Append(resp.reversePower4.ToString());
+                sb.Append(" ");
+                
                 txtStatus.Text = sb.ToString();
             }
         }
@@ -629,7 +679,7 @@ namespace mfe_gui
 
         private void btnGetRawStatus_Click(object sender, EventArgs e)
         {
-            Scenario.ScenarioResult r = new SingleMessageSingleDeviceScenario("Get Raw Status", new GetRawStatusMessage(), true, false, device).run();
+            Scenario.ScenarioResult r = new SingleMessageSingleDeviceScenario("Get Raw Status", new GetRawStatusMessage(), true, false, device).run(1300);
             if (r != null && r.result == Scenario.ScenarioResult.RunResult.Pass)
             {
                 GetRawStatusResponse resp = (GetRawStatusResponse)r.resultObj;
@@ -645,25 +695,21 @@ namespace mfe_gui
                 {
                     sb.Append(f.ToString() + " ");
                 }
-                sb.AppendLine("");
-                sb.AppendLine("Reverse Power: ");
-                foreach (UInt16 f in resp.reversePower)
-                {
-                    sb.Append(f.ToString() + " ");
-                }
+               
                 sb.AppendLine("");
                 sb.AppendLine("Input Power: ");
                 foreach (UInt16 f in resp.inputPower)
                 {
                     sb.Append(f.ToString() + " ");
                 }
+
                 sb.AppendLine("");
-                sb.AppendLine("Pre-Amp Power: ");
-                foreach (UInt16 f in resp.preAmpPower)
-                {
-                    sb.Append(f.ToString() + " ");
-                }
-                txtStatus.Text = sb.ToString();
+                sb.Append("Power Difference Status: ");
+                if (resp.reversePowerStatus > 0)
+                    sb.AppendLine("Pass ");
+                else
+                    sb.AppendLine("Fail ");
+                 txtStatus.Text = sb.ToString();
             }
         }
 
@@ -689,9 +735,22 @@ namespace mfe_gui
                     throw new CommTestScenarioException();
                 }
             }
-            catch 
+            catch(Exception ex)
             {
-                throw;
+                log.Error(ex.ToString());
+            }
+        }
+
+        private void btnSetControlIdentifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                /* cast to uint to check for valid number */
+                UInt32 val = Convert.ToUInt32(txtSetControlIdentifier.Text);
+                txtIdentifier.Text = val.ToString();
+            } catch(FormatException)
+            {
+                log.Error("Wrong number entered in 'Set Control Identifier', Can't set this value");
             }
         }
     }

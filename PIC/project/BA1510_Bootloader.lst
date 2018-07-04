@@ -1,8 +1,8 @@
-CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
+CCS PCH C Compiler, Version 4.137, 5799               19-Jun-18 11:11
 
-               Filename: D:\Projects\BA\BA1510\embedded\project\BA1510_Bootloader.lst
+               Filename: C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_v1_f\project\BA1510_Bootloader.lst
 
-               ROM used: 5430 bytes (17%)
+               ROM used: 5418 bytes (17%)
                          Largest free fragment is 24576
                RAM used: 899 (58%) at main() level
                          1018 (66%) worst case
@@ -61,7 +61,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 00B4:  MOVFF  05,FD8
 00B8:  RETFIE 0
 ....................  
-.................... #include "BA1474.h" 
+....................  
 .................... #include <18F45K22.h> 
 .................... //////// Standard Header file for the PIC18F45K22 device //////////////// 
 .................... #device PIC18F45K22 
@@ -120,7 +120,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0A46:  DECFSZ FEF,F
 0A48:  BRA    0A3E
 0A4A:  MOVLB  0
-0A4C:  GOTO   06F2 (RETURN)
+0A4C:  GOTO   06E6 (RETURN)
 *
 0B36:  MOVLW  03
 0B38:  MOVWF  FEA
@@ -159,7 +159,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   do { disable_interrupts(GLOBAL); write_program_memory(address, pointer, size); enable_interrupts(GLOBAL); delay_us(1000); } while (0) 
 ....................  
 ....................  
-.................... #include <stdint.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////                                                                   //// 
 .................... ////                           stdint.h                                //// 
@@ -323,7 +323,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif 
 ....................  
-.................... #include "crc8.h" 
+....................  
 .................... #ifndef __CRC8__ 
 .................... #define __CRC8__ 
 ....................  
@@ -497,49 +497,49 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif 
 ....................  
 ....................  
-.................... // Polynom 0x2F 
-.................... static const uint8_t crc8_table[256] = { 
-....................   0x00, 0x2F, 0x5E, 0x71, 0xBC, 0x93, 0xE2, 0xCD, 
-....................   0x57, 0x78, 0x09, 0x26, 0xEB, 0xC4, 0xB5, 0x9A, 
-....................   0xAE, 0x81, 0xF0, 0xDF, 0x12, 0x3D, 0x4C, 0x63, 
-....................   0xF9, 0xD6, 0xA7, 0x88, 0x45, 0x6A, 0x1B, 0x34, 
-....................   0x73, 0x5C, 0x2D, 0x02, 0xCF, 0xE0, 0x91, 0xBE, 
-....................   0x24, 0x0B, 0x7A, 0x55, 0x98, 0xB7, 0xC6, 0xE9, 
-....................   0xDD, 0xF2, 0x83, 0xAC, 0x61, 0x4E, 0x3F, 0x10, 
-....................   0x8A, 0xA5, 0xD4, 0xFB, 0x36, 0x19, 0x68, 0x47, 
-....................   0xE6, 0xC9, 0xB8, 0x97, 0x5A, 0x75, 0x04, 0x2B, 
-....................   0xB1, 0x9E, 0xEF, 0xC0, 0x0D, 0x22, 0x53, 0x7C, 
-....................   0x48, 0x67, 0x16, 0x39, 0xF4, 0xDB, 0xAA, 0x85, 
-....................   0x1F, 0x30, 0x41, 0x6E, 0xA3, 0x8C, 0xFD, 0xD2, 
-....................   0x95, 0xBA, 0xCB, 0xE4, 0x29, 0x06, 0x77, 0x58, 
-....................   0xC2, 0xED, 0x9C, 0xB3, 0x7E, 0x51, 0x20, 0x0F, 
-....................   0x3B, 0x14, 0x65, 0x4A, 0x87, 0xA8, 0xD9, 0xF6, 
-....................   0x6C, 0x43, 0x32, 0x1D, 0xD0, 0xFF, 0x8E, 0xA1, 
-....................   0xE3, 0xCC, 0xBD, 0x92, 0x5F, 0x70, 0x01, 0x2E, 
-....................   0xB4, 0x9B, 0xEA, 0xC5, 0x08, 0x27, 0x56, 0x79, 
-....................   0x4D, 0x62, 0x13, 0x3C, 0xF1, 0xDE, 0xAF, 0x80, 
-....................   0x1A, 0x35, 0x44, 0x6B, 0xA6, 0x89, 0xF8, 0xD7, 
-....................   0x90, 0xBF, 0xCE, 0xE1, 0x2C, 0x03, 0x72, 0x5D, 
-....................   0xC7, 0xE8, 0x99, 0xB6, 0x7B, 0x54, 0x25, 0x0A, 
-....................   0x3E, 0x11, 0x60, 0x4F, 0x82, 0xAD, 0xDC, 0xF3, 
-....................   0x69, 0x46, 0x37, 0x18, 0xD5, 0xFA, 0x8B, 0xA4, 
-....................   0x05, 0x2A, 0x5B, 0x74, 0xB9, 0x96, 0xE7, 0xC8, 
-....................   0x52, 0x7D, 0x0C, 0x23, 0xEE, 0xC1, 0xB0, 0x9F, 
-....................   0xAB, 0x84, 0xF5, 0xDA, 0x17, 0x38, 0x49, 0x66, 
-....................   0xFC, 0xD3, 0xA2, 0x8D, 0x40, 0x6F, 0x1E, 0x31, 
-....................   0x76, 0x59, 0x28, 0x07, 0xCA, 0xE5, 0x94, 0xBB, 
-....................   0x21, 0x0E, 0x7F, 0x50, 0x9D, 0xB2, 0xC3, 0xEC, 
-....................   0xD8, 0xF7, 0x86, 0xA9, 0x64, 0x4B, 0x3A, 0x15, 
-....................   0x8F, 0xA0, 0xD1, 0xFE, 0x33, 0x1C, 0x6D, 0x42 
-.................... }; 
 ....................  
-.................... uint8_t crc8(uint8_t* buffer, uint16_t size) { 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 0D88:  MOVLB  3
 0D8A:  CLRF   xEF
-....................   uint8_t crc = 0; 
 ....................  
-....................   while (size-- > 0) { 
+....................  
+....................  
 0D8C:  MOVFF  3EE,03
 0D90:  MOVF   xED,W
 0D92:  BTFSC  FD8.2
@@ -551,7 +551,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0DA0:  BNZ   0DA6
 0DA2:  MOVF   xF2,F
 0DA4:  BZ    0DCE
-....................     uint8_t pos = (*buffer++) ^ crc; 
+....................  
 0DA6:  MOVFF  3EC,03
 0DAA:  MOVF   xEB,W
 0DAC:  INCF   xEB,F
@@ -562,29 +562,29 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0DB8:  MOVF   FEF,W
 0DBA:  XORWF  xEF,W
 0DBC:  MOVWF  xF0
-....................     crc = crc8_table[pos]; 
+....................  
 0DBE:  CLRF   03
 0DC0:  MOVF   xF0,W
 0DC2:  MOVLB  0
 0DC4:  RCALL  0802
 0DC6:  MOVFF  FE8,3EF
-....................   } 
+....................  
 0DCA:  MOVLB  3
 0DCC:  BRA    0D8C
-....................   return crc; 
+....................  
 0DCE:  MOVFF  3EF,01
-.................... } 
+....................  
 0DD2:  MOVLB  0
 0DD4:  RETURN 0
 ....................  
-.................... /* 
-....................  * comm.c 
-....................  * 
-....................  *  Created on: Mar 23, 2017 
-....................  *      Author: asaf 
-....................  */ 
 ....................  
-.................... #include "BA1474.h" 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 .................... #include <18F45K22.h> 
 .................... //////// Standard Header file for the PIC18F45K22 device //////////////// 
 .................... #device PIC18F45K22 
@@ -642,7 +642,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 ....................  
 ....................  
-.................... #include <string.h> 
+....................  
 .................... //////////////////////////////////////////////////////////////////////////// 
 .................... ////        (C) Copyright 1996,2008 Custom Computer Services            //// 
 .................... //// This source code may only be used by licensed users of the CCS C   //// 
@@ -1126,7 +1126,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif 
 ....................  
-.................... #include <stdio.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////        (C) Copyright 1996,2003 Custom Computer Services           //// 
 .................... //// This source code may only be used by licensed users of the CCS C  //// 
@@ -1587,7 +1587,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif 
 .................... #endif 
 ....................  
-.................... #include <stdbool.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////                                                                   //// 
 .................... ////                          stdbool.h                                //// 
@@ -1623,7 +1623,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif 
 ....................  
 ....................  
-.................... #include "comm.h" 
+....................  
 .................... /* 
 ....................  * comm.h 
 ....................  * 
@@ -1854,7 +1854,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* COMM_H_ */ 
 ....................  
-.................... #include "uart.h" 
+....................  
 .................... /* 
 ....................  * uart.h 
 ....................  * 
@@ -2072,7 +2072,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* UART_H_ */ 
 ....................  
-.................... #include "message.h" 
+....................  
 .................... /* 
 ....................  * message.h 
 ....................  * 
@@ -2466,7 +2466,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   PARAM_SERIAL_NUM = 1, 
 ....................   PARAM_TEMP_MULT = 2, 
 ....................   PARAM_FWD_MULT = 3, 
-....................   PARAM_REV_MULT = 4, 
+....................   PARAM_REV_TRESH = 4, 
 ....................   PARAM_INP_PWR_MULT = 5, 
 ....................   PARAM_PWR_CURRENT_MULT = 6, 
 ....................   PARAM_PRE_AMP_MULT = 7, 
@@ -2602,11 +2602,12 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   uint16_t tti_counter; 
 ....................   uint16_t control_identifier; 
 ....................   uint16_t fwd_power_values[NUM_ADC_SAMPLES]; 
-....................   uint16_t reverse_power_values[NUM_ADC_SAMPLES]; 
+.................... //  uint16_t reverse_power_values[NUM_ADC_SAMPLES]; 
 ....................   uint16_t input_power_values[NUM_ADC_SAMPLES]; 
-....................   uint16_t pre_amp_power_values[NUM_ADC_SAMPLES]; 
+....................   //uint16_t pre_amp_power_values[NUM_ADC_SAMPLES];		//yehuda remove pre amp to bit status 
 ....................   uint16_t temperature; 
 ....................   uint16_t power_amplifier_current; 
+....................   uint8_t reverse_power_status; 
 .................... } sf_status_response_t; 
 ....................  
 .................... typedef struct bit_status_response_t { 
@@ -2614,6 +2615,9 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   control_bits_t last_control_bits; 
 ....................   uint16_t tti_counter; 
 ....................   uint8_t mode; 
+....................   uint16_t pre_amp_power_values[NUM_ADC_SAMPLES]; 		//yehuda add pre amp to bit status 
+....................   uint16_t reverse_power_values[NUM_ADC_SAMPLES]; 
+....................   //uint8_t reverse_power_status; 
 .................... } bit_status_response_t; 
 ....................  
 .................... typedef struct version_response_t { 
@@ -2646,7 +2650,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* MESSAGE_H_ */ 
 ....................  
-.................... #include "rfc1662.h" 
+....................  
 .................... /* 
 ....................  * rfc1662.h 
 ....................  * 
@@ -2667,7 +2671,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* __RFC1662_H__ */ 
 ....................  
-.................... #include "timer.h" 
+....................  
 .................... #ifndef INCLUDE_TIMER_H_ 
 .................... #define INCLUDE_TIMER_H_ 
 ....................  
@@ -2887,7 +2891,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* INCLUDE_TIMER_H_ */ 
 ....................  
-.................... #include "message_handlers.h" 
+....................  
 .................... /* 
 ....................  * message_handlers.h 
 ....................  * 
@@ -2908,29 +2912,29 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif /* MESSAGE_HANDLERS_H_ */ 
 ....................  
 ....................  
-.................... static uint8_t rfcBuff[MSG_MAX_MESSAGE_LEN * 2 + 2]; 
 ....................  
-.................... void comm_init() { 
-....................   /* init the comm port */ 
-....................   uart_init(); 
+....................  
+....................  
+....................  
+....................  
 *
 0C68:  BRA    0C54
-.................... } 
-0C6A:  GOTO   0702 (RETURN)
 ....................  
-.................... /* this function receives a message from the host 
-....................  * the function will block until a message arrives */ 
-.................... bool comm_receive_message(void* buffer, uint16_t* size) { 
+0C6A:  GOTO   06F6 (RETURN)
+....................  
+....................  
+....................  
+....................  
 *
 0E4A:  MOVLB  3
 0E4C:  BCF    x91.0
 0E4E:  CLRF   x92
-....................   bool handleMessage = false; 
-....................   int buffIdx = 0; 
 ....................  
-....................   do { 
-....................     uint8_t c; 
-....................     if(!uart_get_byte_nonblocking(&c)) { 
+....................  
+....................  
+....................  
+....................  
+....................  
 0E50:  MOVLW  03
 0E52:  MOVWF  x96
 0E54:  MOVLW  93
@@ -2939,11 +2943,11 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0E5A:  BRA    0C9C
 0E5C:  MOVF   01,F
 0E5E:  BNZ   0E62
-.................... //      samp_if_needed(); 
-....................       continue; 
+....................  
+....................  
 0E60:  BRA    0EA2
-....................     } 
-....................     rfcBuff[buffIdx] = c; 
+....................  
+....................  
 0E62:  CLRF   03
 0E64:  MOVLB  3
 0E66:  MOVF   x92,W
@@ -2953,8 +2957,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0E6E:  ADDWFC 03,W
 0E70:  MOVWF  FEA
 0E72:  MOVFF  393,FEF
-.................... //    rfcBuff[buffIdx] = uart_get_byte_blocking(); 
-....................     if(rfcBuff[buffIdx] != CHAR_FLAG) { 
+....................  
+....................  
 0E76:  CLRF   03
 0E78:  MOVF   x92,W
 0E7A:  ADDLW  20
@@ -2965,39 +2969,39 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0E84:  MOVF   FEF,W
 0E86:  SUBLW  7E
 0E88:  BZ    0E96
-....................     	buffIdx++; 
+....................  
 0E8A:  INCF   x92,F
-....................       if(buffIdx == MSG_MAX_MESSAGE_LEN * 2 + 2) { 
+....................  
 0E8C:  MOVF   x92,W
 0E8E:  SUBLW  A2
 0E90:  BNZ   0E94
-....................         buffIdx = 0; 
+....................  
 0E92:  CLRF   x92
-....................       } 
-....................   	} else { 
+....................  
+....................  
 0E94:  BRA    0EA2
-....................   		if(buffIdx >= 2) { 
+....................  
 0E96:  MOVF   x92,W
 0E98:  SUBLW  01
 0E9A:  BC    0EA0
-....................   			handleMessage = true; 
+....................  
 0E9C:  BSF    x91.0
-....................   		} else { 
+....................  
 0E9E:  BRA    0EA2
-....................   			// discard small messages 
-....................   			buffIdx = 0; 
+....................  
+....................  
 0EA0:  CLRF   x92
-....................   		} 
-....................   	} 
-....................   } while(!handleMessage); 
+....................  
+....................  
+....................  
 0EA2:  MOVLB  3
 0EA4:  BTFSS  x91.0
 0EA6:  BRA    0E50
 ....................  
-....................   if(handleMessage) { 
+....................  
 0EA8:  BTFSS  x91.0
 0EAA:  BRA    0EEA
-....................     int len = rfc1662_unpack(rfcBuff, buffIdx, buffer); 
+....................  
 0EAC:  CLRF   x96
 0EAE:  MOVLW  20
 0EB0:  MOVWF  x95
@@ -3007,38 +3011,38 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0EBE:  MOVLB  0
 0EC0:  BRA    0DD6
 0EC2:  MOVFF  01,394
-....................     if(len == -1) 
+....................  
 0EC6:  MOVLB  3
 0EC8:  MOVF   x94,W
 0ECA:  SUBLW  FF
 0ECC:  BNZ   0ED4
-....................     { 
-....................       /* the packet fcs was wrong don't accept it */ 
-....................       return false; 
+....................  
+....................  
+....................  
 0ECE:  MOVLW  00
 0ED0:  MOVWF  01
 0ED2:  BRA    0EEE
-....................   	} 
-....................     *size = len; 
+....................  
+....................  
 0ED4:  MOVFF  38F,FE9
 0ED8:  MOVFF  390,FEA
 0EDC:  CLRF   FEC
 0EDE:  MOVF   FED,F
 0EE0:  MOVFF  394,FEF
-....................     return true; 
+....................  
 0EE4:  MOVLW  01
 0EE6:  MOVWF  01
 0EE8:  BRA    0EEE
-....................   } 
 ....................  
-....................   return false; 
+....................  
+....................  
 0EEA:  MOVLW  00
 0EEC:  MOVWF  01
-.................... } 
+....................  
 0EEE:  MOVLB  0
 0EF0:  GOTO   1698 (RETURN)
 ....................  
-.................... void comm_send_message(void* buffer, uint16_t size) { 
+....................  
 *
 0F9A:  MOVFF  3DE,3E4
 0F9E:  MOVFF  3DD,3E3
@@ -3052,25 +3056,25 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0FB2:  MOVLB  3
 0FB4:  CLRF   xE2
 0FB6:  MOVFF  01,3E1
-....................   uint16_t rfc_len = rfc1662_pack(buffer, size, rfcBuff); 
-....................   uart_send(rfcBuff, rfc_len); 
+....................  
+....................  
 0FBA:  CLRF   xE4
 0FBC:  MOVLW  20
 0FBE:  MOVWF  xE3
 0FC0:  MOVFF  3E1,3E5
 0FC4:  MOVLB  0
 0FC6:  BRA    0F80
-.................... } 
+....................  
 0FC8:  RETURN 0
 ....................  
-.................... /* 
-....................  * rfc1662.c 
-....................  * 
-....................  *  Created on: 09/01/2011 
-....................  *      Author: asafe 
-....................  */ 
 ....................  
-.................... #include "BA1474.h" 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 .................... #include <18F45K22.h> 
 .................... //////// Standard Header file for the PIC18F45K22 device //////////////// 
 .................... #device PIC18F45K22 
@@ -3127,7 +3131,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   do { disable_interrupts(GLOBAL); write_program_memory(address, pointer, size); enable_interrupts(GLOBAL); delay_us(1000); } while (0) 
 ....................  
 ....................  
-.................... #include "rfc1662.h" 
+....................  
 .................... /* 
 ....................  * rfc1662.h 
 ....................  * 
@@ -3148,7 +3152,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* __RFC1662_H__ */ 
 ....................  
-.................... #include "crc8.h" 
+....................  
 .................... #ifndef __CRC8__ 
 .................... #define __CRC8__ 
 ....................  
@@ -3322,21 +3326,21 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif 
 ....................  
 ....................  
-.................... static int replaceFlagAndEscape(unsigned char *data, unsigned char *dest, int datalen) 
-.................... { 
+....................  
+....................  
 *
 1142:  MOVLB  3
 1144:  CLRF   xF2
 1146:  CLRF   xF3
-.................... 	int datai=0; 
-.................... 	int desti=0; 
-.................... 	for(datai=0;datai<datalen;datai++) 
+....................  
+....................  
+....................  
 1148:  CLRF   xF2
 114A:  MOVF   xF1,W
 114C:  SUBWF  xF2,W
 114E:  BC    11FE
-.................... 	{ 
-.................... 		if(data[datai] == CHAR_FLAG) 
+....................  
+....................  
 1150:  CLRF   03
 1152:  MOVF   xF2,W
 1154:  ADDWF  xED,W
@@ -3347,8 +3351,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 115E:  MOVF   FEF,W
 1160:  SUBLW  7E
 1162:  BNZ   118E
-.................... 		{ 
-.................... 			dest[desti++] = CHAR_ESCAPE; 
+....................  
+....................  
 1164:  MOVF   xF3,W
 1166:  INCF   xF3,F
 1168:  CLRF   03
@@ -3359,7 +3363,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1172:  MOVWF  FEA
 1174:  MOVLW  7D
 1176:  MOVWF  FEF
-.................... 			dest[desti++] = CHAR_FLAG_XORED; 
+....................  
 1178:  MOVF   xF3,W
 117A:  INCF   xF3,F
 117C:  CLRF   03
@@ -3370,8 +3374,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1186:  MOVWF  FEA
 1188:  MOVLW  5E
 118A:  MOVWF  FEF
-.................... 		} 
-.................... 		else if(data[datai] == CHAR_ESCAPE) 
+....................  
+....................  
 118C:  BRA    11FA
 118E:  CLRF   03
 1190:  MOVF   xF2,W
@@ -3383,8 +3387,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 119C:  MOVF   FEF,W
 119E:  SUBLW  7D
 11A0:  BNZ   11CC
-.................... 		{ 
-.................... 			dest[desti++] = CHAR_ESCAPE; 
+....................  
+....................  
 11A2:  MOVF   xF3,W
 11A4:  INCF   xF3,F
 11A6:  CLRF   03
@@ -3395,7 +3399,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 11B0:  MOVWF  FEA
 11B2:  MOVLW  7D
 11B4:  MOVWF  FEF
-.................... 			dest[desti++] = CHAR_ESCAPE_XORED; 
+....................  
 11B6:  MOVF   xF3,W
 11B8:  INCF   xF3,F
 11BA:  CLRF   03
@@ -3406,11 +3410,11 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 11C4:  MOVWF  FEA
 11C6:  MOVLW  5D
 11C8:  MOVWF  FEF
-.................... 		} 
-.................... 		else 
+....................  
+....................  
 11CA:  BRA    11FA
-.................... 		{ 
-.................... 			dest[desti++] = data[datai]; 
+....................  
+....................  
 11CC:  MOVF   xF3,W
 11CE:  INCF   xF3,F
 11D0:  CLRF   03
@@ -3430,31 +3434,31 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 11EE:  MOVFF  3F5,FEA
 11F2:  MOVFF  3F4,FE9
 11F6:  MOVFF  3F6,FEF
-.................... 		} 
-.................... 	} 
+....................  
+....................  
 11FA:  INCF   xF2,F
 11FC:  BRA    114A
-.................... 	return desti; //return the size of the new data string 
+....................  
 11FE:  MOVFF  3F3,01
-.................... } 
+....................  
 1202:  MOVLB  0
 1204:  RETURN 0
 ....................  
-.................... static int restoreFlagAndEscape(unsigned char *data, unsigned char *dest, int datalen) 
-.................... { 
+....................  
+....................  
 *
 0CD2:  MOVLB  3
 0CD4:  CLRF   xA2
 0CD6:  CLRF   xA3
-.................... 	int datai=0; 
-.................... 	int desti=0; 
-.................... 	for(datai=0;datai<datalen;datai++) 
+....................  
+....................  
+....................  
 0CD8:  CLRF   xA2
 0CDA:  MOVF   xA1,W
 0CDC:  SUBWF  xA2,W
 0CDE:  BC    0D7E
-.................... 	{ 
-.................... 		if(data[datai] == CHAR_ESCAPE) 
+....................  
+....................  
 0CE0:  CLRF   03
 0CE2:  MOVF   xA2,W
 0CE4:  ADDWF  x9D,W
@@ -3465,10 +3469,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0CEE:  MOVF   FEF,W
 0CF0:  SUBLW  7D
 0CF2:  BNZ   0D4A
-.................... 		{ 
-.................... 			datai++; 
+....................  
+....................  
 0CF4:  INCF   xA2,F
-.................... 			if(data[datai] == CHAR_FLAG_XORED) 
+....................  
 0CF6:  CLRF   03
 0CF8:  MOVF   xA2,W
 0CFA:  ADDWF  x9D,W
@@ -3479,8 +3483,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0D04:  MOVF   FEF,W
 0D06:  SUBLW  5E
 0D08:  BNZ   0D20
-.................... 			{ 
-.................... 				dest[desti++] = CHAR_FLAG; 
+....................  
+....................  
 0D0A:  MOVF   xA3,W
 0D0C:  INCF   xA3,F
 0D0E:  CLRF   03
@@ -3491,8 +3495,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0D18:  MOVWF  FEA
 0D1A:  MOVLW  7E
 0D1C:  MOVWF  FEF
-.................... 			} 
-.................... 			else if(data[datai] == CHAR_ESCAPE_XORED) 
+....................  
+....................  
 0D1E:  BRA    0D48
 0D20:  CLRF   03
 0D22:  MOVF   xA2,W
@@ -3504,8 +3508,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0D2E:  MOVF   FEF,W
 0D30:  SUBLW  5D
 0D32:  BNZ   0D48
-.................... 			{ 
-.................... 				dest[desti++] = CHAR_ESCAPE; 
+....................  
+....................  
 0D34:  MOVF   xA3,W
 0D36:  INCF   xA3,F
 0D38:  CLRF   03
@@ -3516,16 +3520,16 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0D42:  MOVWF  FEA
 0D44:  MOVLW  7D
 0D46:  MOVWF  FEF
-.................... 			} 
-.................... 			else 
-.................... 			{ 
-.................... 				//count this as an error on the stream! 
-.................... 			} 
-.................... 		} 
-.................... 		else 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 0D48:  BRA    0D7A
-.................... 		{ 
-.................... 			dest[desti++] = data[datai]; 
+....................  
+....................  
 0D4A:  MOVF   xA3,W
 0D4C:  INCF   xA3,F
 0D4E:  CLRF   03
@@ -3545,23 +3549,23 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0D6E:  MOVFF  3A5,FEA
 0D72:  MOVFF  01,FE9
 0D76:  MOVFF  3A6,FEF
-.................... 		} 
-.................... 	} 
+....................  
+....................  
 0D7A:  INCF   xA2,F
 0D7C:  BRA    0CDA
-.................... 	return desti; //return the size of the new data string 
+....................  
 0D7E:  MOVFF  3A3,01
-.................... } 
+....................  
 0D82:  MOVLB  0
 0D84:  GOTO   0DF2 (RETURN)
 ....................  
-.................... //this function encapsulate the data with all the information needed 
-.................... //to be sent via the rfc1662 protocol (PPP with HDLC like framing) 
-.................... //this function should be called for sending data through the rs422 link 
-.................... //dataLen should be the datalength only! 
 ....................  
-.................... int rfc1662_pack(unsigned char *data, int dataLen, unsigned char *dest) 
-.................... { 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 1042:  MOVLB  3
 1044:  CLRF   xE8
@@ -3573,12 +3577,12 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1056:  MOVLB  0
 1058:  RCALL  0D88
 105A:  MOVFF  01,3EA
-.................... 	int changed_data_size = 0; 
-.................... 	int changed_crc_size = 0; 
-.................... 	//calc crc and add it to the end of the data 
-.................... 	uint8_t crc = crc8(data, dataLen); 
-.................... 	//replace escape and flag 
-.................... 	changed_data_size = replaceFlagAndEscape(data, &dest[1], dataLen); 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 105E:  MOVLW  01
 1060:  MOVLB  3
 1062:  ADDWF  xE6,W
@@ -3594,7 +3598,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1080:  MOVLB  0
 1082:  RCALL  1142
 1084:  MOVFF  01,3E8
-.................... 	changed_crc_size = replaceFlagAndEscape(&crc, &dest[changed_data_size+1], sizeof(crc)); 
+....................  
 1088:  MOVLW  01
 108A:  MOVLB  3
 108C:  ADDWF  xE8,W
@@ -3615,14 +3619,14 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 10AE:  MOVLB  0
 10B0:  RCALL  1142
 10B2:  MOVFF  01,3E9
-.................... 	//add the flags 
-.................... 	dest[0] = CHAR_FLAG; 
+....................  
+....................  
 10B6:  MOVLB  3
 10B8:  MOVFF  3E6,FE9
 10BC:  MOVFF  3E7,FEA
 10C0:  MOVLW  7E
 10C2:  MOVWF  FEF
-.................... 	dest[changed_data_size+changed_crc_size+1] = CHAR_FLAG; 
+....................  
 10C4:  MOVF   xE9,W
 10C6:  ADDWF  xE8,W
 10C8:  ADDLW  01
@@ -3635,25 +3639,25 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 10D6:  MOVLW  7E
 10D8:  MOVWF  FEF
 ....................  
-.................... 	// returns the size of dest 
-.................... 	return changed_data_size+changed_crc_size+2; 
+....................  
+....................  
 10DA:  MOVF   xE9,W
 10DC:  ADDWF  xE8,W
 10DE:  ADDLW  02
 10E0:  MOVWF  01
-.................... } 
+....................  
 10E2:  MOVLB  0
 10E4:  GOTO   0FB2 (RETURN)
 ....................  
 ....................  
-.................... int rfc1662_unpack(unsigned char *data, int len, unsigned char *dest) 
-.................... { 
+....................  
+....................  
 *
 0DD6:  MOVLB  3
 0DD8:  CLRF   x9A
-.................... 	int restored_data_size = 0; 
-.................... 	//the received data is received without the start and end FLAGS 
-.................... 	restored_data_size = restoreFlagAndEscape(data, dest, len); 
+....................  
+....................  
+....................  
 0DDA:  MOVFF  396,39E
 0DDE:  MOVFF  395,39D
 0DE2:  MOVFF  399,3A0
@@ -3663,17 +3667,17 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0DF0:  BRA    0CD2
 0DF2:  MOVFF  01,39A
 ....................  
-.................... 	if (restored_data_size < 1) 
+....................  
 0DF6:  MOVLB  3
 0DF8:  MOVF   x9A,F
 0DFA:  BNZ   0E02
-.................... 		return -1; 
+....................  
 0DFC:  MOVLW  FF
 0DFE:  MOVWF  01
 0E00:  BRA    0E44
 ....................  
-.................... 	uint8_t calculated_crc = crc8(dest, restored_data_size - 1); 
-.................... 	uint8_t message_crc = dest[restored_data_size - 1]; 
+....................  
+....................  
 0E02:  MOVLW  01
 0E04:  SUBWF  x9A,W
 0E06:  MOVWF  x9D
@@ -3694,33 +3698,33 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0E2A:  ADDWFC 03,W
 0E2C:  MOVWF  FEA
 0E2E:  MOVFF  FEF,39C
-.................... 	if (calculated_crc == message_crc) { 
+....................  
 0E32:  MOVF   x9C,W
 0E34:  SUBWF  x9B,W
 0E36:  BNZ   0E40
-.................... 		//crc is correct 
-.................... 		//return the size of the new data 
-.................... 		return restored_data_size-1; //we get dsti+1 at the end and the 1 crc 
+....................  
+....................  
+....................  
 0E38:  MOVLW  01
 0E3A:  SUBWF  x9A,W
 0E3C:  MOVWF  01
 0E3E:  BRA    0E44
-.................... 	} 
-.................... 	 
-.................... 	return -1; 
+....................  
+....................  
+....................  
 0E40:  MOVLW  FF
 0E42:  MOVWF  01
-.................... } 
+....................  
 0E44:  MOVLB  0
 0E46:  GOTO   0EC2 (RETURN)
 ....................  
-.................... /* 
-....................  * uart.c 
-....................  * 
-....................  *  Created on: Mar 23, 2017 
-....................  *      Author: asaf 
-....................  */ 
-.................... #include "BA1474.h" 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 .................... #include <18F45K22.h> 
 .................... //////// Standard Header file for the PIC18F45K22 device //////////////// 
 .................... #device PIC18F45K22 
@@ -3777,7 +3781,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   do { disable_interrupts(GLOBAL); write_program_memory(address, pointer, size); enable_interrupts(GLOBAL); delay_us(1000); } while (0) 
 ....................  
 ....................  
-.................... #include "PIC18F45K22_registers.h" 
+....................  
 .................... #byte TOSU = 0xFFF 
 .................... #word TOS = 0xFFE 
 .................... #byte STKPTR = 0xFFC 
@@ -4529,7 +4533,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #bit    ANSA5 = ANSELA.5 
 ....................  
 ....................  
-.................... #include <stdint.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////                                                                   //// 
 .................... ////                           stdint.h                                //// 
@@ -4694,42 +4698,42 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif 
 ....................  
 ....................  
-.................... #define MAX_UART_SIZE 180 
 ....................  
-.................... static uint8_t rbuf[MAX_UART_SIZE]; 
-.................... static uint8_t rbuf_wr_idx; 
-.................... static uint8_t rbuf_rd_idx; 
 ....................  
-.................... static uint8_t wbuf[MAX_UART_SIZE]; 
-.................... static uint8_t wbuf_wr_idx; 
-.................... static uint8_t wbuf_rd_idx; 
 ....................  
-.................... void uart_clear_errors(); 
 ....................  
-.................... void uart_init() { 
-....................   rbuf_wr_idx = 0; 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 0C54:  MOVLB  1
 0C56:  CLRF   x76
-....................   rbuf_rd_idx = 0; 
+....................  
 0C58:  CLRF   x77
-....................   wbuf_wr_idx = 0; 
+....................  
 0C5A:  MOVLB  2
 0C5C:  CLRF   x2C
-....................   wbuf_rd_idx = 0; 
+....................  
 0C5E:  CLRF   x2D
-....................   enable_interrupts(int_RDA); 
+....................  
 0C60:  BSF    F9D.5
-.................... } 
+....................  
 0C62:  MOVLB  0
 0C64:  GOTO   0C6A (RETURN)
 ....................  
-.................... void uart_disable() { 
-....................   disable_interrupts(int_RDA); 
-....................   disable_interrupts(int_TBE); 
-.................... } 
 ....................  
-.................... static uint8_t get_next_byte() { 
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 0C6E:  MOVLB  1
 0C70:  MOVF   x77,W
@@ -4742,24 +4746,24 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0C7E:  MOVWF  FEA
 0C80:  MOVFF  FEF,399
 0C84:  MOVLB  3
-....................   uint8_t c = rbuf[rbuf_rd_idx++]; 
-....................   if(rbuf_rd_idx >= MAX_UART_SIZE) { 
+....................  
+....................  
 0C86:  MOVLB  1
 0C88:  MOVF   x77,W
 0C8A:  SUBLW  B3
 0C8C:  BC    0C90
-....................     rbuf_rd_idx = 0; 
+....................  
 0C8E:  CLRF   x77
-....................   } 
-....................   return c; 
+....................  
+....................  
 0C90:  MOVLB  3
 0C92:  MOVFF  399,01
-.................... } 
+....................  
 0C96:  MOVLB  0
 0C98:  GOTO   0CBA (RETURN)
 ....................  
-.................... /* stupid implementation, overwrite old data... */ 
-.................... static void push_bytes(uint8_t *src, uint16_t len) { 
+....................  
+....................  
 *
 1206:  MOVLW  B4
 1208:  BSF    FD8.0
@@ -4767,14 +4771,14 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 120C:  SUBFWB x2C,W
 120E:  MOVLB  3
 1210:  MOVWF  xEA
-....................     int d = MAX_UART_SIZE - wbuf_wr_idx; 
-....................     if(len > d) { 
+....................  
+....................  
 1212:  MOVF   xE9,F
 1214:  BNZ   121C
 1216:  MOVF   xE8,W
 1218:  SUBWF  xEA,W
 121A:  BC    1296
-....................       memcpy(wbuf + wbuf_wr_idx, src, d); 
+....................  
 121C:  MOVLW  78
 121E:  MOVLB  2
 1220:  ADDWF  x2C,W
@@ -4794,12 +4798,12 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1244:  MOVFF  FE6,FEE
 1248:  DECFSZ 01,F
 124A:  BRA    1244
-....................       len -= d; 
+....................  
 124C:  MOVF   xEA,W
 124E:  SUBWF  xE8,F
 1250:  MOVLW  00
 1252:  SUBWFB xE9,F
-....................       memcpy(wbuf, src + d, len); 
+....................  
 1254:  MOVF   xEA,W
 1256:  ADDWF  xE6,W
 1258:  MOVWF  xEB
@@ -4825,11 +4829,11 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 128A:  BRA    1284
 128C:  DECFSZ 02,F
 128E:  BRA    1284
-....................       wbuf_wr_idx = len; 
+....................  
 1290:  MOVFF  3E8,22C
-....................     } else { 
+....................  
 1294:  BRA    12DE
-....................       memcpy(wbuf + wbuf_wr_idx, src, len); 
+....................  
 1296:  MOVLW  78
 1298:  MOVLB  2
 129A:  ADDWF  x2C,W
@@ -4856,43 +4860,43 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 12D2:  BRA    12CC
 12D4:  DECFSZ 02,F
 12D6:  BRA    12CC
-....................       wbuf_wr_idx += len; 
+....................  
 12D8:  MOVF   xE8,W
 12DA:  MOVLB  2
 12DC:  ADDWF  x2C,F
-....................     } 
-....................     if(wbuf_wr_idx == MAX_UART_SIZE) { 
+....................  
+....................  
 12DE:  MOVLB  2
 12E0:  MOVF   x2C,W
 12E2:  SUBLW  B4
 12E4:  BNZ   12E8
-.................... 		  wbuf_wr_idx = 0;     
+....................  
 12E6:  CLRF   x2C
-.................... 	  }  
-.................... } 
+....................  
+....................  
 12E8:  MOVLB  0
 12EA:  GOTO   0F94 (RETURN)
 ....................  
-.................... uint8_t uart_get_byte_blocking() { 
-....................   while(rbuf_wr_idx == rbuf_rd_idx) { 
-.................... enable_interrupts(INT_EXT);  
-.................... }; 
-....................   return get_next_byte(); 
-.................... } 
 ....................  
-.................... uint8_t uart_get_byte_nonblocking(uint8_t *dst) { 
-....................   if(rbuf_wr_idx == rbuf_rd_idx) { 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 0C9C:  MOVLB  1
 0C9E:  MOVF   x77,W
 0CA0:  SUBWF  x76,W
 0CA2:  BNZ   0CAA
-....................     return 0; 
+....................  
 0CA4:  MOVLW  00
 0CA6:  MOVWF  01
 0CA8:  BRA    0CCC
-....................   } 
-....................   *dst = get_next_byte(); 
+....................  
+....................  
 0CAA:  MOVFF  396,03
 0CAE:  MOVFF  395,397
 0CB2:  MOVFF  396,398
@@ -4901,16 +4905,16 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0CBA:  MOVFF  398,FEA
 0CBE:  MOVFF  397,FE9
 0CC2:  MOVFF  01,FEF
-....................   return 1; 
+....................  
 0CC6:  MOVLW  01
 0CC8:  MOVWF  01
 0CCA:  MOVLB  1
-.................... } 
+....................  
 0CCC:  MOVLB  0
 0CCE:  GOTO   0E5C (RETURN)
 ....................  
-.................... void uart_send(void* buffer, uint8_t size) { 
-....................   push_bytes(buffer, size); 
+....................  
+....................  
 *
 0F80:  MOVFF  3E4,3E7
 0F84:  MOVFF  3E3,3E6
@@ -4919,22 +4923,22 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0F8C:  MOVFF  3E5,3E8
 0F90:  MOVLB  0
 0F92:  BRA    1206
-....................   enable_interrupts(int_TBE); 
+....................  
 0F94:  BSF    F9D.4
 ....................  
-....................   /* wait here until done */ 
-....................   //while(wbuf_rd_idx != wbuf_wr_idx) {}; 
-.................... } 
+....................  
+....................  
+....................  
 0F96:  GOTO   0FC8 (RETURN)
 ....................  
-.................... /* UART IRQs */ 
 ....................  
-.................... #int_RDA 
-.................... void RDA_isr(void) 
-.................... { 
-....................   /* uart rx buffer can hold 2.x input bytes */ 
-....................   do {  
-....................     rbuf[rbuf_wr_idx++] = RCREG1; 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 00C6:  MOVLB  1
 00C8:  MOVF   x76,W
@@ -4946,35 +4950,35 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 00D4:  ADDWFC 03,W
 00D6:  MOVWF  FEA
 00D8:  MOVFF  FAE,FEF
-....................     if (rbuf_wr_idx == MAX_UART_SIZE) { 
+....................  
 00DC:  MOVF   x76,W
 00DE:  SUBLW  B4
 00E0:  BNZ   00E4
-....................       rbuf_wr_idx = 0; 
+....................  
 00E2:  CLRF   x76
-....................     } 
-....................     uart_clear_errors(); 
+....................  
+....................  
 00E4:  MOVLB  0
 00E6:  BRA    00BA
-....................   } while (kbhit()); 
+....................  
 00E8:  BTFSC  F9E.5
 00EA:  BRA    00C6
-....................   enable_interrupts(int_RDA); 
+....................  
 00EC:  BSF    F9D.5
-.................... } 
+....................  
 ....................  
 00EE:  BCF    F9E.5
 00F0:  GOTO   006C
-.................... #int_TBE 
-.................... void TBE_isr(void) 
-.................... { 
-....................   if (wbuf_rd_idx != wbuf_wr_idx){ 
+....................  
+....................  
+....................  
+....................  
 *
 0912:  MOVLB  2
 0914:  MOVF   x2C,W
 0916:  SUBWF  x2D,W
 0918:  BZ    0938
-....................     TXREG1 = wbuf[wbuf_rd_idx++]; 
+....................  
 091A:  MOVF   x2D,W
 091C:  INCF   x2D,F
 091E:  CLRF   03
@@ -4984,40 +4988,40 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0926:  ADDWFC 03,W
 0928:  MOVWF  FEA
 092A:  MOVFF  FEF,FAD
-....................     if(wbuf_rd_idx == MAX_UART_SIZE) { 
+....................  
 092E:  MOVF   x2D,W
 0930:  SUBLW  B4
 0932:  BNZ   0936
-....................       wbuf_rd_idx = 0; 
+....................  
 0934:  CLRF   x2D
-....................     } 
-....................   } else { 
+....................  
+....................  
 0936:  BRA    093A
-....................     disable_interrupts(int_TBE); 
+....................  
 0938:  BCF    F9D.4
-....................   } 
-.................... } 
+....................  
+....................  
 ....................  
 093A:  BCF    F9E.4
 093C:  MOVLB  0
 093E:  GOTO   006C
-.................... #bit CREN=getenv("BIT:CREN")  
-.................... #BIT OERR = getenv("BIT:OERR") 
-.................... void uart_clear_errors() 
-.................... { 
-....................   if (OERR) { 
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 00BA:  BTFSS  FAB.1
 00BC:  BRA    00C2
-....................     CREN = 0; 
+....................  
 00BE:  BCF    FAB.4
-....................     CREN = 1; 
+....................  
 00C0:  BSF    FAB.4
-....................   } 
-.................... } 
+....................  
+....................  
 00C2:  GOTO   00E8 (RETURN)
 ....................  
-.................... #include "BA1474.h" 
+....................  
 .................... #include <18F45K22.h> 
 .................... //////// Standard Header file for the PIC18F45K22 device //////////////// 
 .................... #device PIC18F45K22 
@@ -5045,9 +5049,9 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... /* when in the bootloader, keep out of the operational sections */ 
 .................... #org 0x2000, 0x7ffe {} 
 *
-06DC:  CLRF   x87
-06DE:  BTFSC  F81.1
-06E0:  INCF   x87,F
+06D0:  CLRF   x87
+06D2:  BTFSC  F81.1
+06D4:  INCF   x87,F
 ....................  
 .................... #endif 
 ....................  
@@ -5079,7 +5083,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 ....................  
 ....................  
-.................... #include <stdio.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////        (C) Copyright 1996,2003 Custom Computer Services           //// 
 .................... //// This source code may only be used by licensed users of the CCS C  //// 
@@ -5650,7 +5654,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif 
 .................... #endif 
 ....................  
-.................... #include <stdint.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////                                                                   //// 
 .................... ////                           stdint.h                                //// 
@@ -5814,7 +5818,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif 
 ....................  
-.................... #include <ctype.h> 
+....................  
 .................... //////////////////////////////////////////////////////////////////////////// 
 .................... ////        (C) Copyright 1996,2003 Custom Computer Services            //// 
 .................... //// This source code may only be used by licensed users of the CCS C   //// 
@@ -5844,7 +5848,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 ....................  
 ....................  
-.................... #include "comm.h" 
+....................  
 .................... /* 
 ....................  * comm.h 
 ....................  * 
@@ -6075,11 +6079,11 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* COMM_H_ */ 
 ....................  
-.................... #include "boot_version.h" 
+....................  
 .................... #ifndef BOOT_VERSION_H_ 
 .................... #define BOOT_VERSION_H_ 
 ....................  
-.................... #define VERSION_DAY 18 
+.................... #define VERSION_DAY 19 
 .................... #define VERSION_MONTH 6 
 .................... #define VERSION_YEAR 2018 
 .................... #define VERSION_MAJOR 0xB 
@@ -6087,7 +6091,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* BOOT_VERSION_H_ */ 
 ....................  
-.................... #include "main.h" 
+....................  
 .................... #ifndef MAIN_H_ 
 .................... #define MAIN_H_ 
 ....................  
@@ -6101,7 +6105,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* MAIN_H_ */ 
 ....................  
-.................... #include "timer.h" 
+....................  
 .................... #ifndef INCLUDE_TIMER_H_ 
 .................... #define INCLUDE_TIMER_H_ 
 ....................  
@@ -6321,7 +6325,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* INCLUDE_TIMER_H_ */ 
 ....................  
-.................... #include "uart.h" 
+....................  
 .................... /* 
 ....................  * uart.h 
 ....................  * 
@@ -6539,7 +6543,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* UART_H_ */ 
 ....................  
-.................... #include "message.h" 
+....................  
 .................... /* 
 ....................  * message.h 
 ....................  * 
@@ -6933,7 +6937,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   PARAM_SERIAL_NUM = 1, 
 ....................   PARAM_TEMP_MULT = 2, 
 ....................   PARAM_FWD_MULT = 3, 
-....................   PARAM_REV_MULT = 4, 
+....................   PARAM_REV_TRESH = 4, 
 ....................   PARAM_INP_PWR_MULT = 5, 
 ....................   PARAM_PWR_CURRENT_MULT = 6, 
 ....................   PARAM_PRE_AMP_MULT = 7, 
@@ -7069,11 +7073,12 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   uint16_t tti_counter; 
 ....................   uint16_t control_identifier; 
 ....................   uint16_t fwd_power_values[NUM_ADC_SAMPLES]; 
-....................   uint16_t reverse_power_values[NUM_ADC_SAMPLES]; 
+.................... //  uint16_t reverse_power_values[NUM_ADC_SAMPLES]; 
 ....................   uint16_t input_power_values[NUM_ADC_SAMPLES]; 
-....................   uint16_t pre_amp_power_values[NUM_ADC_SAMPLES]; 
+....................   //uint16_t pre_amp_power_values[NUM_ADC_SAMPLES];		//yehuda remove pre amp to bit status 
 ....................   uint16_t temperature; 
 ....................   uint16_t power_amplifier_current; 
+....................   uint8_t reverse_power_status; 
 .................... } sf_status_response_t; 
 ....................  
 .................... typedef struct bit_status_response_t { 
@@ -7081,6 +7086,9 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   control_bits_t last_control_bits; 
 ....................   uint16_t tti_counter; 
 ....................   uint8_t mode; 
+....................   uint16_t pre_amp_power_values[NUM_ADC_SAMPLES]; 		//yehuda add pre amp to bit status 
+....................   uint16_t reverse_power_values[NUM_ADC_SAMPLES]; 
+....................   //uint8_t reverse_power_status; 
 .................... } bit_status_response_t; 
 ....................  
 .................... typedef struct version_response_t { 
@@ -7113,7 +7121,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* MESSAGE_H_ */ 
 ....................  
-.................... #include "calibration.h" 
+....................  
 .................... #ifndef CALIBRATION_H_ 
 .................... #define CALIBRATION_H_ 
 ....................  
@@ -7135,7 +7143,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   PARAM_SERIAL_NUM = 1, 
 ....................   PARAM_TEMP_MULT = 2, 
 ....................   PARAM_FWD_MULT = 3, 
-....................   PARAM_REV_MULT = 4, 
+....................   PARAM_REV_TRESH = 4, 
 ....................   PARAM_INP_PWR_MULT = 5, 
 ....................   PARAM_PWR_CURRENT_MULT = 6, 
 ....................   PARAM_PRE_AMP_MULT = 7, 
@@ -7163,23 +7171,23 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif /* CALIBRATION_H_ */ 
 ....................  
 ....................  
-.................... #define BOOT_WAIT_TIME_US 500000 
 ....................  
-.................... typedef struct { 
-....................   bool run_loader; 
-....................   bool is_first_page_dirty; 
-.................... } bootloader_metadata_t; 
 ....................  
-.................... #define ROM_METADATA_ADDRESS 0x1000 
-.................... #ORG ROM_METADATA_ADDRESS,ROM_METADATA_ADDRESS + getenv("FLASH_ERASE_SIZE") {} 
 ....................  
-.................... static void set_metadata(bootloader_metadata_t* value) { 
-....................   union { 
-....................     bootloader_metadata_t value; 
-....................     uint8_t padding[getenv("FLASH_ERASE_SIZE")]; 
-....................   } data; 
 ....................  
-....................   memcpy(&data.value, value, sizeof(data.value)); 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 0EF4:  MOVLW  03
 0EF6:  MOVWF  FEA
@@ -7188,7 +7196,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0EFC:  MOVFF  3A2,FE2
 0F00:  MOVFF  3A1,FE1
 0F04:  MOVFF  FE6,FEE
-....................   safe_write_program_memory(ROM_METADATA_ADDRESS, &data, sizeof(data)); 
+....................  
 0F08:  BCF    FF2.6
 0F0A:  BCF    FF2.7
 0F0C:  BTFSC  FF2.7
@@ -7213,12 +7221,12 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0F32:  MOVWF  xE3
 0F34:  MOVLB  0
 0F36:  RCALL  0B36
-.................... } 
+....................  
 0F38:  RETURN 0
 ....................  
-.................... bootloader_metadata_t *get_metadata() { 
-....................   static bootloader_metadata_t meta; 
-....................   read_program_memory(ROM_METADATA_ADDRESS, &meta, sizeof(bootloader_metadata_t)); 
+....................  
+....................  
+....................  
 *
 0A04:  CLRF   FF8
 0A06:  MOVLW  10
@@ -7234,21 +7242,21 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0A1A:  MOVWF  xDD
 0A1C:  MOVLB  0
 0A1E:  RCALL  09E6
-....................   return &meta; 
+....................  
 0A20:  MOVLW  30
 0A22:  MOVWF  01
 0A24:  MOVLW  02
 0A26:  MOVWF  02
-.................... } 
+....................  
 0A28:  RETURN 0
 ....................  
-.................... static void set_software_ready(bool value) { 
+....................  
 *
 0F3A:  RCALL  0A04
 0F3C:  MOVFF  02,3A0
 0F40:  MOVFF  01,39F
-....................   bootloader_metadata_t *temp_metadata = get_metadata(); 
-....................   temp_metadata->run_loader = ~value; 
+....................  
+....................  
 0F44:  MOVLB  3
 0F46:  MOVFF  3A0,03
 0F4A:  MOVFF  39F,3A1
@@ -7265,48 +7273,48 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0F68:  MOVFF  3A2,FEA
 0F6C:  MOVFF  3A1,FE9
 0F70:  BSF    FEF.0
-....................   set_metadata(temp_metadata); 
+....................  
 0F72:  MOVFF  3A0,3A2
 0F76:  MOVFF  39F,3A1
 0F7A:  MOVLB  0
 0F7C:  RCALL  0EF4
-.................... } 
+....................  
 0F7E:  RETURN 0
 ....................  
-.................... static void set_first_page_clean() { 
-....................   bootloader_metadata_t *temp_metadata = get_metadata(); 
-....................   temp_metadata->is_first_page_dirty = false; 
-....................   set_metadata(temp_metadata); 
-.................... } 
 ....................  
-.................... static void set_first_page_dirty() { 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 *
 0FCA:  RCALL  0A04
 0FCC:  MOVFF  02,398
 0FD0:  MOVFF  01,397
-....................   bootloader_metadata_t *temp_metadata = get_metadata(); 
-....................   temp_metadata->is_first_page_dirty = true; 
+....................  
+....................  
 0FD4:  MOVLB  3
 0FD6:  MOVFF  397,FE9
 0FDA:  MOVFF  398,FEA
 0FDE:  BSF    FEF.1
-....................   set_metadata(temp_metadata); 
+....................  
 0FE0:  MOVFF  398,3A2
 0FE4:  MOVFF  397,3A1
 0FE8:  MOVLB  0
 0FEA:  RCALL  0EF4
-.................... } 
+....................  
 0FEC:  GOTO   15C8 (RETURN)
 ....................  
-.................... #define BOOTLOADER_FIRST_PAGE_ADDRESS 0x1100 
-.................... #org BOOTLOADER_FIRST_PAGE_ADDRESS, BOOTLOADER_FIRST_PAGE_ADDRESS + getenv("FLASH_ERASE_SIZE") {} 
 ....................  
 ....................  
-.................... //the main program overwrites the interrupt handler in the first page, so we need to save/restore it. 
-.................... static void fix_first_page() { 
+....................  
+....................  
+....................  
+....................  
 *
 0B80:  BCF    xD2.0
-....................   uint8_t reset_vector[] = { 0x80, 0xEF, 0x00, 0xF0 }; 
+....................  
 *
 0B60:  MOVLW  80
 0B62:  MOVLB  3
@@ -7316,7 +7324,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0B6A:  CLRF   x8C
 0B6C:  MOVLW  F0
 0B6E:  MOVWF  x8D
-....................   uint8_t interrupt_vector[] = { 0x04, 0x6E, 0xD8, 0xCf }; 
+....................  
 0B70:  MOVLW  04
 0B72:  MOVWF  x8E
 0B74:  MOVLW  6E
@@ -7325,10 +7333,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0B7A:  MOVWF  x90
 0B7C:  MOVLW  CF
 0B7E:  MOVWF  x91
-....................   uint8_t start_bytes[getenv("FLASH_ERASE_SIZE")]; 
-....................   bool should_write = false; 
 ....................  
-....................   read_program_memory(0, start_bytes, sizeof(start_bytes)); 
+....................  
+....................  
+....................  
 *
 0B82:  CLRF   FF8
 0B84:  CLRF   FF7
@@ -7342,8 +7350,8 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0B94:  MOVWF  xDD
 0B96:  MOVLB  0
 0B98:  RCALL  09E6
-....................   //check if the reset vector contains the correct jump, if not, overwrite it 
-....................   if (memcmp(start_bytes, reset_vector, sizeof(reset_vector)) != 0) { 
+....................  
+....................  
 0B9A:  MOVLW  03
 0B9C:  MOVLB  3
 0B9E:  MOVWF  xD8
@@ -7360,10 +7368,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0BB4:  RCALL  0A50
 0BB6:  MOVF   01,F
 0BB8:  BZ    0BDA
-....................     should_write = true; 
+....................  
 0BBA:  MOVLB  3
 0BBC:  BSF    xD2.0
-....................     memcpy(start_bytes, reset_vector, sizeof(reset_vector)); 
+....................  
 0BBE:  MOVLW  03
 0BC0:  MOVWF  FEA
 0BC2:  MOVLW  92
@@ -7377,10 +7385,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0BD2:  MOVFF  FE6,FEE
 0BD6:  DECFSZ 01,F
 0BD8:  BRA    0BD2
-....................   } 
 ....................  
-....................   //check if the interrupt handler contains the correct jump, if not, overwrite it 
-....................  if (memcmp(start_bytes+8, interrupt_vector, sizeof(interrupt_vector)) != 0) { 
+....................  
+....................  
+....................  
 0BDA:  MOVLW  03
 0BDC:  MOVLB  3
 0BDE:  MOVWF  xD8
@@ -7397,10 +7405,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0BF4:  RCALL  0A50
 0BF6:  MOVF   01,F
 0BF8:  BZ    0C1A
-....................     should_write = true; 
+....................  
 0BFA:  MOVLB  3
 0BFC:  BSF    xD2.0
-....................     memcpy(start_bytes+8, interrupt_vector, sizeof(interrupt_vector)); 
+....................  
 0BFE:  MOVLW  03
 0C00:  MOVWF  FEA
 0C02:  MOVLW  9A
@@ -7414,13 +7422,13 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0C12:  MOVFF  FE6,FEE
 0C16:  DECFSZ 01,F
 0C18:  BRA    0C12
-....................   } 
 ....................  
-....................   if(should_write) { 
+....................  
+....................  
 0C1A:  MOVLB  3
 0C1C:  BTFSS  xD2.0
 0C1E:  BRA    0C4E
-....................     safe_write_program_memory(0x0000, start_bytes, sizeof(start_bytes)); 
+....................  
 0C20:  BCF    FF2.6
 0C22:  BCF    FF2.7
 0C24:  BTFSC  FF2.7
@@ -7444,18 +7452,18 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 0C48:  MOVLB  0
 0C4A:  RCALL  0B36
 0C4C:  MOVLB  3
-....................   } 
-.................... } 
-0C4E:  MOVLB  0
-0C50:  GOTO   0700 (RETURN)
 ....................  
-.................... static void handle_set_data_line_message(void* payload_buffer) { 
+....................  
+0C4E:  MOVLB  0
+0C50:  GOTO   06F4 (RETURN)
+....................  
+....................  
 *
 12EE:  MOVFF  395,397
 12F2:  MOVFF  394,396
-....................   set_data_line_payload_t* payload = (set_data_line_payload_t*)payload_buffer; 
 ....................  
-....................   set_data_line_response_t response = {}; 
+....................  
+....................  
 12F6:  MOVLB  3
 12F8:  CLRF   x98
 12FA:  CLRF   x99
@@ -7463,10 +7471,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 12FE:  CLRF   x9B
 1300:  CLRF   x9C
 1302:  CLRF   x9D
-....................   response.generic.opcode = OP_SET_DATA_LINE_RESPONSE; 
+....................  
 1304:  MOVLW  86
 1306:  MOVWF  x98
-....................   response.address = payload->address; 
+....................  
 1308:  MOVFF  396,FE9
 130C:  MOVFF  397,FEA
 1310:  MOVFF  FEF,00
@@ -7477,11 +7485,11 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1324:  MOVFF  02,39B
 1328:  MOVFF  01,39A
 132C:  MOVFF  00,399
-....................   response.status = PROGRAMMING_STATUS_OK; 
+....................  
 1330:  CLRF   x9D
 ....................  
-....................   if ((payload->address < CALIBRATION_AREA_START || payload->address > CALIBRATION_AREA_END) 
-....................       && payload->address > LOADER_END && payload->address < 65535) { 
+....................  
+....................  
 1332:  MOVFF  396,FE9
 1336:  MOVFF  397,FEA
 133A:  MOVFF  FEF,39E
@@ -7539,7 +7547,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 13CE:  MOVF   x9E,W
 13D0:  SUBLW  FE
 13D2:  BNC   145C
-....................     if (!get_metadata()->run_loader) { 
+....................  
 13D4:  MOVLB  0
 13D6:  CALL   0A04
 13DA:  MOVFF  02,39F
@@ -7549,14 +7557,14 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 13E8:  MOVFF  39F,FEA
 13EC:  BTFSC  FEF.0
 13EE:  BRA    13F8
-....................       set_software_ready(false); 
+....................  
 13F0:  CLRF   x9E
 13F2:  MOVLB  0
 13F4:  RCALL  0F3A
 13F6:  MOVLB  3
-....................     } 
 ....................  
-....................     safe_write_program_memory(payload->address, payload->data, sizeof(payload->data)); 
+....................  
+....................  
 13F8:  BCF    FF2.6
 13FA:  BCF    FF2.7
 13FC:  BTFSC  FF2.7
@@ -7594,20 +7602,20 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1450:  MOVWF  xE3
 1452:  MOVLB  0
 1454:  CALL   0B36
-....................   } 
-....................   else { 
+....................  
+....................  
 1458:  BRA    1468
 145A:  MOVLB  3
-....................     delay_us(1); 
+....................  
 145C:  MOVLW  04
 145E:  MOVWF  00
 1460:  DECFSZ 00,F
 1462:  BRA    1460
 1464:  BRA    1466
 1466:  NOP   
-....................   } 
 ....................  
-....................   comm_send_message(&response, sizeof(response)); 
+....................  
+....................  
 1468:  MOVLW  03
 146A:  MOVLB  3
 146C:  MOVWF  xDE
@@ -7618,14 +7626,14 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1476:  MOVWF  xDF
 1478:  MOVLB  0
 147A:  RCALL  0F9A
-.................... } 
+....................  
 147C:  RETURN 0
 ....................  
-.................... static void handle_get_data_line_message(void* payload_buffer) { 
+....................  
 147E:  MOVFF  395,397
 1482:  MOVFF  394,396
-....................   get_data_line_payload_t* payload = (get_data_line_payload_t*)payload_buffer; 
-....................   get_data_line_response_t response = {}; 
+....................  
+....................  
 1486:  MOVLB  3
 1488:  CLRF   x98
 148A:  CLRF   x99
@@ -7697,10 +7705,10 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 150E:  CLRF   xDB
 1510:  CLRF   xDC
 ....................  
-....................   response.generic.opcode = OP_GET_DATA_LINE_RESPONSE; 
+....................  
 1512:  MOVLW  87
 1514:  MOVWF  x98
-....................   response.address = payload->address; 
+....................  
 1516:  MOVFF  396,FE9
 151A:  MOVFF  397,FEA
 151E:  MOVFF  FEF,00
@@ -7711,7 +7719,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1532:  MOVFF  02,39B
 1536:  MOVFF  01,39A
 153A:  MOVFF  00,399
-....................   read_program_memory(response.address, response.data, sizeof(response.data)); 
+....................  
 153E:  CLRF   FF8
 1540:  MOVFF  39A,FF7
 1544:  MOVFF  399,FF6
@@ -7725,7 +7733,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1556:  MOVLB  0
 1558:  CALL   09E6
 ....................  
-....................   comm_send_message(&response, sizeof(response)); 
+....................  
 155C:  MOVLW  03
 155E:  MOVLB  3
 1560:  MOVWF  xDE
@@ -7736,11 +7744,11 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 156A:  MOVWF  xDF
 156C:  MOVLB  0
 156E:  RCALL  0F9A
-.................... } 
+....................  
 1570:  RETURN 0
 ....................  
-.................... static void handle_version_request_message(void* payload_buffer) { 
-....................   version_response_t response = {}; 
+....................  
+....................  
 1572:  MOVLB  3
 1574:  CLRF   x96
 1576:  CLRF   x97
@@ -7751,30 +7759,30 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1580:  CLRF   x9C
 1582:  CLRF   x9D
 1584:  CLRF   x9E
-....................   response.generic.opcode = OP_VERSION_RESPONSE; 
+....................  
 1586:  MOVLW  82
 1588:  MOVWF  x96
-....................   response.day = VERSION_DAY; 
-158A:  MOVLW  12
+....................  
+158A:  MOVLW  13
 158C:  MOVWF  x97
-....................   response.month = VERSION_MONTH; 
+....................  
 158E:  MOVLW  06
 1590:  MOVWF  x98
-....................   response.year = VERSION_YEAR; 
+....................  
 1592:  MOVLW  07
 1594:  MOVWF  x9A
 1596:  MOVLW  E2
 1598:  MOVWF  x99
-....................   response.major = VERSION_MAJOR; 
+....................  
 159A:  MOVLW  0B
 159C:  MOVWF  x9B
-....................   response.minor = VERSION_MINOR; 
+....................  
 159E:  MOVLW  05
 15A0:  MOVWF  x9C
-....................   response.serial_number = 0; 
+....................  
 15A2:  CLRF   x9E
 15A4:  CLRF   x9D
-....................   comm_send_message(&response, sizeof(response)); 
+....................  
 15A6:  MOVLW  03
 15A8:  MOVWF  xDE
 15AA:  MOVLW  96
@@ -7784,26 +7792,26 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 15B2:  MOVWF  xDF
 15B4:  MOVLB  0
 15B6:  RCALL  0F9A
-.................... } 
+....................  
 15B8:  RETURN 0
 ....................  
-.................... static void handle_finish_update_process_message(void* payload_buffer) { 
-....................   ack_response_t response = {}; 
+....................  
+....................  
 15BA:  MOVLB  3
 15BC:  CLRF   x96
 ....................  
-....................   set_software_ready(true); 
+....................  
 15BE:  MOVLW  01
 15C0:  MOVWF  x9E
 15C2:  MOVLB  0
 15C4:  RCALL  0F3A
-....................   set_first_page_dirty(); 
+....................  
 15C6:  BRA    0FCA
-....................   response.generic.opcode = OP_ACK_RESPONSE; 
+....................  
 15C8:  MOVLW  80
 15CA:  MOVLB  3
 15CC:  MOVWF  x96
-....................   comm_send_message(&response, sizeof(response)); 
+....................  
 15CE:  MOVLW  03
 15D0:  MOVWF  xDE
 15D2:  MOVLW  96
@@ -7813,42 +7821,42 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 15DA:  MOVWF  xDF
 15DC:  MOVLB  0
 15DE:  RCALL  0F9A
-.................... } 
+....................  
 15E0:  RETURN 0
 ....................  
-.................... typedef void (*cmd_func)(void* message_payload); 
 ....................  
-.................... typedef struct cmd_entry { 
-....................   uint8_t opcode; 
-....................   cmd_func func; 
-.................... } cmd_entry; 
 ....................  
-.................... static cmd_entry commands[] = { 
-....................   { OP_SET_DATA_LINE_MESSAGE, handle_set_data_line_message }, 
-....................   { OP_GET_DATA_LINE_MESSAGE, handle_get_data_line_message }, 
-....................   { OP_VERSION_REQUEST_MESSAGE, handle_version_request_message }, 
-....................   { OP_FINISH_UPDATE_PROCESS_MESSAGE, handle_finish_update_process_message }, 
-.................... }; 
 ....................  
-.................... static uint8_t message_buffer[MSG_MAX_MESSAGE_LEN]; 
 ....................  
-.................... static void process_loader_message() { 
-....................   message_t* message; 
-....................   message = (message_t*)message_buffer; 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 15E2:  MOVLW  02
 15E4:  MOVLB  3
 15E6:  MOVWF  x93
 15E8:  MOVLW  3D
 15EA:  MOVFF  393,38E
 15EE:  MOVWF  x8D
-....................   /* find the correct func */ 
-....................   int i; 
-....................   for(i=0;i<ARRAY_SIZE(commands); i++) { 
+....................  
+....................  
+....................  
 15F0:  CLRF   x8F
 15F2:  MOVF   x8F,W
 15F4:  SUBLW  03
 15F6:  BNC   167A
-....................     if(commands[i].opcode == message->opcode) { 
+....................  
 15F8:  MOVF   x8F,W
 15FA:  MULLW  03
 15FC:  MOVF   FF3,W
@@ -7866,16 +7874,16 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 161A:  MOVF   FEF,W
 161C:  SUBWF  x94,W
 161E:  BNZ   1676
-....................       //ugly hack to make p point to message->payload... 
-....................       uint16_t p = message; 
+....................  
+....................  
 1620:  MOVFF  38E,391
 1624:  MOVFF  38D,390
-....................       p += 1; 
+....................  
 1628:  MOVLW  01
 162A:  ADDWF  x90,F
 162C:  MOVLW  00
 162E:  ADDWFC x91,F
-....................       commands[i].func((uint16_t*)p); 
+....................  
 1630:  MOVF   x8F,W
 1632:  MULLW  03
 1634:  MOVF   FF3,W
@@ -7904,21 +7912,21 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 1668:  MOVFF  390,394
 166C:  MOVLB  0
 166E:  CALL   0942
-....................       return; 
+....................  
 1672:  BRA    167A
 1674:  MOVLB  3
-....................     } 
-....................   } 
+....................  
+....................  
 1676:  INCF   x8F,F
 1678:  BRA    15F2
 167A:  MOVLB  0
-.................... } 
+....................  
 167C:  GOTO   16A8 (RETURN)
 ....................  
-.................... static void loader_main() { 
-....................   while (1) { 
-....................     uint16_t size; 
-....................     bool res = comm_receive_message(message_buffer, &size); 
+....................  
+....................  
+....................  
+....................  
 1680:  MOVLW  02
 1682:  MOVLB  3
 1684:  MOVWF  x8E
@@ -7934,35 +7942,35 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 169A:  BCF    x8C.0
 169C:  BTFSC  01.0
 169E:  BSF    x8C.0
-....................     if (res) 
+....................  
 16A0:  BTFSS  x8C.0
 16A2:  BRA    16A8
-....................       process_loader_message(); 
+....................  
 16A4:  MOVLB  0
 16A6:  BRA    15E2
-....................   } 
+....................  
 16A8:  MOVLB  0
 16AA:  BRA    1680
-.................... } 
-16AC:  GOTO   070A (RETURN)
 ....................  
-.................... static void init_io_ports() { 
-....................   //we only care about B1, the PROG_EN pin 
-....................   output_high(PIN_B1); 
+16AC:  GOTO   06FE (RETURN)
+....................  
+....................  
+....................  
+....................  
 *
 00F4:  BSF    F8A.1
-....................   set_tris_b(0xFF);//set all B pins to input mode 
+....................  
 00F6:  MOVLW  FF
 00F8:  MOVWF  F93
-.................... } 
-00FA:  GOTO   068E (RETURN)
 ....................  
-.................... static void dummy_function() { 
-.................... } 
+00FA:  GOTO   0682 (RETURN)
+....................  
+....................  
+....................  
 00FE:  RETURN 0
 ....................  
-.................... #org 0x100, 0x800 
-.................... int main() { 
+....................  
+....................  
 0100:  CLRF   FF8
 0102:  BCF    FD0.7
 0104:  BSF    07.7
@@ -8004,787 +8012,781 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 014C:  MOVWF  FD3
 014E:  BSF    F9B.6
 0150:  BCF    F9B.7
-0152:  MOVWF  FD3
-0154:  BSF    F9B.6
-0156:  BCF    F9B.7
-0158:  MOVWF  FD3
-015A:  BSF    F9B.6
-015C:  BCF    F9B.7
-015E:  MOVLB  3
-0160:  SETF   x80
-0162:  SETF   x7F
-0164:  SETF   x7E
-0166:  SETF   x7D
-0168:  MOVF   FC1,W
-016A:  ANDLW  F0
-016C:  MOVWF  FC1
-016E:  MOVLW  00
-0170:  MOVLB  F
-0172:  MOVWF  x38
-0174:  MOVWF  x3C
-0176:  MOVWF  x39
-0178:  MOVWF  x3A
-017A:  MOVWF  x3B
-017C:  MOVLB  1
-017E:  CLRF   x88
-0180:  CLRF   F77
-0182:  CLRF   F78
-0184:  CLRF   F79
-0186:  CLRF   1E
-0188:  CLRF   1F
-018A:  CLRF   20
-018C:  CLRF   21
-018E:  CLRF   22
-0190:  CLRF   23
-0192:  CLRF   24
-0194:  CLRF   25
-0196:  CLRF   26
-0198:  CLRF   27
-019A:  CLRF   28
-019C:  CLRF   29
-019E:  CLRF   2A
-01A0:  CLRF   2B
-01A2:  CLRF   2C
-01A4:  CLRF   2D
-01A6:  CLRF   2E
-01A8:  CLRF   2F
-01AA:  CLRF   30
-01AC:  CLRF   31
-01AE:  CLRF   32
-01B0:  CLRF   33
-01B2:  CLRF   34
-01B4:  CLRF   35
-01B6:  CLRF   36
-01B8:  CLRF   37
-01BA:  CLRF   38
-01BC:  CLRF   39
-01BE:  CLRF   3A
-01C0:  CLRF   3B
-01C2:  CLRF   3C
-01C4:  CLRF   3D
-01C6:  CLRF   3E
-01C8:  CLRF   3F
-01CA:  CLRF   40
-01CC:  CLRF   41
-01CE:  CLRF   42
-01D0:  CLRF   43
-01D2:  CLRF   44
-01D4:  CLRF   45
-01D6:  CLRF   46
-01D8:  CLRF   47
-01DA:  CLRF   48
-01DC:  CLRF   49
-01DE:  CLRF   4A
-01E0:  CLRF   4B
-01E2:  CLRF   4C
-01E4:  CLRF   4D
-01E6:  CLRF   4E
-01E8:  CLRF   4F
-01EA:  CLRF   50
-01EC:  CLRF   51
-01EE:  CLRF   52
-01F0:  CLRF   53
-01F2:  CLRF   54
-01F4:  CLRF   55
-01F6:  CLRF   56
-01F8:  CLRF   57
-01FA:  CLRF   58
-01FC:  CLRF   59
-01FE:  CLRF   5A
-0200:  CLRF   5B
-0202:  CLRF   5C
-0204:  CLRF   5D
-0206:  CLRF   5E
-0208:  CLRF   5F
-020A:  MOVLB  0
-020C:  CLRF   x60
-020E:  CLRF   x61
-0210:  CLRF   x62
-0212:  CLRF   x63
-0214:  CLRF   x64
-0216:  CLRF   x65
-0218:  CLRF   x66
-021A:  CLRF   x67
-021C:  CLRF   x68
-021E:  CLRF   x69
-0220:  CLRF   x6A
-0222:  CLRF   x6B
-0224:  CLRF   x6C
-0226:  CLRF   x6D
-0228:  CLRF   x6E
-022A:  CLRF   x6F
-022C:  CLRF   x70
-022E:  CLRF   x71
-0230:  CLRF   x72
-0232:  CLRF   x73
-0234:  CLRF   x74
-0236:  CLRF   x75
-0238:  CLRF   x76
-023A:  CLRF   x77
-023C:  CLRF   x78
-023E:  CLRF   x79
-0240:  CLRF   x7A
-0242:  CLRF   x7B
-0244:  CLRF   x7C
-0246:  CLRF   x7D
-0248:  CLRF   x7E
-024A:  CLRF   x7F
-024C:  CLRF   x80
-024E:  CLRF   x81
-0250:  CLRF   x82
-0252:  CLRF   x83
-0254:  CLRF   x84
-0256:  CLRF   x85
-0258:  CLRF   x86
-025A:  CLRF   x87
-025C:  CLRF   x88
-025E:  CLRF   x89
-0260:  CLRF   x8A
-0262:  CLRF   x8B
-0264:  CLRF   x8C
-0266:  CLRF   x8D
-0268:  CLRF   x8E
-026A:  CLRF   x8F
-026C:  CLRF   x90
-026E:  CLRF   x91
-0270:  CLRF   x92
-0272:  CLRF   x93
-0274:  CLRF   x94
-0276:  CLRF   x95
-0278:  CLRF   x96
-027A:  CLRF   x97
-027C:  CLRF   x98
-027E:  CLRF   x99
-0280:  CLRF   x9A
-0282:  CLRF   x9B
-0284:  CLRF   x9C
-0286:  CLRF   x9D
-0288:  CLRF   x9E
-028A:  CLRF   x9F
-028C:  CLRF   xA0
-028E:  CLRF   xA1
-0290:  CLRF   xA2
-0292:  CLRF   xA3
-0294:  CLRF   xA4
-0296:  CLRF   xA5
-0298:  CLRF   xA6
-029A:  CLRF   xA7
-029C:  CLRF   xA8
-029E:  CLRF   xA9
-02A0:  CLRF   xAA
-02A2:  CLRF   xAB
-02A4:  CLRF   xAC
-02A6:  CLRF   xAD
-02A8:  CLRF   xAE
-02AA:  CLRF   xAF
-02AC:  CLRF   xB0
-02AE:  CLRF   xB1
-02B0:  CLRF   xB2
-02B2:  CLRF   xB3
-02B4:  CLRF   xB4
-02B6:  CLRF   xB5
-02B8:  CLRF   xB6
-02BA:  CLRF   xB7
-02BC:  CLRF   xB8
-02BE:  CLRF   xB9
-02C0:  CLRF   xBA
-02C2:  CLRF   xBB
-02C4:  CLRF   xBC
-02C6:  CLRF   xBD
-02C8:  CLRF   xBE
-02CA:  CLRF   xBF
-02CC:  CLRF   xC0
-02CE:  CLRF   xC1
-02D0:  CLRF   xC2
-02D2:  CLRF   xC3
-02D4:  CLRF   xC4
-02D6:  CLRF   xC5
-02D8:  CLRF   xC6
-02DA:  CLRF   xC7
-02DC:  CLRF   xC8
-02DE:  CLRF   xC9
-02E0:  CLRF   xCA
-02E2:  CLRF   xCB
-02E4:  CLRF   xCC
-02E6:  CLRF   xCD
-02E8:  CLRF   xCE
-02EA:  CLRF   xCF
-02EC:  CLRF   xD0
-02EE:  CLRF   xD1
-02F0:  CLRF   xD2
-02F2:  CLRF   xD3
-02F4:  CLRF   xD4
-02F6:  CLRF   xD5
-02F8:  CLRF   xD6
-02FA:  CLRF   xD7
-02FC:  CLRF   xD8
-02FE:  CLRF   xD9
-0300:  CLRF   xDA
-0302:  CLRF   xDB
-0304:  CLRF   xDC
-0306:  CLRF   xDD
-0308:  CLRF   xDE
-030A:  CLRF   xDF
-030C:  CLRF   xE0
-030E:  CLRF   xE1
-0310:  CLRF   xE2
-0312:  CLRF   xE3
-0314:  CLRF   xE4
-0316:  CLRF   xE5
-0318:  CLRF   xE6
-031A:  CLRF   xE7
-031C:  CLRF   xE8
-031E:  CLRF   xE9
-0320:  CLRF   xEA
-0322:  CLRF   xEB
-0324:  CLRF   xEC
-0326:  CLRF   xED
-0328:  CLRF   xEE
-032A:  CLRF   xEF
-032C:  CLRF   xF0
-032E:  CLRF   xF1
-0330:  CLRF   xF2
-0332:  CLRF   xF3
-0334:  CLRF   xF4
-0336:  CLRF   xF5
-0338:  CLRF   xF6
-033A:  CLRF   xF7
-033C:  CLRF   xF8
-033E:  CLRF   xF9
-0340:  CLRF   xFA
-0342:  CLRF   xFB
-0344:  CLRF   xFC
-0346:  CLRF   xFD
-0348:  CLRF   xFE
-034A:  CLRF   xFF
-034C:  MOVLB  1
-034E:  CLRF   x00
-0350:  CLRF   x01
-0352:  CLRF   x02
-0354:  CLRF   x03
-0356:  CLRF   x04
-0358:  CLRF   x05
-035A:  CLRF   x06
-035C:  CLRF   x07
-035E:  CLRF   x08
-0360:  CLRF   x09
-0362:  CLRF   x0A
-0364:  CLRF   x0B
-0366:  CLRF   x0C
-0368:  CLRF   x0D
-036A:  CLRF   x0E
-036C:  CLRF   x0F
-036E:  CLRF   x10
-0370:  CLRF   x11
-0372:  CLRF   x12
-0374:  CLRF   x13
-0376:  CLRF   x14
-0378:  CLRF   x15
-037A:  CLRF   x16
-037C:  CLRF   x17
-037E:  CLRF   x18
-0380:  CLRF   x19
-0382:  CLRF   x1A
-0384:  CLRF   x1B
-0386:  CLRF   x1C
-0388:  CLRF   x1D
-038A:  CLRF   x1E
-038C:  CLRF   x1F
-038E:  CLRF   x20
-0390:  CLRF   x21
-0392:  CLRF   x22
-0394:  CLRF   x23
-0396:  CLRF   x24
-0398:  CLRF   x25
-039A:  CLRF   x26
-039C:  CLRF   x27
-039E:  CLRF   x28
-03A0:  CLRF   x29
-03A2:  CLRF   x2A
-03A4:  CLRF   x2B
-03A6:  CLRF   x2C
-03A8:  CLRF   x2D
-03AA:  CLRF   x2E
-03AC:  CLRF   x2F
-03AE:  CLRF   x30
-03B0:  CLRF   x31
-03B2:  CLRF   x32
-03B4:  CLRF   x33
-03B6:  CLRF   x34
-03B8:  CLRF   x35
-03BA:  CLRF   x36
-03BC:  CLRF   x37
-03BE:  CLRF   x38
-03C0:  CLRF   x39
-03C2:  CLRF   x3A
-03C4:  CLRF   x3B
-03C6:  CLRF   x3C
-03C8:  CLRF   x3D
-03CA:  CLRF   x3E
-03CC:  CLRF   x3F
-03CE:  CLRF   x40
-03D0:  CLRF   x41
-03D2:  CLRF   x42
-03D4:  CLRF   x43
-03D6:  CLRF   x44
-03D8:  CLRF   x45
-03DA:  CLRF   x46
-03DC:  CLRF   x47
-03DE:  CLRF   x48
-03E0:  CLRF   x49
-03E2:  CLRF   x4A
-03E4:  CLRF   x4B
-03E6:  CLRF   x4C
-03E8:  CLRF   x4D
-03EA:  CLRF   x4E
-03EC:  CLRF   x4F
-03EE:  CLRF   x50
-03F0:  CLRF   x51
-03F2:  CLRF   x52
-03F4:  CLRF   x53
-03F6:  CLRF   x54
-03F8:  CLRF   x55
-03FA:  CLRF   x56
-03FC:  CLRF   x57
-03FE:  CLRF   x58
-0400:  CLRF   x59
-0402:  CLRF   x5A
-0404:  CLRF   x5B
-0406:  CLRF   x5C
-0408:  CLRF   x5D
-040A:  CLRF   x5E
-040C:  CLRF   x5F
-040E:  CLRF   x60
-0410:  CLRF   x61
-0412:  CLRF   x62
-0414:  CLRF   x63
-0416:  CLRF   x64
-0418:  CLRF   x65
-041A:  CLRF   x66
-041C:  CLRF   x67
-041E:  CLRF   x68
-0420:  CLRF   x69
-0422:  CLRF   x6A
-0424:  CLRF   x6B
-0426:  CLRF   x6C
-0428:  CLRF   x6D
-042A:  CLRF   x6E
-042C:  CLRF   x6F
-042E:  CLRF   x70
-0430:  CLRF   x71
-0432:  CLRF   x72
-0434:  CLRF   x73
-0436:  CLRF   x74
-0438:  CLRF   x75
-043A:  CLRF   x76
-043C:  CLRF   x77
-043E:  CLRF   x78
-0440:  CLRF   x79
-0442:  CLRF   x7A
-0444:  CLRF   x7B
-0446:  CLRF   x7C
-0448:  CLRF   x7D
-044A:  CLRF   x7E
-044C:  CLRF   x7F
-044E:  CLRF   x80
-0450:  CLRF   x81
-0452:  CLRF   x82
-0454:  CLRF   x83
-0456:  CLRF   x84
-0458:  CLRF   x85
-045A:  CLRF   x86
-045C:  CLRF   x87
-045E:  CLRF   x88
-0460:  CLRF   x89
-0462:  CLRF   x8A
-0464:  CLRF   x8B
-0466:  CLRF   x8C
-0468:  CLRF   x8D
-046A:  CLRF   x8E
-046C:  CLRF   x8F
-046E:  CLRF   x90
-0470:  CLRF   x91
-0472:  CLRF   x92
-0474:  CLRF   x93
-0476:  CLRF   x94
-0478:  CLRF   x95
-047A:  CLRF   x96
-047C:  CLRF   x97
-047E:  CLRF   x98
-0480:  CLRF   x99
-0482:  CLRF   x9A
-0484:  CLRF   x9B
-0486:  CLRF   x9C
-0488:  CLRF   x9D
-048A:  CLRF   x9E
-048C:  CLRF   x9F
-048E:  CLRF   xA0
-0490:  CLRF   xA1
-0492:  CLRF   xA2
-0494:  CLRF   xA3
-0496:  CLRF   xA4
-0498:  CLRF   xA5
-049A:  CLRF   xA6
-049C:  CLRF   xA7
-049E:  CLRF   xA8
-04A0:  CLRF   xA9
-04A2:  CLRF   xAA
-04A4:  CLRF   xAB
-04A6:  CLRF   xAC
-04A8:  CLRF   xAD
-04AA:  CLRF   xAE
-04AC:  CLRF   xAF
-04AE:  CLRF   xB0
-04B0:  CLRF   xB1
-04B2:  CLRF   xB2
-04B4:  CLRF   xB3
-04B6:  CLRF   xB4
-04B8:  CLRF   xB5
-04BA:  CLRF   xB6
-04BC:  CLRF   xB7
-04BE:  CLRF   xB8
-04C0:  CLRF   xB9
-04C2:  CLRF   xBA
-04C4:  CLRF   xBB
-04C6:  CLRF   xBC
-04C8:  CLRF   xBD
-04CA:  CLRF   xBE
-04CC:  CLRF   xBF
-04CE:  CLRF   xC0
-04D0:  CLRF   xC1
-04D2:  CLRF   xC2
-04D4:  CLRF   xC3
-04D6:  CLRF   xC4
-04D8:  CLRF   xC5
-04DA:  CLRF   xC6
-04DC:  CLRF   xC7
-04DE:  CLRF   xC8
-04E0:  CLRF   xC9
-04E2:  CLRF   xCA
-04E4:  CLRF   xCB
-04E6:  CLRF   xCC
-04E8:  CLRF   xCD
-04EA:  CLRF   xCE
-04EC:  CLRF   xCF
-04EE:  CLRF   xD0
-04F0:  CLRF   xD1
-04F2:  CLRF   xD2
-04F4:  CLRF   xD3
-04F6:  CLRF   xD4
-04F8:  CLRF   xD5
-04FA:  CLRF   xD6
-04FC:  CLRF   xD7
-04FE:  CLRF   xD8
-0500:  CLRF   xD9
-0502:  CLRF   xDA
-0504:  CLRF   xDB
-0506:  CLRF   xDC
-0508:  CLRF   xDD
-050A:  CLRF   xDE
-050C:  CLRF   xDF
-050E:  CLRF   xE0
-0510:  CLRF   xE1
-0512:  CLRF   xE2
-0514:  CLRF   xE3
-0516:  CLRF   xE4
-0518:  CLRF   xE5
-051A:  CLRF   xE6
-051C:  CLRF   xE7
-051E:  CLRF   xE8
-0520:  CLRF   xE9
-0522:  CLRF   xEA
-0524:  CLRF   xEB
-0526:  CLRF   xEC
-0528:  CLRF   xED
-052A:  CLRF   xEE
-052C:  CLRF   xEF
-052E:  CLRF   xF0
-0530:  CLRF   xF1
-0532:  CLRF   xF2
-0534:  CLRF   xF3
-0536:  CLRF   xF4
-0538:  CLRF   xF5
-053A:  CLRF   xF6
-053C:  CLRF   xF7
-053E:  CLRF   xF8
-0540:  CLRF   xF9
-0542:  CLRF   xFA
-0544:  CLRF   xFB
-0546:  CLRF   xFC
-0548:  CLRF   xFD
-054A:  CLRF   xFE
-054C:  CLRF   xFF
-054E:  MOVLB  2
-0550:  CLRF   x00
-0552:  CLRF   x01
-0554:  CLRF   x02
-0556:  CLRF   x03
-0558:  CLRF   x04
-055A:  CLRF   x05
-055C:  CLRF   x06
-055E:  CLRF   x07
-0560:  CLRF   x08
-0562:  CLRF   x09
-0564:  CLRF   x0A
-0566:  CLRF   x0B
-0568:  CLRF   x0C
-056A:  CLRF   x0D
-056C:  CLRF   x0E
-056E:  CLRF   x0F
-0570:  CLRF   x10
-0572:  CLRF   x11
-0574:  CLRF   x12
-0576:  CLRF   x13
-0578:  CLRF   x14
-057A:  CLRF   x15
-057C:  CLRF   x16
-057E:  CLRF   x17
-0580:  CLRF   x18
-0582:  CLRF   x19
-0584:  CLRF   x1A
-0586:  CLRF   x1B
-0588:  CLRF   x1C
-058A:  CLRF   x1D
-058C:  CLRF   x1E
-058E:  CLRF   x1F
-0590:  CLRF   x20
-0592:  CLRF   x21
-0594:  CLRF   x22
-0596:  CLRF   x23
-0598:  CLRF   x24
-059A:  CLRF   x25
-059C:  CLRF   x26
-059E:  CLRF   x27
-05A0:  CLRF   x28
-05A2:  CLRF   x29
-05A4:  CLRF   x2A
-05A6:  CLRF   x2B
-05A8:  CLRF   x2C
-05AA:  CLRF   x2D
-05AC:  CLRF   x2E
-05AE:  CLRF   x2F
-05B0:  CLRF   x30
-05B2:  MOVLW  06
-05B4:  MOVWF  x31
-05B6:  MOVLW  12
-05B8:  MOVWF  x33
-05BA:  MOVLW  EE
-05BC:  MOVWF  x32
-05BE:  MOVLW  07
-05C0:  MOVWF  x34
-05C2:  MOVLW  14
-05C4:  MOVWF  x36
-05C6:  MOVLW  7E
-05C8:  MOVWF  x35
-05CA:  MOVLW  02
-05CC:  MOVWF  x37
+0152:  MOVLB  3
+0154:  SETF   x80
+0156:  SETF   x7F
+0158:  SETF   x7E
+015A:  SETF   x7D
+015C:  MOVF   FC1,W
+015E:  ANDLW  F0
+0160:  MOVWF  FC1
+0162:  MOVLW  00
+0164:  MOVLB  F
+0166:  MOVWF  x38
+0168:  MOVWF  x3C
+016A:  MOVWF  x39
+016C:  MOVWF  x3A
+016E:  MOVWF  x3B
+0170:  MOVLB  1
+0172:  CLRF   x88
+0174:  CLRF   F77
+0176:  CLRF   F78
+0178:  CLRF   F79
+017A:  CLRF   1E
+017C:  CLRF   1F
+017E:  CLRF   20
+0180:  CLRF   21
+0182:  CLRF   22
+0184:  CLRF   23
+0186:  CLRF   24
+0188:  CLRF   25
+018A:  CLRF   26
+018C:  CLRF   27
+018E:  CLRF   28
+0190:  CLRF   29
+0192:  CLRF   2A
+0194:  CLRF   2B
+0196:  CLRF   2C
+0198:  CLRF   2D
+019A:  CLRF   2E
+019C:  CLRF   2F
+019E:  CLRF   30
+01A0:  CLRF   31
+01A2:  CLRF   32
+01A4:  CLRF   33
+01A6:  CLRF   34
+01A8:  CLRF   35
+01AA:  CLRF   36
+01AC:  CLRF   37
+01AE:  CLRF   38
+01B0:  CLRF   39
+01B2:  CLRF   3A
+01B4:  CLRF   3B
+01B6:  CLRF   3C
+01B8:  CLRF   3D
+01BA:  CLRF   3E
+01BC:  CLRF   3F
+01BE:  CLRF   40
+01C0:  CLRF   41
+01C2:  CLRF   42
+01C4:  CLRF   43
+01C6:  CLRF   44
+01C8:  CLRF   45
+01CA:  CLRF   46
+01CC:  CLRF   47
+01CE:  CLRF   48
+01D0:  CLRF   49
+01D2:  CLRF   4A
+01D4:  CLRF   4B
+01D6:  CLRF   4C
+01D8:  CLRF   4D
+01DA:  CLRF   4E
+01DC:  CLRF   4F
+01DE:  CLRF   50
+01E0:  CLRF   51
+01E2:  CLRF   52
+01E4:  CLRF   53
+01E6:  CLRF   54
+01E8:  CLRF   55
+01EA:  CLRF   56
+01EC:  CLRF   57
+01EE:  CLRF   58
+01F0:  CLRF   59
+01F2:  CLRF   5A
+01F4:  CLRF   5B
+01F6:  CLRF   5C
+01F8:  CLRF   5D
+01FA:  CLRF   5E
+01FC:  CLRF   5F
+01FE:  MOVLB  0
+0200:  CLRF   x60
+0202:  CLRF   x61
+0204:  CLRF   x62
+0206:  CLRF   x63
+0208:  CLRF   x64
+020A:  CLRF   x65
+020C:  CLRF   x66
+020E:  CLRF   x67
+0210:  CLRF   x68
+0212:  CLRF   x69
+0214:  CLRF   x6A
+0216:  CLRF   x6B
+0218:  CLRF   x6C
+021A:  CLRF   x6D
+021C:  CLRF   x6E
+021E:  CLRF   x6F
+0220:  CLRF   x70
+0222:  CLRF   x71
+0224:  CLRF   x72
+0226:  CLRF   x73
+0228:  CLRF   x74
+022A:  CLRF   x75
+022C:  CLRF   x76
+022E:  CLRF   x77
+0230:  CLRF   x78
+0232:  CLRF   x79
+0234:  CLRF   x7A
+0236:  CLRF   x7B
+0238:  CLRF   x7C
+023A:  CLRF   x7D
+023C:  CLRF   x7E
+023E:  CLRF   x7F
+0240:  CLRF   x80
+0242:  CLRF   x81
+0244:  CLRF   x82
+0246:  CLRF   x83
+0248:  CLRF   x84
+024A:  CLRF   x85
+024C:  CLRF   x86
+024E:  CLRF   x87
+0250:  CLRF   x88
+0252:  CLRF   x89
+0254:  CLRF   x8A
+0256:  CLRF   x8B
+0258:  CLRF   x8C
+025A:  CLRF   x8D
+025C:  CLRF   x8E
+025E:  CLRF   x8F
+0260:  CLRF   x90
+0262:  CLRF   x91
+0264:  CLRF   x92
+0266:  CLRF   x93
+0268:  CLRF   x94
+026A:  CLRF   x95
+026C:  CLRF   x96
+026E:  CLRF   x97
+0270:  CLRF   x98
+0272:  CLRF   x99
+0274:  CLRF   x9A
+0276:  CLRF   x9B
+0278:  CLRF   x9C
+027A:  CLRF   x9D
+027C:  CLRF   x9E
+027E:  CLRF   x9F
+0280:  CLRF   xA0
+0282:  CLRF   xA1
+0284:  CLRF   xA2
+0286:  CLRF   xA3
+0288:  CLRF   xA4
+028A:  CLRF   xA5
+028C:  CLRF   xA6
+028E:  CLRF   xA7
+0290:  CLRF   xA8
+0292:  CLRF   xA9
+0294:  CLRF   xAA
+0296:  CLRF   xAB
+0298:  CLRF   xAC
+029A:  CLRF   xAD
+029C:  CLRF   xAE
+029E:  CLRF   xAF
+02A0:  CLRF   xB0
+02A2:  CLRF   xB1
+02A4:  CLRF   xB2
+02A6:  CLRF   xB3
+02A8:  CLRF   xB4
+02AA:  CLRF   xB5
+02AC:  CLRF   xB6
+02AE:  CLRF   xB7
+02B0:  CLRF   xB8
+02B2:  CLRF   xB9
+02B4:  CLRF   xBA
+02B6:  CLRF   xBB
+02B8:  CLRF   xBC
+02BA:  CLRF   xBD
+02BC:  CLRF   xBE
+02BE:  CLRF   xBF
+02C0:  CLRF   xC0
+02C2:  CLRF   xC1
+02C4:  CLRF   xC2
+02C6:  CLRF   xC3
+02C8:  CLRF   xC4
+02CA:  CLRF   xC5
+02CC:  CLRF   xC6
+02CE:  CLRF   xC7
+02D0:  CLRF   xC8
+02D2:  CLRF   xC9
+02D4:  CLRF   xCA
+02D6:  CLRF   xCB
+02D8:  CLRF   xCC
+02DA:  CLRF   xCD
+02DC:  CLRF   xCE
+02DE:  CLRF   xCF
+02E0:  CLRF   xD0
+02E2:  CLRF   xD1
+02E4:  CLRF   xD2
+02E6:  CLRF   xD3
+02E8:  CLRF   xD4
+02EA:  CLRF   xD5
+02EC:  CLRF   xD6
+02EE:  CLRF   xD7
+02F0:  CLRF   xD8
+02F2:  CLRF   xD9
+02F4:  CLRF   xDA
+02F6:  CLRF   xDB
+02F8:  CLRF   xDC
+02FA:  CLRF   xDD
+02FC:  CLRF   xDE
+02FE:  CLRF   xDF
+0300:  CLRF   xE0
+0302:  CLRF   xE1
+0304:  CLRF   xE2
+0306:  CLRF   xE3
+0308:  CLRF   xE4
+030A:  CLRF   xE5
+030C:  CLRF   xE6
+030E:  CLRF   xE7
+0310:  CLRF   xE8
+0312:  CLRF   xE9
+0314:  CLRF   xEA
+0316:  CLRF   xEB
+0318:  CLRF   xEC
+031A:  CLRF   xED
+031C:  CLRF   xEE
+031E:  CLRF   xEF
+0320:  CLRF   xF0
+0322:  CLRF   xF1
+0324:  CLRF   xF2
+0326:  CLRF   xF3
+0328:  CLRF   xF4
+032A:  CLRF   xF5
+032C:  CLRF   xF6
+032E:  CLRF   xF7
+0330:  CLRF   xF8
+0332:  CLRF   xF9
+0334:  CLRF   xFA
+0336:  CLRF   xFB
+0338:  CLRF   xFC
+033A:  CLRF   xFD
+033C:  CLRF   xFE
+033E:  CLRF   xFF
+0340:  MOVLB  1
+0342:  CLRF   x00
+0344:  CLRF   x01
+0346:  CLRF   x02
+0348:  CLRF   x03
+034A:  CLRF   x04
+034C:  CLRF   x05
+034E:  CLRF   x06
+0350:  CLRF   x07
+0352:  CLRF   x08
+0354:  CLRF   x09
+0356:  CLRF   x0A
+0358:  CLRF   x0B
+035A:  CLRF   x0C
+035C:  CLRF   x0D
+035E:  CLRF   x0E
+0360:  CLRF   x0F
+0362:  CLRF   x10
+0364:  CLRF   x11
+0366:  CLRF   x12
+0368:  CLRF   x13
+036A:  CLRF   x14
+036C:  CLRF   x15
+036E:  CLRF   x16
+0370:  CLRF   x17
+0372:  CLRF   x18
+0374:  CLRF   x19
+0376:  CLRF   x1A
+0378:  CLRF   x1B
+037A:  CLRF   x1C
+037C:  CLRF   x1D
+037E:  CLRF   x1E
+0380:  CLRF   x1F
+0382:  CLRF   x20
+0384:  CLRF   x21
+0386:  CLRF   x22
+0388:  CLRF   x23
+038A:  CLRF   x24
+038C:  CLRF   x25
+038E:  CLRF   x26
+0390:  CLRF   x27
+0392:  CLRF   x28
+0394:  CLRF   x29
+0396:  CLRF   x2A
+0398:  CLRF   x2B
+039A:  CLRF   x2C
+039C:  CLRF   x2D
+039E:  CLRF   x2E
+03A0:  CLRF   x2F
+03A2:  CLRF   x30
+03A4:  CLRF   x31
+03A6:  CLRF   x32
+03A8:  CLRF   x33
+03AA:  CLRF   x34
+03AC:  CLRF   x35
+03AE:  CLRF   x36
+03B0:  CLRF   x37
+03B2:  CLRF   x38
+03B4:  CLRF   x39
+03B6:  CLRF   x3A
+03B8:  CLRF   x3B
+03BA:  CLRF   x3C
+03BC:  CLRF   x3D
+03BE:  CLRF   x3E
+03C0:  CLRF   x3F
+03C2:  CLRF   x40
+03C4:  CLRF   x41
+03C6:  CLRF   x42
+03C8:  CLRF   x43
+03CA:  CLRF   x44
+03CC:  CLRF   x45
+03CE:  CLRF   x46
+03D0:  CLRF   x47
+03D2:  CLRF   x48
+03D4:  CLRF   x49
+03D6:  CLRF   x4A
+03D8:  CLRF   x4B
+03DA:  CLRF   x4C
+03DC:  CLRF   x4D
+03DE:  CLRF   x4E
+03E0:  CLRF   x4F
+03E2:  CLRF   x50
+03E4:  CLRF   x51
+03E6:  CLRF   x52
+03E8:  CLRF   x53
+03EA:  CLRF   x54
+03EC:  CLRF   x55
+03EE:  CLRF   x56
+03F0:  CLRF   x57
+03F2:  CLRF   x58
+03F4:  CLRF   x59
+03F6:  CLRF   x5A
+03F8:  CLRF   x5B
+03FA:  CLRF   x5C
+03FC:  CLRF   x5D
+03FE:  CLRF   x5E
+0400:  CLRF   x5F
+0402:  CLRF   x60
+0404:  CLRF   x61
+0406:  CLRF   x62
+0408:  CLRF   x63
+040A:  CLRF   x64
+040C:  CLRF   x65
+040E:  CLRF   x66
+0410:  CLRF   x67
+0412:  CLRF   x68
+0414:  CLRF   x69
+0416:  CLRF   x6A
+0418:  CLRF   x6B
+041A:  CLRF   x6C
+041C:  CLRF   x6D
+041E:  CLRF   x6E
+0420:  CLRF   x6F
+0422:  CLRF   x70
+0424:  CLRF   x71
+0426:  CLRF   x72
+0428:  CLRF   x73
+042A:  CLRF   x74
+042C:  CLRF   x75
+042E:  CLRF   x76
+0430:  CLRF   x77
+0432:  CLRF   x78
+0434:  CLRF   x79
+0436:  CLRF   x7A
+0438:  CLRF   x7B
+043A:  CLRF   x7C
+043C:  CLRF   x7D
+043E:  CLRF   x7E
+0440:  CLRF   x7F
+0442:  CLRF   x80
+0444:  CLRF   x81
+0446:  CLRF   x82
+0448:  CLRF   x83
+044A:  CLRF   x84
+044C:  CLRF   x85
+044E:  CLRF   x86
+0450:  CLRF   x87
+0452:  CLRF   x88
+0454:  CLRF   x89
+0456:  CLRF   x8A
+0458:  CLRF   x8B
+045A:  CLRF   x8C
+045C:  CLRF   x8D
+045E:  CLRF   x8E
+0460:  CLRF   x8F
+0462:  CLRF   x90
+0464:  CLRF   x91
+0466:  CLRF   x92
+0468:  CLRF   x93
+046A:  CLRF   x94
+046C:  CLRF   x95
+046E:  CLRF   x96
+0470:  CLRF   x97
+0472:  CLRF   x98
+0474:  CLRF   x99
+0476:  CLRF   x9A
+0478:  CLRF   x9B
+047A:  CLRF   x9C
+047C:  CLRF   x9D
+047E:  CLRF   x9E
+0480:  CLRF   x9F
+0482:  CLRF   xA0
+0484:  CLRF   xA1
+0486:  CLRF   xA2
+0488:  CLRF   xA3
+048A:  CLRF   xA4
+048C:  CLRF   xA5
+048E:  CLRF   xA6
+0490:  CLRF   xA7
+0492:  CLRF   xA8
+0494:  CLRF   xA9
+0496:  CLRF   xAA
+0498:  CLRF   xAB
+049A:  CLRF   xAC
+049C:  CLRF   xAD
+049E:  CLRF   xAE
+04A0:  CLRF   xAF
+04A2:  CLRF   xB0
+04A4:  CLRF   xB1
+04A6:  CLRF   xB2
+04A8:  CLRF   xB3
+04AA:  CLRF   xB4
+04AC:  CLRF   xB5
+04AE:  CLRF   xB6
+04B0:  CLRF   xB7
+04B2:  CLRF   xB8
+04B4:  CLRF   xB9
+04B6:  CLRF   xBA
+04B8:  CLRF   xBB
+04BA:  CLRF   xBC
+04BC:  CLRF   xBD
+04BE:  CLRF   xBE
+04C0:  CLRF   xBF
+04C2:  CLRF   xC0
+04C4:  CLRF   xC1
+04C6:  CLRF   xC2
+04C8:  CLRF   xC3
+04CA:  CLRF   xC4
+04CC:  CLRF   xC5
+04CE:  CLRF   xC6
+04D0:  CLRF   xC7
+04D2:  CLRF   xC8
+04D4:  CLRF   xC9
+04D6:  CLRF   xCA
+04D8:  CLRF   xCB
+04DA:  CLRF   xCC
+04DC:  CLRF   xCD
+04DE:  CLRF   xCE
+04E0:  CLRF   xCF
+04E2:  CLRF   xD0
+04E4:  CLRF   xD1
+04E6:  CLRF   xD2
+04E8:  CLRF   xD3
+04EA:  CLRF   xD4
+04EC:  CLRF   xD5
+04EE:  CLRF   xD6
+04F0:  CLRF   xD7
+04F2:  CLRF   xD8
+04F4:  CLRF   xD9
+04F6:  CLRF   xDA
+04F8:  CLRF   xDB
+04FA:  CLRF   xDC
+04FC:  CLRF   xDD
+04FE:  CLRF   xDE
+0500:  CLRF   xDF
+0502:  CLRF   xE0
+0504:  CLRF   xE1
+0506:  CLRF   xE2
+0508:  CLRF   xE3
+050A:  CLRF   xE4
+050C:  CLRF   xE5
+050E:  CLRF   xE6
+0510:  CLRF   xE7
+0512:  CLRF   xE8
+0514:  CLRF   xE9
+0516:  CLRF   xEA
+0518:  CLRF   xEB
+051A:  CLRF   xEC
+051C:  CLRF   xED
+051E:  CLRF   xEE
+0520:  CLRF   xEF
+0522:  CLRF   xF0
+0524:  CLRF   xF1
+0526:  CLRF   xF2
+0528:  CLRF   xF3
+052A:  CLRF   xF4
+052C:  CLRF   xF5
+052E:  CLRF   xF6
+0530:  CLRF   xF7
+0532:  CLRF   xF8
+0534:  CLRF   xF9
+0536:  CLRF   xFA
+0538:  CLRF   xFB
+053A:  CLRF   xFC
+053C:  CLRF   xFD
+053E:  CLRF   xFE
+0540:  CLRF   xFF
+0542:  MOVLB  2
+0544:  CLRF   x00
+0546:  CLRF   x01
+0548:  CLRF   x02
+054A:  CLRF   x03
+054C:  CLRF   x04
+054E:  CLRF   x05
+0550:  CLRF   x06
+0552:  CLRF   x07
+0554:  CLRF   x08
+0556:  CLRF   x09
+0558:  CLRF   x0A
+055A:  CLRF   x0B
+055C:  CLRF   x0C
+055E:  CLRF   x0D
+0560:  CLRF   x0E
+0562:  CLRF   x0F
+0564:  CLRF   x10
+0566:  CLRF   x11
+0568:  CLRF   x12
+056A:  CLRF   x13
+056C:  CLRF   x14
+056E:  CLRF   x15
+0570:  CLRF   x16
+0572:  CLRF   x17
+0574:  CLRF   x18
+0576:  CLRF   x19
+0578:  CLRF   x1A
+057A:  CLRF   x1B
+057C:  CLRF   x1C
+057E:  CLRF   x1D
+0580:  CLRF   x1E
+0582:  CLRF   x1F
+0584:  CLRF   x20
+0586:  CLRF   x21
+0588:  CLRF   x22
+058A:  CLRF   x23
+058C:  CLRF   x24
+058E:  CLRF   x25
+0590:  CLRF   x26
+0592:  CLRF   x27
+0594:  CLRF   x28
+0596:  CLRF   x29
+0598:  CLRF   x2A
+059A:  CLRF   x2B
+059C:  CLRF   x2C
+059E:  CLRF   x2D
+05A0:  CLRF   x2E
+05A2:  CLRF   x2F
+05A4:  CLRF   x30
+05A6:  MOVLW  06
+05A8:  MOVWF  x31
+05AA:  MOVLW  12
+05AC:  MOVWF  x33
+05AE:  MOVLW  EE
+05B0:  MOVWF  x32
+05B2:  MOVLW  07
+05B4:  MOVWF  x34
+05B6:  MOVLW  14
+05B8:  MOVWF  x36
+05BA:  MOVLW  7E
+05BC:  MOVWF  x35
+05BE:  MOVLW  02
+05C0:  MOVWF  x37
+05C2:  MOVLW  15
+05C4:  MOVWF  x39
+05C6:  MOVLW  72
+05C8:  MOVWF  x38
+05CA:  MOVLW  08
+05CC:  MOVWF  x3A
 05CE:  MOVLW  15
-05D0:  MOVWF  x39
-05D2:  MOVLW  72
-05D4:  MOVWF  x38
-05D6:  MOVLW  08
-05D8:  MOVWF  x3A
-05DA:  MOVLW  15
-05DC:  MOVWF  x3C
-05DE:  MOVLW  BA
-05E0:  MOVWF  x3B
-05E2:  CLRF   x3D
-05E4:  CLRF   x3E
-05E6:  CLRF   x3F
-05E8:  CLRF   x40
-05EA:  CLRF   x41
-05EC:  CLRF   x42
-05EE:  CLRF   x43
-05F0:  CLRF   x44
-05F2:  CLRF   x45
-05F4:  CLRF   x46
-05F6:  CLRF   x47
-05F8:  CLRF   x48
-05FA:  CLRF   x49
-05FC:  CLRF   x4A
-05FE:  CLRF   x4B
-0600:  CLRF   x4C
-0602:  CLRF   x4D
-0604:  CLRF   x4E
-0606:  CLRF   x4F
-0608:  CLRF   x50
-060A:  CLRF   x51
-060C:  CLRF   x52
-060E:  CLRF   x53
-0610:  CLRF   x54
-0612:  CLRF   x55
-0614:  CLRF   x56
-0616:  CLRF   x57
-0618:  CLRF   x58
-061A:  CLRF   x59
-061C:  CLRF   x5A
-061E:  CLRF   x5B
-0620:  CLRF   x5C
-0622:  CLRF   x5D
-0624:  CLRF   x5E
-0626:  CLRF   x5F
-0628:  CLRF   x60
-062A:  CLRF   x61
-062C:  CLRF   x62
-062E:  CLRF   x63
-0630:  CLRF   x64
-0632:  CLRF   x65
-0634:  CLRF   x66
-0636:  CLRF   x67
-0638:  CLRF   x68
-063A:  CLRF   x69
-063C:  CLRF   x6A
-063E:  CLRF   x6B
-0640:  CLRF   x6C
-0642:  CLRF   x6D
-0644:  CLRF   x6E
-0646:  CLRF   x6F
-0648:  CLRF   x70
-064A:  CLRF   x71
-064C:  CLRF   x72
-064E:  CLRF   x73
-0650:  CLRF   x74
-0652:  CLRF   x75
-0654:  CLRF   x76
-0656:  CLRF   x77
-0658:  CLRF   x78
-065A:  CLRF   x79
-065C:  CLRF   x7A
-065E:  CLRF   x7B
-0660:  CLRF   x7C
-0662:  CLRF   x7D
-0664:  CLRF   x7E
-0666:  CLRF   x7F
-0668:  CLRF   x80
-066A:  CLRF   x81
-066C:  CLRF   x82
-066E:  CLRF   x83
-0670:  CLRF   x84
-0672:  CLRF   x85
-0674:  CLRF   x86
-0676:  CLRF   x87
-0678:  CLRF   x88
-067A:  CLRF   x89
-067C:  CLRF   x8A
-067E:  CLRF   x8B
-0680:  CLRF   x8C
-....................   disable_interrupts(GLOBAL);//probably unnecessary but just to be safe... 
-0682:  BCF    FF2.6
-0684:  BCF    FF2.7
-0686:  BTFSC  FF2.7
-0688:  BRA    0684
-....................   init_io_ports(); 
-068A:  MOVLB  0
-068C:  BRA    00F4
+05D0:  MOVWF  x3C
+05D2:  MOVLW  BA
+05D4:  MOVWF  x3B
+05D6:  CLRF   x3D
+05D8:  CLRF   x3E
+05DA:  CLRF   x3F
+05DC:  CLRF   x40
+05DE:  CLRF   x41
+05E0:  CLRF   x42
+05E2:  CLRF   x43
+05E4:  CLRF   x44
+05E6:  CLRF   x45
+05E8:  CLRF   x46
+05EA:  CLRF   x47
+05EC:  CLRF   x48
+05EE:  CLRF   x49
+05F0:  CLRF   x4A
+05F2:  CLRF   x4B
+05F4:  CLRF   x4C
+05F6:  CLRF   x4D
+05F8:  CLRF   x4E
+05FA:  CLRF   x4F
+05FC:  CLRF   x50
+05FE:  CLRF   x51
+0600:  CLRF   x52
+0602:  CLRF   x53
+0604:  CLRF   x54
+0606:  CLRF   x55
+0608:  CLRF   x56
+060A:  CLRF   x57
+060C:  CLRF   x58
+060E:  CLRF   x59
+0610:  CLRF   x5A
+0612:  CLRF   x5B
+0614:  CLRF   x5C
+0616:  CLRF   x5D
+0618:  CLRF   x5E
+061A:  CLRF   x5F
+061C:  CLRF   x60
+061E:  CLRF   x61
+0620:  CLRF   x62
+0622:  CLRF   x63
+0624:  CLRF   x64
+0626:  CLRF   x65
+0628:  CLRF   x66
+062A:  CLRF   x67
+062C:  CLRF   x68
+062E:  CLRF   x69
+0630:  CLRF   x6A
+0632:  CLRF   x6B
+0634:  CLRF   x6C
+0636:  CLRF   x6D
+0638:  CLRF   x6E
+063A:  CLRF   x6F
+063C:  CLRF   x70
+063E:  CLRF   x71
+0640:  CLRF   x72
+0642:  CLRF   x73
+0644:  CLRF   x74
+0646:  CLRF   x75
+0648:  CLRF   x76
+064A:  CLRF   x77
+064C:  CLRF   x78
+064E:  CLRF   x79
+0650:  CLRF   x7A
+0652:  CLRF   x7B
+0654:  CLRF   x7C
+0656:  CLRF   x7D
+0658:  CLRF   x7E
+065A:  CLRF   x7F
+065C:  CLRF   x80
+065E:  CLRF   x81
+0660:  CLRF   x82
+0662:  CLRF   x83
+0664:  CLRF   x84
+0666:  CLRF   x85
+0668:  CLRF   x86
+066A:  CLRF   x87
+066C:  CLRF   x88
+066E:  CLRF   x89
+0670:  CLRF   x8A
+0672:  CLRF   x8B
+0674:  CLRF   x8C
 ....................  
-....................   int delay_time = 10000; 
-....................   int delay_count = BOOT_WAIT_TIME_US / delay_time; 
-....................   bool start_loader = true; 
-....................   bootloader_metadata_t *metadata = get_metadata(); 
-068E:  MOVLW  10
-0690:  MOVLB  3
-0692:  MOVWF  x81
-0694:  BCF    FD8.1
-0696:  CLRF   x8D
-0698:  MOVLW  07
-069A:  MOVWF  x8C
-069C:  MOVLW  A1
-069E:  MOVWF  x8B
-06A0:  MOVLW  20
-06A2:  MOVWF  x8A
-06A4:  CLRF   x91
-06A6:  CLRF   x90
-06A8:  CLRF   x8F
-06AA:  MOVFF  381,38E
+0676:  BCF    FF2.6
+0678:  BCF    FF2.7
+067A:  BTFSC  FF2.7
+067C:  BRA    0678
+....................  
+067E:  MOVLB  0
+0680:  BRA    00F4
+....................  
+....................  
+....................  
+....................  
+....................  
+0682:  MOVLW  10
+0684:  MOVLB  3
+0686:  MOVWF  x81
+0688:  BCF    FD8.1
+068A:  CLRF   x8D
+068C:  MOVLW  07
+068E:  MOVWF  x8C
+0690:  MOVLW  A1
+0692:  MOVWF  x8B
+0694:  MOVLW  20
+0696:  MOVWF  x8A
+0698:  CLRF   x91
+069A:  CLRF   x90
+069C:  CLRF   x8F
+069E:  MOVFF  381,38E
+06A2:  MOVLB  0
+06A4:  BRA    0950
+06A6:  MOVFF  00,382
+06AA:  MOVLB  3
+06AC:  BSF    x83.0
 06AE:  MOVLB  0
-06B0:  BRA    0950
-06B2:  MOVFF  00,382
-06B6:  MOVLB  3
-06B8:  BSF    x83.0
-06BA:  MOVLB  0
-06BC:  RCALL  0A04
-06BE:  MOVFF  02,385
-06C2:  MOVFF  01,384
+06B0:  RCALL  0A04
+06B2:  MOVFF  02,385
+06B6:  MOVFF  01,384
 ....................  
-....................   if (!metadata->run_loader) { //otherwise we always want the bootloader 
-06C6:  MOVLB  3
-06C8:  MOVFF  384,FE9
-06CC:  MOVFF  385,FEA
-06D0:  BTFSC  FEF.0
-06D2:  BRA    06F8
-....................     for (int i = 0; i < delay_count; ++i) { 
-06D4:  CLRF   x86
-06D6:  MOVF   x82,W
-06D8:  SUBWF  x86,W
-06DA:  BC    06F8
-....................       int value = input(PIN_B1); 
-....................       if (value == 1) { 
+....................  
+06BA:  MOVLB  3
+06BC:  MOVFF  384,FE9
+06C0:  MOVFF  385,FEA
+06C4:  BTFSC  FEF.0
+06C6:  BRA    06EC
+....................  
+06C8:  CLRF   x86
+06CA:  MOVF   x82,W
+06CC:  SUBWF  x86,W
+06CE:  BC    06EC
+....................  
+....................  
 *
-06E2:  DECFSZ x87,W
-06E4:  BRA    06EA
-....................         start_loader = false; 
-06E6:  BCF    x83.0
-....................         break; 
-06E8:  BRA    06F8
-....................       } 
-....................       delay_us(delay_time); 
-06EA:  MOVFF  381,38A
-06EE:  MOVLB  0
-06F0:  BRA    0A2A
-....................     }   
-06F2:  MOVLB  3
-06F4:  INCF   x86,F
-06F6:  BRA    06D6
-....................   } 
+06D6:  DECFSZ x87,W
+06D8:  BRA    06DE
 ....................  
-....................   if (start_loader) { 
-06F8:  BTFSS  x83.0
-06FA:  BRA    0714
-....................     fix_first_page(); 
-06FC:  MOVLB  0
-06FE:  BRA    0B60
-....................     comm_init(); 
-0700:  BRA    0C68
-....................     enable_interrupts(GLOBAL); 
-0702:  MOVLW  C0
-0704:  IORWF  FF2,F
-....................     loader_main(); 
-0706:  GOTO   1680
-....................     return 0; 
-070A:  MOVLW  00
-070C:  MOVWF  01
-070E:  BRA    0736
-....................   } 
-....................   else { 
-0710:  BRA    0736
-0712:  MOVLB  3
-....................     void (*real_main)(void); 
-....................     real_main = dummy_function;//hack to overcome a compilation error 
-0714:  MOVLW  00
-0716:  MOVWF  03
-0718:  MOVLW  FE
-071A:  MOVWF  x88
-071C:  MOVFF  03,389
-....................     real_main = (void*)MAIN_ADDRESS; 
-0720:  MOVLW  27
-0722:  MOVWF  x89
-0724:  CLRF   x88
-....................     real_main(); 
-0726:  MOVLW  03
-0728:  MOVWF  FEA
-072A:  MOVLW  88
-072C:  MOVWF  FE9
-072E:  MOVLB  0
-0730:  RCALL  0942
-....................     return 0; 
-0732:  MOVLW  00
-0734:  MOVWF  01
-....................   } 
-.................... } 
+06DA:  BCF    x83.0
 ....................  
-.................... #include "BA1474.h" 
+06DC:  BRA    06EC
+....................  
+....................  
+06DE:  MOVFF  381,38A
+06E2:  MOVLB  0
+06E4:  BRA    0A2A
+....................  
+06E6:  MOVLB  3
+06E8:  INCF   x86,F
+06EA:  BRA    06CA
+....................  
+....................  
+....................  
+06EC:  BTFSS  x83.0
+06EE:  BRA    0708
+....................  
+06F0:  MOVLB  0
+06F2:  BRA    0B60
+....................  
+06F4:  BRA    0C68
+....................  
+06F6:  MOVLW  C0
+06F8:  IORWF  FF2,F
+....................  
+06FA:  GOTO   1680
+....................  
+06FE:  MOVLW  00
+0700:  MOVWF  01
+0702:  BRA    072A
+....................  
+....................  
+0704:  BRA    072A
+0706:  MOVLB  3
+....................  
+....................  
+0708:  MOVLW  00
+070A:  MOVWF  03
+070C:  MOVLW  FE
+070E:  MOVWF  x88
+0710:  MOVFF  03,389
+....................  
+0714:  MOVLW  27
+0716:  MOVWF  x89
+0718:  CLRF   x88
+....................  
+071A:  MOVLW  03
+071C:  MOVWF  FEA
+071E:  MOVLW  88
+0720:  MOVWF  FE9
+0722:  MOVLB  0
+0724:  RCALL  0942
+....................  
+0726:  MOVLW  00
+0728:  MOVWF  01
+....................  
+....................  
+....................  
+....................  
 .................... #include <18F45K22.h> 
-0736:  BRA    0736
+072A:  BRA    072A
 .................... //////// Standard Header file for the PIC18F45K22 device //////////////// 
 .................... #device PIC18F45K22 
 .................... #list 
@@ -8840,7 +8842,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................   do { disable_interrupts(GLOBAL); write_program_memory(address, pointer, size); enable_interrupts(GLOBAL); delay_us(1000); } while (0) 
 ....................  
 ....................  
-.................... #include <stdint.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////                                                                   //// 
 .................... ////                           stdint.h                                //// 
@@ -9004,7 +9006,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif 
 ....................  
-.................... #include <stdbool.h> 
+....................  
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////                                                                   //// 
 .................... ////                          stdbool.h                                //// 
@@ -9039,7 +9041,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif 
 ....................  
-.................... #include "timer.h" 
+....................  
 .................... #ifndef INCLUDE_TIMER_H_ 
 .................... #define INCLUDE_TIMER_H_ 
 ....................  
@@ -9259,7 +9261,7 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 ....................  
 .................... #endif /* INCLUDE_TIMER_H_ */ 
 ....................  
-.................... #include "message_handlers.h" 
+....................  
 .................... /* 
 ....................  * message_handlers.h 
 ....................  * 
@@ -9280,49 +9282,49 @@ CCS PCH C Compiler, Version 4.137, 5967               18-Jun-18 18:21
 .................... #endif /* MESSAGE_HANDLERS_H_ */ 
 ....................  
 ....................  
-.................... #INLINE 
-.................... uint32_t timer_get_us_count() { 
-....................     return get_ticks(); 
-.................... } 
 ....................  
-.................... #define TIMER_TASKS_NUM 30 
-.................... timer_task_t timerTasks[TIMER_TASKS_NUM]; 
-.................... uint32_t timerTriggered = 0xffffffff; 
 ....................  
-.................... bool timer_registerTask(uint32_t expTime, timer_func func, void *arg) { 
-....................     uint32_t i; 
-....................     for (i=0;i<TIMER_TASKS_NUM;i++) { 
-....................           if((timerTriggered & (uint32_t)(1 << i)) != 0) { 
-....................             /* use this pos */ 
-....................             timerTriggered &= ~((uint32_t)1 << i); 
-....................             timerTasks[i].expTime = expTime; 
-....................             timerTasks[i].func = func; 
-....................             timerTasks[i].arg = arg; 
-....................             return true; 
-....................         } 
-....................     } 
-....................     return false; 
-.................... } 
 ....................  
-.................... void timer_checkRunTask() { 
-....................     int i; 
-....................     uint32_t t = timer_get_us_count(); 
-....................     for (i=0;i<TIMER_TASKS_NUM;i++) { 
-....................         if((timerTriggered & (((uint32_t)1) << i)) == 0) { 
-....................             if(t >= timerTasks[i].expTime) { 
-....................                 timerTriggered |= ((uint32_t)1 << i); 
-....................                 timerTasks[i].func(timerTasks[i].arg); 
-....................             } 
-....................         } 
-....................     } 
-.................... } 
 ....................  
-.................... /* in case a function can spare some CPU time */ 
-.................... void timer_yield() { 
-.................... #ifndef _bootloader 
-....................     timer_checkRunTask(); 
-.................... #endif 
-.................... } 
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
 ....................  
 
 Configuration Fuses:

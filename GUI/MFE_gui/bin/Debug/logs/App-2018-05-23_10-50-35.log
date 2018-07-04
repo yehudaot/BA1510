@@ -1,0 +1,17 @@
+2018-05-23 10:50:36,060 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.10.0, AtpLib - 1.4.4.0
+2018-05-23 10:50:36,111 [1] mfe_gui.frmMain.loadDefaultcomPort(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:164) [INFO] - could not read defualt comport from configuration, using COM1 as defualt
+2018-05-23 10:50:40,714 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM3
+2018-05-23 10:50:42,480 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-05-23 10:50:42,486 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-05-23 10:50:42,491 [6] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-05-23 10:50:42,653 [6] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-05-23 10:50:42,663 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-05-23 10:50:42,668 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:379) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+
+2018-05-23 10:50:45,688 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Momentery Status" - with timeout of: 10 seconds.
+2018-05-23 10:50:45,692 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetMomenteryStatusMessage
+2018-05-23 10:50:45,696 [7] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 9
+2018-05-23 10:50:45,703 [7] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 89
+2018-05-23 10:50:45,708 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.

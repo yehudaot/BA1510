@@ -1,0 +1,8 @@
+2018-05-23 11:34:11,808 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.10.0, AtpLib - 1.4.4.0
+2018-05-23 11:34:12,959 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM3
+2018-05-23 11:34:15,358 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Control Message" - with timeout of: 10 seconds.
+2018-05-23 11:34:15,371 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: ControlMessage
+2018-05-23 11:34:15,376 [6] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 0
+2018-05-23 11:34:15,539 [6] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 81
+2018-05-23 11:34:15,563 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:68) [ERROR] - Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: startIndex

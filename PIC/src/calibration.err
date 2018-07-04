@@ -1,0 +1,4 @@
+>>> Warning 204 "calibration.c" Line 23(1,1): Condition always FALSE
+>>> Warning 204 "calibration.c" Line 38(1,1): Condition always FALSE
+C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_v1_f\src\calibration.o ===>  0 Errors,  2 Warnings.
+Build Successful.

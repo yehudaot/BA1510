@@ -8,6 +8,7 @@ using System.Threading;
 using atpLib.Messagess;
 using atpLib.CRC;
 using atpLib.Devices.RFC1662Device;
+using System.Collections.Concurrent;
 
 namespace atpLib.Devices
 {
@@ -29,7 +30,9 @@ namespace atpLib.Devices
             int n = 0;
             bool fullMessage = false;
             device.port.ReadTimeout = 1000;
-            
+
+            //FixedSizedQueue<Byte> history = new FixedSizedQueue<Byte>(128);
+
             while (!fullMessage)
             {
                 /* check the cancellation token */
@@ -38,22 +41,15 @@ namespace atpLib.Devices
                 try
                 {
                     n = device.port.Read(b, 0, 1);
-                } catch(Exception ex)
+                } catch(TimeoutException)
                 {
-                    if (ex is TimeoutException)
-                    {
-                        /* this is ok, continue to next iteration */
-                        continue;
-                    } else if(ex is InvalidOperationException)
-                    {
-                        /* the device is apperantly closed */
-                        throw new DeviceNotConnectedException();
-                    }
+                    /* this is ok, continue to next iteration */
+                    continue;
                 }
                                 
                 if(n > 0)
                 {
-                    if(b[0] == CHAR_FLAG)
+                    if (b[0] == CHAR_FLAG)
                     {
                         if(dataQ.Count > 1) /* op + crc */
                         {
@@ -71,12 +67,13 @@ namespace atpLib.Devices
 
             byte[] data = new byte[dataQ.Count];
             Array.Copy(dataQ.ToArray(), data, dataQ.Count);
-          //  log.Info("got: " + BitConverter.ToString(data).Replace("-", " "));
+            //log.Info("got: " + BitConverter.ToString(data).Replace("-", " "));
 
             byte[] strippedData = restore_received_data(data);
             if (strippedData == null)
             {
                 log.Error("error in recieved bitstream!");
+                log.Error("got: " + BitConverter.ToString(data).Replace("-", " "));
                 throw new RFC1662Exception();
             }
 
@@ -100,10 +97,10 @@ namespace atpLib.Devices
 
         public override void sendMsg(IMessage message)
         {
-            if (device.port == null || !device.port.IsOpen)
-            {
-                throw new DeviceNotConnectedException("tried to send data while the device is not connected!");
-            }
+            //if (device.port == null || !device.port.IsOpen)
+            //{
+            //    throw new DeviceNotConnectedException("tried to send data while the device is not connected!");
+            //}
 
             BinaryMessage m = message as BinaryMessage;
 
@@ -111,7 +108,7 @@ namespace atpLib.Devices
             
             byte [] src = m.asByteArray();
             byte [] dest = prepare_data_to_send(src);
-            //    log.Info("array is: " + BitConverter.ToString(dest).Replace("-", " "));
+            //log.Info("array is: " + BitConverter.ToString(dest).Replace("-", " "));
             /* flush input data */
             device.port.ReadExisting();
             device.port.Write(dest, 0, dest.Length);

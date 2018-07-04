@@ -1,0 +1,14 @@
+2018-05-24 17:06:35,722 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.11.0, AtpLib - 1.4.4.0
+2018-05-24 17:06:43,445 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM8
+2018-05-24 17:06:45,897 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-05-24 17:06:45,919 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-05-24 17:06:45,935 [6] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-05-24 17:06:52,381 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:68) [ERROR] - The I/O operation has been aborted because of either a thread exit or an application request.
+
+2018-05-24 17:06:53,432 [1] atpLib.Scenarios.Scenario.run(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:126) [ERROR] - Internal Scenario Error
+System.IO.IOException: The I/O operation has been aborted because of either a thread exit or an application request.
+
+   at atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(CancellationToken ct) in C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:line 69
+   at atpLib.Scenarios.Scenario.<>c__DisplayClass23_0.<runTask>b__0() in C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:line 180
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()

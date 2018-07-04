@@ -1,0 +1,4 @@
+2018-05-23 00:11:52,763 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.10.0, AtpLib - 1.4.4.0
+2018-05-23 00:11:52,816 [1] mfe_gui.frmMain.loadDefaultcomPort(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:164) [INFO] - could not read defualt comport from configuration, using COM1 as defualt
+2018-05-23 00:11:57,927 [4] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Momentery Status" - with timeout of: 10 seconds.
+2018-05-23 00:11:57,935 [5] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetMomenteryStatusMessage

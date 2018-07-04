@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>atpLib</RootNamespace>
     <AssemblyName>atpLib</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -46,14 +46,8 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SharpSnmpLib, Version=10.0.5.0, Culture=neutral, PublicKeyToken=4c00852d3788e005, processorArchitecture=MSIL">
-      <HintPath>..\mesh_finder\packages\Lextm.SharpSnmpLib.10.0.5\lib\net452\SharpSnmpLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Reactive.Core">
       <HintPath>packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
     </Reference>
@@ -88,7 +82,6 @@
     <Compile Include="Devices\RFC1662Device\RFC1662Exception.cs" />
     <Compile Include="Devices\SerialDevice.cs" />
     <Compile Include="Devices\SingeltonDevice.cs" />
-    <Compile Include="Devices\SNMPDevice\SNMPDevice.cs" />
     <Compile Include="Devices\TCPDevice.cs" />
     <Compile Include="Devices\zUpDevice\zUpDevice.cs" />
     <Compile Include="Infra\ContorlEnumerator.cs" />
@@ -96,17 +89,12 @@
     <Compile Include="Infra\Panic.cs" />
     <Compile Include="Infra\ReflectiveEnumerator.cs" />
     <Compile Include="Log4Net\ListBoxAppender.cs" />
-    <Compile Include="Log4Net\RichTextBoxAppender.cs" />
     <Compile Include="Messages\Ascii\AsciiMessage.cs" />
     <Compile Include="Messages\Ascii\AsciiResponse.cs" />
     <Compile Include="Messages\Binary\BinaryMessage.cs" />
     <Compile Include="Messages\Binary\BinaryResponse.cs" />
     <Compile Include="Messages\IMessage.cs" />
     <Compile Include="Messages\IResponse.cs" />
-    <Compile Include="Messages\SNMP\SNMPGetMessage.cs" />
-    <Compile Include="Messages\SNMP\SNMPMessage.cs" />
-    <Compile Include="Messages\SNMP\SNMPGetResponse.cs" />
-    <Compile Include="Messages\SNMP\SNMPResponse.cs" />
     <Compile Include="Messages\UnknownOPException.cs" />
     <Compile Include="Messages\zUp\zUpGetModelMessage.cs" />
     <Compile Include="Messages\zUp\zUpGetModelResponse.cs" />

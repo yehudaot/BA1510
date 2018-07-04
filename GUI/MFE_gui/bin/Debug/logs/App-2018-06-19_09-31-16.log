@@ -1,0 +1,20 @@
+2018-06-19 09:31:16,423 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.11.0, AtpLib - 1.4.4.0
+2018-06-19 09:31:17,808 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM3
+2018-06-19 09:31:20,565 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-06-19 09:31:20,578 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-06-19 09:31:20,585 [6] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-06-19 09:31:20,745 [6] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-06-19 09:31:20,757 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:31:20,761 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:390) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+
+2018-06-19 09:31:22,814 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Change Mode" - with timeout of: 10 seconds.
+2018-06-19 09:31:22,816 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: ChangeModeMessage
+2018-06-19 09:31:22,818 [7] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 3
+2018-06-19 09:31:22,824 [7] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 80
+2018-06-19 09:31:22,828 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:31:24,400 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Control Message" - with timeout of: 10 seconds.
+2018-06-19 09:31:24,406 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: ControlMessage
+2018-06-19 09:31:24,410 [7] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 0
+2018-06-19 09:31:24,416 [7] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 81

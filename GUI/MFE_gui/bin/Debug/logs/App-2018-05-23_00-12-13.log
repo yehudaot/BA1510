@@ -1,0 +1,12 @@
+2018-05-23 00:12:13,991 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.10.0, AtpLib - 1.4.4.0
+2018-05-23 00:12:14,038 [1] mfe_gui.frmMain.loadDefaultcomPort(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_SRC\MFE_gui\frmMain.cs:164) [INFO] - could not read defualt comport from configuration, using COM1 as defualt
+2018-05-23 00:12:21,900 [1] atpLib.Devices.SerialDevice.connect(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\SerialDevice.cs:46) [ERROR] - error oppening port "COM1"
+System.IO.IOException: The port 'COM1' does not exist.
+   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   at System.IO.Ports.SerialPort.Open()
+   at atpLib.Devices.SerialDevice.connect() in C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\SerialDevice.cs:line 41
+2018-05-23 00:12:24,440 [4] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Momentery Status" - with timeout of: 10 seconds.
+2018-05-23 00:12:24,445 [5] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetMomenteryStatusMessage
+2018-05-23 00:12:24,449 [5] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 9
+2018-05-23 00:12:24,474 [5] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:68) [ERROR] - The port is closed.

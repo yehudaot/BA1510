@@ -1,0 +1,21 @@
+2018-06-19 09:21:37,605 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.11.0, AtpLib - 1.4.4.0
+2018-06-19 09:21:39,830 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM3
+2018-06-19 09:21:43,949 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Change Mode" - with timeout of: 10 seconds.
+2018-06-19 09:21:43,964 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: ChangeModeMessage
+2018-06-19 09:21:43,972 [6] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 3
+2018-06-19 09:21:44,172 [6] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 80
+2018-06-19 09:21:44,191 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:21:48,881 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-06-19 09:21:48,884 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-06-19 09:21:48,899 [7] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-06-19 09:21:48,908 [7] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-06-19 09:21:48,930 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:21:48,961 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:390) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+
+2018-06-19 09:21:50,397 [5] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Control Message" - with timeout of: 10 seconds.
+2018-06-19 09:21:50,400 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: ControlMessage
+2018-06-19 09:21:50,410 [7] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 0
+2018-06-19 09:21:50,428 [7] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 81
+2018-06-19 09:21:50,462 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:68) [ERROR] - Index was outside the bounds of the array.

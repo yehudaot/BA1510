@@ -32,10 +32,6 @@ namespace atpLib.Scenarios
             {
                 throw new DeviceNotInitException("The device object was not initilized correctly!");
             }
-            if (!device.isConnected())
-            {
-                throw new DeviceNotConnectedException();
-            }
             try
             {
                 if(temporaryConnection)
@@ -45,7 +41,7 @@ namespace atpLib.Scenarios
 
                 if (device.SupportsAsyncOperations)
                 {
-                    token = device.sendAsyncMsg(message, ct);
+                    token = device.sendAsyncMsg(message);
                 }
                 else
                 {
@@ -56,20 +52,20 @@ namespace atpLib.Scenarios
                 {
                     if (device.SupportsAsyncOperations)
                     {
-                        resp = device.receiveAsyncAnswer(token, ct);
+                        resp = device.receiveAsyncAnswer(token);
                     }
                     else
                     {
                         resp = device.receiveAnswer(ct);
                     }
-                    if (resp == null && !ct.IsCancellationRequested) { 
+                    if (resp == null) { 
                         throw new UnknownOPException("response arrived as NULL");
                     }
                 }
             }
             catch (Exception ex)
             {
-                //log.Error(ex.Message);
+                log.Error(ex.Message);
                 throw ex;
             }
             finally
@@ -80,7 +76,7 @@ namespace atpLib.Scenarios
                 }
             }
 
-            ScenarioResult.RunResult runResult = ct.IsCancellationRequested ? ScenarioResult.RunResult.TimedOut : ScenarioResult.RunResult.Pass;
+            ScenarioResult.RunResult runResult = ScenarioResult.RunResult.Pass;
             return new ScenarioResult(runResult, resp);
         }
     }

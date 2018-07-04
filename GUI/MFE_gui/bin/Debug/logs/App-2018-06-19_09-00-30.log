@@ -1,0 +1,83 @@
+2018-06-19 09:00:31,019 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.11.0, AtpLib - 1.4.4.0
+2018-06-19 09:00:34,250 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM3
+2018-06-19 09:00:59,874 [6] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Software Update Scenario" - with timeout of: 2147483 seconds.
+2018-06-19 09:00:59,910 [7] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:66) [INFO] - Programming address: 0x2000
+2018-06-19 09:00:59,915 [8] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Line Scenario" - with timeout of: 10 seconds.
+2018-06-19 09:00:59,916 [9] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: SetBootDataMessage
+2018-06-19 09:00:59,919 [9] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 6
+2018-06-19 09:01:00,121 [9] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 80
+2018-06-19 09:01:00,131 [8] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:01:00,137 [7] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:137) [ERROR] - error in "Software Update Scenario"
+System.InvalidCastException: Unable to cast object of type 'mfe_gui.Messages.AckResponse' to type 'mfe_gui.Messages.SetBootDataResponse'.
+   at mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(CancellationToken ct) in C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:line 72
+2018-06-19 09:01:00,148 [6] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario failed.
+2018-06-19 09:01:51,777 [11] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Software Update Scenario" - with timeout of: 2147483 seconds.
+2018-06-19 09:01:51,797 [12] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:66) [INFO] - Programming address: 0x2000
+2018-06-19 09:01:51,799 [13] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Line Scenario" - with timeout of: 10 seconds.
+2018-06-19 09:01:51,802 [9] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: SetBootDataMessage
+2018-06-19 09:01:51,805 [9] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 6
+2018-06-19 09:01:51,809 [9] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 80
+2018-06-19 09:01:51,812 [13] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:01:51,827 [12] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:137) [ERROR] - error in "Software Update Scenario"
+System.InvalidCastException: Unable to cast object of type 'mfe_gui.Messages.AckResponse' to type 'mfe_gui.Messages.SetBootDataResponse'.
+   at mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(CancellationToken ct) in C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:line 72
+2018-06-19 09:01:51,842 [11] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario failed.
+2018-06-19 09:01:54,307 [13] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Software Update Scenario" - with timeout of: 2147483 seconds.
+2018-06-19 09:01:54,323 [12] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:66) [INFO] - Programming address: 0x2000
+2018-06-19 09:01:54,326 [9] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Line Scenario" - with timeout of: 10 seconds.
+2018-06-19 09:01:54,331 [11] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: SetBootDataMessage
+2018-06-19 09:01:54,333 [11] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 6
+2018-06-19 09:01:54,337 [11] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 80
+2018-06-19 09:01:54,354 [9] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:01:54,369 [12] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:137) [ERROR] - error in "Software Update Scenario"
+System.InvalidCastException: Unable to cast object of type 'mfe_gui.Messages.AckResponse' to type 'mfe_gui.Messages.SetBootDataResponse'.
+   at mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(CancellationToken ct) in C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:line 72
+2018-06-19 09:01:54,385 [13] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario failed.
+2018-06-19 09:02:07,778 [1] mfe_gui.frmMain.btnConnect_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:249) [INFO] - Connected to COM3
+2018-06-19 09:02:15,475 [9] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Software Update Scenario" - with timeout of: 2147483 seconds.
+2018-06-19 09:02:15,496 [14] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:66) [INFO] - Programming address: 0x2000
+2018-06-19 09:02:15,499 [15] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Send Line Scenario" - with timeout of: 10 seconds.
+2018-06-19 09:02:15,502 [16] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: SetBootDataMessage
+2018-06-19 09:02:15,504 [16] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 6
+2018-06-19 09:02:15,519 [16] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 80
+2018-06-19 09:02:15,526 [15] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:02:15,541 [14] mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:137) [ERROR] - error in "Software Update Scenario"
+System.InvalidCastException: Unable to cast object of type 'mfe_gui.Messages.AckResponse' to type 'mfe_gui.Messages.SetBootDataResponse'.
+   at mfe_gui.Scenarios.SoftwareUpdateScenario.internalRun(CancellationToken ct) in C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\Scenarios\SoftwareUpdateScenario.cs:line 72
+2018-06-19 09:02:15,556 [9] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario failed.
+2018-06-19 09:02:48,865 [15] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-06-19 09:02:48,872 [5] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-06-19 09:02:48,887 [5] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-06-19 09:02:48,903 [5] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-06-19 09:02:48,931 [15] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:02:48,963 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:390) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+
+2018-06-19 09:02:59,332 [7] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-06-19 09:02:59,336 [15] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-06-19 09:02:59,338 [15] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-06-19 09:02:59,343 [15] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-06-19 09:02:59,346 [7] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:02:59,362 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:390) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+
+2018-06-19 09:03:00,848 [12] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-06-19 09:03:00,860 [7] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-06-19 09:03:00,875 [7] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-06-19 09:03:00,892 [7] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-06-19 09:03:00,920 [12] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:03:00,951 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:390) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+
+2018-06-19 09:03:02,167 [15] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:178) [INFO] - Running scenario "Get Version" - with timeout of: 10 seconds.
+2018-06-19 09:03:02,184 [6] atpLib.Scenarios.SingleMessageSingleDeviceScenario.internalRun(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\SingleMessageSingleDeviceScenario.cs:27) [INFO] - sending a message of type: GetVersionMessage
+2018-06-19 09:03:02,200 [6] atpLib.Devices.RFC1662BinarySerialDevice.sendMsg(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:107) [INFO] - sending 2
+2018-06-19 09:03:02,215 [6] atpLib.Devices.RFC1662BinarySerialDevice.receiveAnswer(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Devices\RFC1662Device\RFC1662BinarySerialDevice.cs:86) [INFO] - got answer of type: 82
+2018-06-19 09:03:02,244 [15] atpLib.Scenarios.Scenario.runTask(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\atpLib\Scenarios\Scenario.cs:221) [INFO] - Scenario passed.
+2018-06-19 09:03:02,275 [1] mfe_gui.frmMain.btnGetVersion_Click(C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_GUI_1.1.11\MFE_gui\frmMain.cs:390) [INFO] - Version: 1.F
+Date: 9/5/2018
+Serial: 0
+

@@ -66,17 +66,20 @@ static void sample_fwd_power(int n) {
   in_progress_sf_status_response.fwd_power_values[n] = gpio_get_analog(GPIO_FFWR);// * get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_FWD_MULT) / 1000;
 }
 
-static void sample_rev_power(int n) {
-  in_progress_sf_status_response.reverse_power_values[n] = gpio_get_analog(GPIO_RREV);// * get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_REV_MULT) / 1000;
+static void sample_rev_power(void) {
+uint16_t rev_pass_tresh = get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_REV_TRESH);
+in_progress_sf_status_response.reverse_power_status = 1;
+  	if((in_progress_sf_status_response.fwd_power_values[0] - gpio_get_analog(GPIO_RREV)) < rev_pass_tresh)	//((forwoard power - reverse power) < general calibration rev tresh param) 0 - fail, 1 - pass  
+     in_progress_sf_status_response.reverse_power_status = 0;
 }
 
 static void sample_input_power(int n) {
   in_progress_sf_status_response.input_power_values[n] = gpio_get_analog(GPIO_RF_INDET);// * get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_INP_PWR_MULT) / 1000;
 }
 
-static void sample_pre_amp_power(int n) {
-  in_progress_sf_status_response.pre_amp_power_values[n] = gpio_get_analog(GPIO_PREAMP_DET);// * get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_PRE_AMP_MULT) / 1000;
-}
+//static void sample_pre_amp_power(int n) {					//13.6.18 not used 
+  //in_progress_sf_status_response.pre_amp_power_values[n] = gpio_get_analog(GPIO_PREAMP_DET);// * get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_PRE_AMP_MULT) / 1000;  //yehuda 22.5.18 remove from control message 
+//}
 
 static void finalize_sf_status_request_response() {
   final_sf_status_response = in_progress_sf_status_response;
@@ -88,10 +91,10 @@ void sample_adc_inputs(int n) {
   delay_us(get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_FWD_SAMP_TIMING_USEC));
   sample_fwd_power(n);
   delay_us(get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_REV_SAMP_TIMING_USEC));
-  sample_rev_power(n);
-  delay_us(get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_INP_PWR_SAMP_TIMING_USEC));
+//  sample_rev_power(n);																			//yehuda 13.6.18 remove from control message
+//  delay_us(get_calibration_param(CALIBRATION_TABLE_PARAMS, PARAM_INP_PWR_SAMP_TIMING_USEC));
   sample_input_power(n);
-  sample_pre_amp_power(n);
+//  sample_pre_amp_power(n);																		//yehuda 13.6.18 remove from control message
 }
 
 void sample_adc_inputs_helper(void *arg) {
@@ -144,15 +147,18 @@ void perform_last_control_message() {
   finalize_sf_status_request_response(); /* get the working copy and use it as final */
 
   /* sample all sample groups (with delays) */
+  
   for(i=0; i<NUM_ADC_SAMPLES; i++) {
     sample_adc_inputs(i);
   }
-
-  in_progress_sf_status_response.temperature = gpio_get_analog(GPIO_TMP);
+  sample_rev_power();
+  //in_progress_sf_status_response.temperature = gpio_get_analog(GPIO_TMP);   			//yehuda 8.5.18 change to read the temperature in cellceus degrees
+  in_progress_sf_status_response.temperature = (uint16_t)((gpio_get_analog(GPIO_TMP) - 167) * 0.30303);
   uint16_t pa1_current = gpio_get_analog(GPIO_PA1_ISENSE);
   uint16_t pa2_current = gpio_get_analog(GPIO_PA2_ISENSE);
   in_progress_sf_status_response.power_amplifier_current = pa1_current + pa2_current;
 
+  
   in_progress_sf_status_response.control_identifier = last_control_message.control_identifier;
   prev_control_message = last_control_message;
   enable_interrupts(INT_EXT);
@@ -219,11 +225,17 @@ static void handle_control_message(void* payload_buffer) {
 }
 
 static void handle_bit_status_request_message(void* payload_buffer) {
+  int i;
   bit_status_response_t response = {};
   response.generic.opcode = OP_BIT_STATUS_RESPONSE;
   response.tti_counter = tti_counter;
   response.last_control_bits = prev_control_message.bits;
   response.mode = software_mode;
+  for(i=0;i<NUM_ADC_SAMPLES;i++)
+	{
+	response.pre_amp_power_values[i] = gpio_get_analog(GPIO_PREAMP_DET);
+	response.reverse_power_values[i] = gpio_get_analog(GPIO_RREV);
+    }
   comm_send_message(&response, sizeof(response));
 }
 

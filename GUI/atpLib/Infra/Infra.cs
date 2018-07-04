@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -57,27 +58,30 @@ namespace atpLib.Infra
             return sBuilder.ToString();
         }
 
-        public static byte[] StringToByteArr(string hex)
+        public class FixedSizedQueue<T> : ConcurrentQueue<T>
         {
-            int NumberChars = hex.Length;
-            byte[] bytes = new byte[NumberChars / 2];
-            for (int i = 0; i < NumberChars; i += 2)
-                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
-            return bytes;
+            private readonly object syncObject = new object();
+
+            public int Size { get; private set; }
+
+            public FixedSizedQueue(int size)
+            {
+                Size = size;
+            }
+
+            public new void Enqueue(T obj)
+            {
+                base.Enqueue(obj);
+                lock (syncObject)
+                {
+                    while (base.Count > Size)
+                    {
+                        T outObj;
+                        base.TryDequeue(out outObj);
+                    }
+                }
+            }
         }
 
-        /// <summary>
-        /// convert a string of HEX charecters to a byte array in little endian format (chars 0 is MSB)
-        /// </summary>
-        /// <param name="hex"></param>
-        /// <returns></returns>
-        public static byte[] StringToByteArrLE(string hex)
-        {
-            int NumberChars = hex.Length;
-            byte[] bytes = new byte[NumberChars / 2];
-            for (int i = 0; i < NumberChars; i += 2)
-                bytes[i / 2] = Convert.ToByte(hex.Substring(hex.Length - i - 2 , 2), 16);
-            return bytes;
-        }
     }
 }

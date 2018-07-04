@@ -97,11 +97,11 @@ namespace atpLib.Devices
         {
             throw new NotImplementedException();
         }
-        public virtual AsyncMessageToken sendAsyncMsg(IMessage message, CancellationToken ct)
+        public virtual AsyncMessageToken sendAsyncMsg(IMessage message)
         {
             throw new NotImplementedException();
         }
-        public virtual IResponse receiveAsyncAnswer(AsyncMessageToken messageToken, CancellationToken ct)
+        public virtual IResponse receiveAsyncAnswer(AsyncMessageToken messageToken)
         {
             throw new NotImplementedException();
         }

@@ -119,11 +119,12 @@ typedef struct sf_status_response_t {
   uint16_t tti_counter;
   uint16_t control_identifier;
   uint16_t fwd_power_values[NUM_ADC_SAMPLES];
-  uint16_t reverse_power_values[NUM_ADC_SAMPLES];
+//  uint16_t reverse_power_values[NUM_ADC_SAMPLES];		//yehuda move rev power to bit status
   uint16_t input_power_values[NUM_ADC_SAMPLES];
-  uint16_t pre_amp_power_values[NUM_ADC_SAMPLES];
+  //uint16_t pre_amp_power_values[NUM_ADC_SAMPLES];		//yehuda move pre amp to bit status
   uint16_t temperature;
   uint16_t power_amplifier_current;
+  uint8_t reverse_power_status;							//Difference between forword power and reverse power compared to general calibration rev tresh param
 } sf_status_response_t;
 
 typedef struct bit_status_response_t {
@@ -131,6 +132,8 @@ typedef struct bit_status_response_t {
   control_bits_t last_control_bits;
   uint16_t tti_counter;
   uint8_t mode;
+  uint16_t pre_amp_power_values[NUM_ADC_SAMPLES]; 		//yehuda add pre amp to bit status
+  uint16_t reverse_power_values[NUM_ADC_SAMPLES];		//yehuda add rev power to bit status
 } bit_status_response_t;
 
 typedef struct version_response_t {

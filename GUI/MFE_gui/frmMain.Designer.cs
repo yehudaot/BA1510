@@ -44,9 +44,13 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.btnSetControlIdentifier = new System.Windows.Forms.Button();
+            this.txtSetControlIdentifier = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.txtIdentifier = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.chkDontUpdate = new System.Windows.Forms.CheckBox();
             this.chkReset = new System.Windows.Forms.CheckBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cmbPAGain = new System.Windows.Forms.ComboBox();
@@ -66,6 +70,12 @@
             this.btnSetMode = new System.Windows.Forms.Button();
             this.cmbMode = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtCommTestWaitTime = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCommTestIterations = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnGetGeneralCalibData = new System.Windows.Forms.Button();
@@ -87,16 +97,10 @@
             this.gridHighCalib = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.btnOpenUpdateFrm = new System.Windows.Forms.Button();
-            this.btnGetRawStatus = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtCommTestIterations = new System.Windows.Forms.TextBox();
-            this.txtCommTestWaitTime = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -104,6 +108,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridGeneralCalib)).BeginInit();
@@ -112,7 +117,6 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridHighCalib)).BeginInit();
             this.groupBox9.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -238,15 +242,16 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(382, 115);
+            this.txtStatus.Location = new System.Drawing.Point(382, 84);
             this.txtStatus.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(201, 171);
+            this.txtStatus.Size = new System.Drawing.Size(201, 202);
             this.txtStatus.TabIndex = 42;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.groupBox12);
             this.groupBox3.Controls.Add(this.groupBox10);
             this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.groupBox7);
@@ -256,39 +261,79 @@
             this.groupBox3.Controls.Add(this.btnSendControlMsg);
             this.groupBox3.Location = new System.Drawing.Point(175, 53);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(195, 355);
+            this.groupBox3.Size = new System.Drawing.Size(195, 384);
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Control";
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.btnSetControlIdentifier);
+            this.groupBox12.Controls.Add(this.txtSetControlIdentifier);
+            this.groupBox12.Location = new System.Drawing.Point(16, 257);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(143, 44);
+            this.groupBox12.TabIndex = 52;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Set Control Identifier:";
+            // 
+            // btnSetControlIdentifier
+            // 
+            this.btnSetControlIdentifier.Location = new System.Drawing.Point(85, 13);
+            this.btnSetControlIdentifier.Name = "btnSetControlIdentifier";
+            this.btnSetControlIdentifier.Size = new System.Drawing.Size(41, 23);
+            this.btnSetControlIdentifier.TabIndex = 103;
+            this.btnSetControlIdentifier.Text = "Set";
+            this.btnSetControlIdentifier.UseVisualStyleBackColor = true;
+            this.btnSetControlIdentifier.Click += new System.EventHandler(this.btnSetControlIdentifier_Click);
+            // 
+            // txtSetControlIdentifier
+            // 
+            this.txtSetControlIdentifier.Location = new System.Drawing.Point(15, 15);
+            this.txtSetControlIdentifier.Name = "txtSetControlIdentifier";
+            this.txtSetControlIdentifier.Size = new System.Drawing.Size(62, 20);
+            this.txtSetControlIdentifier.TabIndex = 102;
+            this.txtSetControlIdentifier.Text = "1";
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.txtIdentifier);
-            this.groupBox10.Location = new System.Drawing.Point(16, 272);
+            this.groupBox10.Location = new System.Drawing.Point(16, 306);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(143, 42);
+            this.groupBox10.Size = new System.Drawing.Size(143, 44);
             this.groupBox10.TabIndex = 51;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Control Identifier:";
+            this.groupBox10.Text = "Next Control Identifier:";
             // 
             // txtIdentifier
             // 
             this.txtIdentifier.Enabled = false;
-            this.txtIdentifier.Location = new System.Drawing.Point(22, 16);
+            this.txtIdentifier.Location = new System.Drawing.Point(15, 16);
             this.txtIdentifier.Name = "txtIdentifier";
-            this.txtIdentifier.Size = new System.Drawing.Size(100, 20);
+            this.txtIdentifier.Size = new System.Drawing.Size(110, 20);
             this.txtIdentifier.TabIndex = 51;
-            this.txtIdentifier.Text = "0";
+            this.txtIdentifier.Text = "1";
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.chkDontUpdate);
             this.groupBox8.Controls.Add(this.chkReset);
-            this.groupBox8.Location = new System.Drawing.Point(16, 224);
+            this.groupBox8.Location = new System.Drawing.Point(16, 212);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(110, 42);
+            this.groupBox8.Size = new System.Drawing.Size(163, 42);
             this.groupBox8.TabIndex = 50;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Reset (Bit 6)";
+            this.groupBox8.Text = "Reset(6) - Dont Update(7)";
+            // 
+            // chkDontUpdate
+            // 
+            this.chkDontUpdate.AutoSize = true;
+            this.chkDontUpdate.Location = new System.Drawing.Point(70, 18);
+            this.chkDontUpdate.Name = "chkDontUpdate";
+            this.chkDontUpdate.Size = new System.Drawing.Size(87, 17);
+            this.chkDontUpdate.TabIndex = 49;
+            this.chkDontUpdate.Text = "Dont Update";
+            this.chkDontUpdate.UseVisualStyleBackColor = true;
             // 
             // chkReset
             // 
@@ -303,7 +348,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.cmbPAGain);
-            this.groupBox7.Location = new System.Drawing.Point(16, 70);
+            this.groupBox7.Location = new System.Drawing.Point(16, 66);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(163, 52);
             this.groupBox7.TabIndex = 49;
@@ -322,7 +367,7 @@
             // 
             this.groupBox6.Controls.Add(this.radLow);
             this.groupBox6.Controls.Add(this.radHigh);
-            this.groupBox6.Location = new System.Drawing.Point(16, 176);
+            this.groupBox6.Location = new System.Drawing.Point(16, 166);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(143, 42);
             this.groupBox6.TabIndex = 49;
@@ -355,7 +400,7 @@
             // 
             this.groupBox5.Controls.Add(this.radAnt1);
             this.groupBox5.Controls.Add(this.radAnt0);
-            this.groupBox5.Location = new System.Drawing.Point(16, 128);
+            this.groupBox5.Location = new System.Drawing.Point(16, 120);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(132, 42);
             this.groupBox5.TabIndex = 48;
@@ -420,7 +465,7 @@
             // 
             // btnSendControlMsg
             // 
-            this.btnSendControlMsg.Location = new System.Drawing.Point(16, 324);
+            this.btnSendControlMsg.Location = new System.Drawing.Point(16, 357);
             this.btnSendControlMsg.Name = "btnSendControlMsg";
             this.btnSendControlMsg.Size = new System.Drawing.Size(163, 23);
             this.btnSendControlMsg.TabIndex = 47;
@@ -434,7 +479,7 @@
             this.btnGetMomenteryStatus.Name = "btnGetMomenteryStatus";
             this.btnGetMomenteryStatus.Size = new System.Drawing.Size(163, 23);
             this.btnGetMomenteryStatus.TabIndex = 48;
-            this.btnGetMomenteryStatus.Text = "Get Momentery Status";
+            this.btnGetMomenteryStatus.Text = "Get Bit Status";
             this.btnGetMomenteryStatus.UseVisualStyleBackColor = true;
             this.btnGetMomenteryStatus.Click += new System.EventHandler(this.btnGetMomenteryStatus_Click);
             // 
@@ -476,6 +521,65 @@
             this.cmbMode.Name = "cmbMode";
             this.cmbMode.Size = new System.Drawing.Size(121, 21);
             this.cmbMode.TabIndex = 48;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.button1);
+            this.groupBox11.Controls.Add(this.txtCommTestWaitTime);
+            this.groupBox11.Controls.Add(this.label3);
+            this.groupBox11.Controls.Add(this.txtCommTestIterations);
+            this.groupBox11.Controls.Add(this.label2);
+            this.groupBox11.Location = new System.Drawing.Point(37, 308);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(124, 100);
+            this.groupBox11.TabIndex = 99;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Test Comm Channel";
+            this.toolTip1.SetToolTip(this.groupBox11, "Test thc communication channel by sending a series of \'Get Momentery Status\' Mess" +
+        "ages");
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 23);
+            this.button1.TabIndex = 94;
+            this.button1.Text = "Test Comm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // txtCommTestWaitTime
+            // 
+            this.txtCommTestWaitTime.Location = new System.Drawing.Point(70, 41);
+            this.txtCommTestWaitTime.Name = "txtCommTestWaitTime";
+            this.txtCommTestWaitTime.Size = new System.Drawing.Size(48, 20);
+            this.txtCommTestWaitTime.TabIndex = 96;
+            this.txtCommTestWaitTime.Text = "1";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(6, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 30);
+            this.label3.TabIndex = 98;
+            this.label3.Text = "Milisecond Between:";
+            // 
+            // txtCommTestIterations
+            // 
+            this.txtCommTestIterations.Location = new System.Drawing.Point(70, 17);
+            this.txtCommTestIterations.Name = "txtCommTestIterations";
+            this.txtCommTestIterations.Size = new System.Drawing.Size(48, 20);
+            this.txtCommTestIterations.TabIndex = 95;
+            this.txtCommTestIterations.Text = "1000";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Iterations:";
             // 
             // tabControl1
             // 
@@ -714,82 +818,12 @@
             this.btnOpenUpdateFrm.UseVisualStyleBackColor = true;
             this.btnOpenUpdateFrm.Click += new System.EventHandler(this.softwareUpdateToolStripMenuItem_Click);
             // 
-            // btnGetRawStatus
-            // 
-            this.btnGetRawStatus.Location = new System.Drawing.Point(401, 84);
-            this.btnGetRawStatus.Name = "btnGetRawStatus";
-            this.btnGetRawStatus.Size = new System.Drawing.Size(163, 23);
-            this.btnGetRawStatus.TabIndex = 93;
-            this.btnGetRawStatus.Text = "Get Raw Status";
-            this.btnGetRawStatus.UseVisualStyleBackColor = true;
-            this.btnGetRawStatus.Click += new System.EventHandler(this.btnGetRawStatus_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 23);
-            this.button1.TabIndex = 94;
-            this.button1.Text = "Test Comm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // txtCommTestIterations
-            // 
-            this.txtCommTestIterations.Location = new System.Drawing.Point(70, 17);
-            this.txtCommTestIterations.Name = "txtCommTestIterations";
-            this.txtCommTestIterations.Size = new System.Drawing.Size(48, 20);
-            this.txtCommTestIterations.TabIndex = 95;
-            this.txtCommTestIterations.Text = "1000";
-            // 
-            // txtCommTestWaitTime
-            // 
-            this.txtCommTestWaitTime.Location = new System.Drawing.Point(70, 41);
-            this.txtCommTestWaitTime.Name = "txtCommTestWaitTime";
-            this.txtCommTestWaitTime.Size = new System.Drawing.Size(48, 20);
-            this.txtCommTestWaitTime.TabIndex = 96;
-            this.txtCommTestWaitTime.Text = "1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 97;
-            this.label2.Text = "Iterations:";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(6, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 30);
-            this.label3.TabIndex = 98;
-            this.label3.Text = "Milisecond Between:";
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.button1);
-            this.groupBox11.Controls.Add(this.txtCommTestWaitTime);
-            this.groupBox11.Controls.Add(this.label3);
-            this.groupBox11.Controls.Add(this.txtCommTestIterations);
-            this.groupBox11.Controls.Add(this.label2);
-            this.groupBox11.Location = new System.Drawing.Point(37, 308);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(124, 100);
-            this.groupBox11.TabIndex = 99;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Test Comm Channel";
-            this.toolTip1.SetToolTip(this.groupBox11, "Test thc communication channel by sending a series of \'Get Momentery Status\' Mess" +
-        "ages");
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 615);
             this.Controls.Add(this.groupBox11);
-            this.Controls.Add(this.btnGetRawStatus);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox2);
@@ -802,6 +836,7 @@
             this.Controls.Add(this.btnClearLog);
             this.Controls.Add(this.lstLog);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmMain";
             this.Text = "BA1510 (MFE) GUI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
@@ -811,6 +846,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -823,6 +860,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridGeneralCalib)).EndInit();
@@ -831,8 +870,6 @@
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridHighCalib)).EndInit();
             this.groupBox9.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -898,12 +935,15 @@
         private System.Windows.Forms.Button btnOpenUpdateFrm;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.TextBox txtIdentifier;
-        private System.Windows.Forms.Button btnGetRawStatus;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCommTestIterations;
         private System.Windows.Forms.TextBox txtCommTestWaitTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Button btnSetControlIdentifier;
+        private System.Windows.Forms.TextBox txtSetControlIdentifier;
+        private System.Windows.Forms.CheckBox chkDontUpdate;
     }
 }

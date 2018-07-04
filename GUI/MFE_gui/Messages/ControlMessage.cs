@@ -21,13 +21,16 @@ namespace mfe_gui.Messages
             HIGH
         }
 
+        
         public bool txOn;
         public int paGain;
         public TxAntenna txAnt;
         public Frequency frequency;
         public bool reset;
         public UInt16 Identifier;
-        public ControlMessage(bool txOn, int paGain, TxAntenna txAnt, Frequency mode, bool reset, UInt16 Identifier) : base(OPCODE.CONTROL)
+        public bool DontUpdate;
+        
+        public ControlMessage(bool txOn, int paGain, TxAntenna txAnt, Frequency mode, bool reset, UInt16 Identifier, bool dontUpdate) : base(OPCODE.CONTROL)
         {
             this.txOn = txOn;
             this.paGain = paGain;
@@ -35,6 +38,8 @@ namespace mfe_gui.Messages
             this.frequency = mode;
             this.reset = reset;
             this.Identifier = Identifier;
+            this.DontUpdate = dontUpdate;
+            
         }
 
         public override byte[] parametersToByteArr()
@@ -46,12 +51,7 @@ namespace mfe_gui.Messages
             b[0] += (byte)(txAnt == TxAntenna.ANT1 ? 1 << 4 : 0);
             b[0] += (byte)(frequency == Frequency.HIGH ? 1 << 5 : 0);
             b[0] += (byte)(reset ? 1 << 6 : 0);
-            int p = 0;
-            for(int i=0; i<7; i++)
-            {
-                p += (((b[0] & (byte)(1 << i)) > 0) ? 1 : 0);
-            }
-            b[0] += (byte)((p > 0) ? 1 << 7 : 0);
+            b[0] += (byte)(DontUpdate ? 1 << 7 : 0);
             Array.Copy(BitConverter.GetBytes(Identifier), 0, b, 1, 2);
             return b;
         }

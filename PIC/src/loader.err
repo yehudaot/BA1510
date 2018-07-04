@@ -1,0 +1,6 @@
+>>> Warning 204 "loader.c" Line 32(1,1): Condition always FALSE
+>>> Warning 204 "loader.c" Line 84(1,1): Condition always FALSE
+>>> Warning 204 "loader.c" Line 102(1,1): Condition always FALSE
+>>> Warning 203 "loader.c" Line 176(1,1): Condition always TRUE
+C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_v1_f\src\loader.o ===>  0 Errors,  4 Warnings.
+Build Successful.

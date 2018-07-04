@@ -1,0 +1,2 @@
+2018-05-21 08:38:54,051 [1] mfe_gui.frmMain.frmMain_Load(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\MFE_gui\frmMain.cs:70) [INFO] - Statring Program, Version - 1.1.10.0, AtpLib - 1.4.4.0
+2018-05-21 08:38:54,125 [1] mfe_gui.frmMain.loadDefaultcomPort(C:\BA\Software_projects\PIC\1510\source_code_1510_GUI\2\BA1510_GUI_SRC\MFE_gui\frmMain.cs:164) [INFO] - could not read defualt comport from configuration, using COM1 as defualt

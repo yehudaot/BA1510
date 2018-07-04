@@ -46,7 +46,7 @@ namespace log4net
                             _listBox.Items.Add(l);
                         }
                     }
-                    
+
                     _listBox.TopIndex = _listBox.Items.Count - 1;
                 }
             };

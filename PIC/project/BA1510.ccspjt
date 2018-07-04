@@ -1,0 +1,26 @@
+[PROJECT]
+Target=BA1510.hex
+Processor_Text=PIC18F45K22
+CCSVersion=5.008
+Compiler=PCH
+[Target Data]
+FileList=BA1510.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\devices\;C:\Program Files (x86)\PICC\drivers\;..\include\;C:\BA\Software_projects\PIC\1510\15.1.18b\BA1510_v1_e\src\;C:\BA\Software_projects\PIC\1510\8.5.18_ver_1_f\BA1510_v1_f\src\
+[BA1510.c]
+Type=4
+[mru-list]
+1=BA1510.c
+[Units]
+Count=10
+1=..\src\main
+2=..\src\crc8
+3=..\src\gpio
+4=..\src\comm
+5=..\src\message_handlers
+6=..\src\rfc1662
+7=..\src\timer
+8=..\src\uart
+9=..\src\ad5312
+10=..\src\calibration
+Link=1

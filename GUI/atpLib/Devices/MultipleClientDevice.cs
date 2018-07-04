@@ -24,25 +24,23 @@ namespace atpLib.Devices
         public const int RECIEVE_TIMEOUT_MS = 60*1000; /* 60 seconds */
         public T device { get; protected set; }
 
-        ConcurrentDictionary<Guid, Tuple<IMessage, CancellationToken>> messageDictionary = new ConcurrentDictionary<Guid, Tuple<IMessage, CancellationToken>>();
+        ConcurrentDictionary<Guid, IMessage> messageDictionary = new ConcurrentDictionary<Guid, IMessage>();
         ConcurrentDictionary<Guid, IResponse> responseDictionary = new ConcurrentDictionary<Guid, IResponse>();
         
         Thread messageProcessingThread;
-        CancellationTokenSource messageProcessingCt;
 
         public MultipleClientDevice(T device)
         {
             this.device = device;
             this.SupportsAsyncOperations = true;
-            messageProcessingCt = new CancellationTokenSource();
-            messageProcessingThread = new Thread(new ParameterizedThreadStart(messageProcessingFunction));
+            messageProcessingThread = new Thread(new ThreadStart(messageProcessingFunction));
         }
 
         public override bool connect()
         {
             if (messageProcessingThread != null && !messageProcessingThread.IsAlive)
             {
-                messageProcessingThread.Start(messageProcessingCt.Token);
+                messageProcessingThread.Start();
             }
             return device.connect();
         }
@@ -51,7 +49,7 @@ namespace atpLib.Devices
         {
             if (messageProcessingThread != null && messageProcessingThread.IsAlive)
             {
-                messageProcessingCt.Cancel();
+                messageProcessingThread.Abort();
             }
             device.disconnect();
         }
@@ -70,14 +68,9 @@ namespace atpLib.Devices
             return device.receiveAnswer();
         }
 
-        public override IResponse receiveAnswer(CancellationToken ct)
+        public override IResponse receiveAsyncAnswer(AsyncMessageToken messageToken)
         {
-            return device.receiveAnswer(ct);
-        }
-
-        public override IResponse receiveAsyncAnswer(AsyncMessageToken messageToken, CancellationToken ct)
-        {
-            Task<IResponse> t = Task<IResponse>.Run(() => findResponseInList(messageToken.Value, ct)).TimeoutAfter(RECIEVE_TIMEOUT_MS);
+            Task<IResponse> t = Task<IResponse>.Run(() => findResponseInList(messageToken.Value)).TimeoutAfter(RECIEVE_TIMEOUT_MS);
             while (!t.IsCompleted)
             {
                 System.Windows.Forms.Application.DoEvents();
@@ -93,11 +86,10 @@ namespace atpLib.Devices
             device.sendMsg(message);
         }
 
-        public override AsyncMessageToken sendAsyncMsg(IMessage message, CancellationToken ct)
+        public override AsyncMessageToken sendAsyncMsg(IMessage message)
         {
-            Tuple<IMessage, CancellationToken> tuple = new Tuple<IMessage, CancellationToken>(message, ct);
             Guid guid = Guid.NewGuid();
-            messageDictionary.TryAdd(guid, tuple);
+            messageDictionary.TryAdd(guid, message);
             return new AsyncMessageToken(guid);
         }
 
@@ -106,9 +98,9 @@ namespace atpLib.Devices
             throw new NotImplementedException();
         }
 
-        private IResponse findResponseInList(Guid guid, CancellationToken ct)
+        private IResponse findResponseInList(Guid guid)
         {
-            while (!ct.IsCancellationRequested)
+            while (true)
             {
                 foreach (KeyValuePair<Guid, IResponse> kvp in responseDictionary)
                 {
@@ -117,47 +109,31 @@ namespace atpLib.Devices
                         return kvp.Value;
                     }
                 }
-                Thread.Sleep(1);
             }
-            return null;
         }
 
-        private void messageProcessingFunction(object obj)
+        private void messageProcessingFunction()
         {
-            CancellationToken threadCt = (CancellationToken)obj;
             try
             {
-                while (!threadCt.IsCancellationRequested)
+                while (true)
                 {
-                    threadCt.ThrowIfCancellationRequested();
-                    if (device != null && device.isConnected() && messageDictionary.Count > 0)
+                    if (device.isConnected() && messageDictionary.Count > 0)
                     {
-                        KeyValuePair<Guid, Tuple <IMessage, CancellationToken>> kvp = messageDictionary.First();
-                        Tuple<IMessage, CancellationToken> t;
+                        KeyValuePair<Guid, IMessage> kvp = messageDictionary.First();
+                        IMessage t;
                         messageDictionary.TryRemove(kvp.Key, out t);
-                        device.sendMsg(kvp.Value.Item1);
-                        try
-                        {
-                            IResponse response = device.receiveAnswer(kvp.Value.Item2);
-                            responseDictionary.TryAdd(kvp.Key, response);
-                        } catch (OperationCanceledException)
-                        {
-                            /* cancelation token was thrown */
-                        }
+                        device.sendMsg(kvp.Value);
+                        IResponse response = device.receiveAnswer();
+                        responseDictionary.TryAdd(kvp.Key, response);
                     }
-                    Thread.Sleep(1);
                 }
             } catch (Exception ex)
             {
                 if (ex is ThreadAbortException || ex is SocketException)
                 {
                     /* this is ok */
-                }
-                else if (ex is OperationCanceledException || ex is DeviceNotConnectedException)
-                {
-                    /* the thread was canceled */
-                }
-                else
+                } else
                 {
                     throw;
                 }
