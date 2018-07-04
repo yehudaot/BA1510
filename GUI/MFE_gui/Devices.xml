@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Devices>
+  <zUP>
+    <Port>COM9</Port>
+  </zUP>
+  <Device>
+    <Port>COM31</Port>
+  </Device>
+  <Device>
+    <Port>COM4</Port>
+  </Device>
+  <Device>
+    <Port>COM45</Port>
+  </Device>
+  <Device>
+    <Port>COM88</Port>
+  </Device>
+  <Device>
+    <Port>COM9</Port>
+  </Device>
+  <Device>
+    <Port>COM14</Port>
+  </Device>
+</Devices>

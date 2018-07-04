@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4A9760F-5F0F-4278-83F6-87B57144673C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>atpLib</RootNamespace>
+    <AssemblyName>atpLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ClosedXML\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ClosedXML\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpSnmpLib, Version=10.0.5.0, Culture=neutral, PublicKeyToken=4c00852d3788e005, processorArchitecture=MSIL">
+      <HintPath>..\mesh_finder\packages\Lextm.SharpSnmpLib.10.0.5\lib\net452\SharpSnmpLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.0.20823.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive.Providers, Version=2.0.20823.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive.Runtime.Remoting, Version=2.0.20823.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive.Windows.Forms, Version=2.0.20823.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive.Windows.Threading, Version=2.0.20823.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CRC\Crc8.cs" />
+    <Compile Include="CRC\fcs16.cs" />
+    <Compile Include="CRC\ICRC.cs" />
+    <Compile Include="Devices\AsciiSerialDevice\AsciiSerialDevice.cs" />
+    <Compile Include="Devices\BinarySerialDevice\BinarySerialDevice.cs" />
+    <Compile Include="Devices\BinaryTcpDevice\BinaryTCPDevice.cs" />
+    <Compile Include="Devices\Device.cs" />
+    <Compile Include="Devices\IPDevice.cs" />
+    <Compile Include="Devices\MultipleClientDevice.cs" />
+    <Compile Include="Devices\PseudoDevice.cs" />
+    <Compile Include="Devices\RFC1662Device\RFC1662BinaryDevice.cs" />
+    <Compile Include="Devices\RFC1662Device\RFC1662BinaryTCPDevice.cs" />
+    <Compile Include="Devices\RFC1662Device\RFC1662BinarySerialDevice.cs" />
+    <Compile Include="Devices\RFC1662Device\RFC1662Exception.cs" />
+    <Compile Include="Devices\SerialDevice.cs" />
+    <Compile Include="Devices\SingeltonDevice.cs" />
+    <Compile Include="Devices\SNMPDevice\SNMPDevice.cs" />
+    <Compile Include="Devices\TCPDevice.cs" />
+    <Compile Include="Devices\zUpDevice\zUpDevice.cs" />
+    <Compile Include="Infra\ContorlEnumerator.cs" />
+    <Compile Include="Infra\Infra.cs" />
+    <Compile Include="Infra\Panic.cs" />
+    <Compile Include="Infra\ReflectiveEnumerator.cs" />
+    <Compile Include="Log4Net\ListBoxAppender.cs" />
+    <Compile Include="Log4Net\RichTextBoxAppender.cs" />
+    <Compile Include="Messages\Ascii\AsciiMessage.cs" />
+    <Compile Include="Messages\Ascii\AsciiResponse.cs" />
+    <Compile Include="Messages\Binary\BinaryMessage.cs" />
+    <Compile Include="Messages\Binary\BinaryResponse.cs" />
+    <Compile Include="Messages\IMessage.cs" />
+    <Compile Include="Messages\IResponse.cs" />
+    <Compile Include="Messages\SNMP\SNMPGetMessage.cs" />
+    <Compile Include="Messages\SNMP\SNMPMessage.cs" />
+    <Compile Include="Messages\SNMP\SNMPGetResponse.cs" />
+    <Compile Include="Messages\SNMP\SNMPResponse.cs" />
+    <Compile Include="Messages\UnknownOPException.cs" />
+    <Compile Include="Messages\zUp\zUpGetModelMessage.cs" />
+    <Compile Include="Messages\zUp\zUpGetModelResponse.cs" />
+    <Compile Include="Messages\zUp\zUpSetAddressMessage.cs" />
+    <Compile Include="Messages\zUp\zUpGetVoltageResponse.cs" />
+    <Compile Include="Messages\zUp\zUpGetVoltageMessage.cs" />
+    <Compile Include="Messages\zUp\zUpGetCurrentResponse.cs" />
+    <Compile Include="Messages\zUp\zUpGetCurrentMessage.cs" />
+    <Compile Include="Messages\zUp\zUpSetCurrentLimitMessage.cs" />
+    <Compile Include="Messages\zUp\zUpSetVoltageMessage.cs" />
+    <Compile Include="Messages\zUp\zUpMessage.cs" />
+    <Compile Include="Messages\zUp\zUPOutputMessage.cs" />
+    <Compile Include="Messages\zUp\zUpResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ExcelReport.cs" />
+    <Compile Include="Scenarios\AsyncMessagetoken.cs" />
+    <Compile Include="Scenarios\MultipleDeviceScenario.cs" />
+    <Compile Include="Scenarios\Scenario.cs" />
+    <Compile Include="Scenarios\SingleDeviceScenario.cs" />
+    <Compile Include="Scenarios\SingleMessageMultiDeviceScenario.cs" />
+    <Compile Include="Scenarios\SingleMessageSingleDeviceScenario.cs" />
+    <Compile Include="Scenarios\zUp\zUpGetVoltageScenario.cs" />
+    <Compile Include="Scenarios\zUp\zUpGetCurrentScenario.cs" />
+    <Compile Include="Scenarios\zUp\zUpSetVoltageScenario.cs" />
+    <Compile Include="UpdatableProgress\IUpdatableProgress.cs" />
+    <Compile Include="UpdatableProgress\UpdatableProgressBar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infra\TaskExtention.cs" />
+    <Content Include="ClosedXML\ClosedXML.dll" />
+    <Content Include="ClosedXML\ClosedXML.XML" />
+    <Content Include="ClosedXML\DocumentFormat.OpenXml.dll" />
+    <Content Include="Log4Net\log4net.dll" />
+    <Content Include="Log4Net\log4net.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

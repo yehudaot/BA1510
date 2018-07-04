@@ -1,0 +1,148 @@
+
+ROM used: 13670 (42%)
+          13808 (42%) including unused fragments
+
+          4 Average locations per line
+          27 Average locations per statement
+
+RAM used: 1008 (66%) at main() level
+          1141 (74%) worst case
+
+Stack used: 11 worst case (out of 30 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+    0     0   0  BA1510.c
+   70    26   5  ..\src\main.c
+   33     0   0  ..\include\BA1474.h
+  604     0   0  C:\Program Files (x86)\PICC\devices\18F45K22.h
+   19     0   0  ..\include\boot.h
+   37     0   0  C:\Program Files (x86)\PICC\drivers\stdio.h
+  423   125  25  C:\Program Files (x86)\PICC\drivers\string.h
+   32     0   0  C:\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  C:\Program Files (x86)\PICC\drivers\ctype.h
+  163     0   0  C:\Program Files (x86)\PICC\drivers\stdint.h
+   33     0   0  ..\include\comm.h
+   34     0   0  C:\Program Files (x86)\PICC\drivers\stdbool.h
+   76     0   0  ..\include\gpio.h
+   13     0   0  ..\include\main.h
+  165     0   0  ..\include\message.h
+   48     0   0  ..\include\calibration.h
+   19     0   0  ..\include\message_handlers.h
+   49     0   0  ..\include\ad5312.h
+   22     0   0  ..\include\timer.h
+   22     0   0  ..\include\uart.h
+   50     4   1  ..\src\crc8.c
+    9     0   0  ..\include\crc8.h
+   95    27   5  ..\src\gpio.c
+   75    25   5  ..\src\comm.c
+   20     0   0  ..\include\rfc1662.h
+  351   150  30  ..\src\message_handlers.c
+   11     0   0  ..\include\version.h
+  108    41   8  ..\src\rfc1662.c
+   51    20   4  ..\src\timer.c
+  123    55  11  ..\src\uart.c
+  750     0   0  ..\include\PIC18F45K22_registers.h
+   65    14   3  ..\src\ad5312.c
+   40    17   3  ..\src\calibration.c
+----- -----
+ 3638   504 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     30   0   7             @READ_PROGRAM_MEMORY
+0     32   0   0             @FLASHWR
+0     70   0   7             @WRITE_PROGRAM_MEMORY
+0     44   0   1             @delay_ms1
+0     36   0   1             @delay_us1
+0     84   0   6             @SPI_XFER_1
+0    132   0  11   371  8.2  memcmp
+0    250   1  66   797  5.3  fix_boot
+0   1922   7   0   282  3.7  MAIN
+0    272   1   0             @const468
+0     80   0   7   195  5.8  crc8
+0    146   1   0             @const493
+0     78   0   0   308  1.9  gpio_init
+ Inline        7    43  2.1  gpio_set
+0     66   0   6             @WRITEBITA
+0     80   0   7    43  2.1  gpio_clear
+ Inline        2    82  3.0  gpio_set_value
+ Inline        7   176  4.0  gpio_get_analog
+0      6   0   0    13  0.5  comm_init
+0    170   1   8   695  9.3  comm_receive_message
+0     48   0   6   108  2.8  comm_send_message
+0     28   0   1   102  3.3  send_ack
+0    350   1   2    94  2.3  set_tx_state
+0    516   2   6   410  5.7  set_pa_gain
+ Inline        2    65  2.2  select_antenna
+0    174   1   3    53  2.6  sample_fwd_power
+0    174   1   3    53  2.6  sample_rev_power
+0    174   1   3    53  2.6  sample_input_power
+0    170   1   3    53  2.6  sample_pre_amp_power
+0     30   0   0    17  1.3  finalize_sf_status_request_response
+ Inline        4   209  1.9  sample_adc_inputs
+ Inline        2  1021  6.3  perform_last_control_message
+0   2224   8  48  1734  8.3  handle_control_message
+0     58   0   7   233  4.3  handle_bit_status_request_message
+0    172   1  11   361  4.2  handle_version_request_message
+0     68   0   4   262  5.4  handle_change_mode_message
+0     94   0   7   209  5.2  handle_set_calibration_table_message
+0    234   1   5   338  6.3  handle_get_calibration_table_message
+0      6   0   2    24  1.5  h_test_set_data
+0    210   1  71   185  4.7  h_test_get_data
+0    148   1  10   370  7.9  process_message
+0     14   0   0             @GOTOPTR
+0   1496   5   0   450  3.8  init_message_handlers
+0     26   0   0             @MEMSET
+0   1410   5   0    27  1.5  ext_isr
+0    198   1  10   552  7.3  replaceFlagAndEscape
+0    180   1  10   542  7.4  restoreFlagAndEscape
+0    176   1  10   496  5.8  rfc1662_pack
+0    120   0   7   403  6.2  rfc1662_unpack
+0     18   0   0    88  1.7  uart_init
+0     40   0   2    99  3.7  get_next_byte
+0    232   1   7   428  6.4  push_bytes
+0     22   0   0    65  1.9  uart_get_byte_blocking
+0     26   0   3    72  2.0  uart_send
+0     48   0   2   156  4.3  RDA_isr
+0     48   0   1   147  4.3  TBE_isr
+0     12   0   0    50  1.8  uart_clear_errors
+0     84   0   9   144  3.5  writeData
+ Inline        1   112  3.0  ad5312_latch
+0     54   0   2             @ITOF
+0    246   1  11             @MULFF
+0     60   0   4             @SFTOI
+ Inline        5   198  4.5  ad5312_setVout
+0    466   2   0   179  3.3  ad5312_init
+0     58   0   5   102  2.9  get_calibration_table_data
+0     66   0   5   202  4.0  set_calibration_table_data
+ Inline        6   229  5.9  get_calibration_param
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               53
+    Statements              504
+    Comments                421
+    Volume (V)              27175
+    Difficulty (D)          218.0
+    Effort to implement (E) 5925318
+    Time to implement (T)   91 hours, 26 minutes
+    Est Delivered Bugs (B)  11
+    Cyclomatic Complexity   59
+    Maintainability (MI)    55
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00FFE     0  4096  
+01000-01FFE     0  4096  
+02000-02006     4  4  
+02008-020C4   190  0  
+020C6-026FE  1590  4  
+02700-02F00  1922  128  
+02F02-03FFE  4348  2  
+04000-04FFE     0  4096  
+05000-07F3E  5616  6480  
+07F40-07FFE     0  192  
+
+
+
